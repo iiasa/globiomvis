@@ -2,18 +2,27 @@
 % Please edit documentation in R/trend_plot.R
 \name{trend_plot}
 \alias{trend_plot}
-\title{This function allows you to plot historical trends and globiom results}
+\title{Create plots for GLOBIOM scenarios}
 \usage{
 trend_plot(var_sel, item_sel, unit_sel, reg_sel, df_gl = globiom,
   df_hs = hist, display = T, output = T, ...)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{df_gl}{dataframe with globiom output}
+
+\item{df_hs}{dataframe with historical data}
+
+\item{var}{Variable}
+
+\item{itme}{Item}
+
+\item{unit}{Unit}
+
+\item{reg}{Region}
 }
 \description{
-This function allows you to plot historical trends and globiom results
+Creates scenario plots by region for selected items
 }
-\examples{
-cat_function()
+\details{
+This is additional  information
 }
-\keyword{cats}

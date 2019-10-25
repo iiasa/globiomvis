@@ -1,0 +1,16 @@
+citHeader("To cite GLOBIOMtools in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "test",
+  author   = "test",
+  journal  = "test",
+  year     = "test",
+  volume   = "test",
+  number   = "test",
+  pages    = "test",
+  url      = "test",
+  textVersion = paste(
+
+  )
+)

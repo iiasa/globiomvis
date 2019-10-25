@@ -1,0 +1,21 @@
+---
+title: "2. Generating GLOBIOM scenario plots"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Software}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+```{r setup}
+library(GLOBIOMtools)
+```

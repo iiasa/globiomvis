@@ -1,9 +1,18 @@
-#' This function allows you to plot historical trends and globiom results
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
-#' @export
+#' Create plots for GLOBIOM scenarios
+#'
+#' Creates scenario plots by region for selected items
+#'
+#' This is additional  information
+#'
+#' @param var Variable
+#' @param itme Item
+#' @param unit Unit
+#' @param reg Region
+#' @param df_gl dataframe with globiom output
+#' @param df_hs dataframe with historical data
+#' @Return A ggplot
 #' @examples
-#' cat_function()
+
 
 trend_plot <- function(var_sel, item_sel, unit_sel, reg_sel, df_gl = globiom, df_hs = hist,
                        display = T, output = T,...) {

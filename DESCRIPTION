@@ -2,14 +2,22 @@ Package: GLOBIOMtools
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Michiel",
+           family = "van Dijk",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "vandijkm@iiasa.ac.at",
+           comment = c(ORCID = "0000-0002-5207-7304"))
+Description: Facilitates the use of R to analyse GLOBIOM output.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    ggplot2
+    ggplot2,
+    dplyr,
+    magrittr
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1
