@@ -2,12 +2,7 @@
 % Please edit documentation in R/trend_plot.R
 \name{trend_plot}
 \alias{trend_plot}
-\title{========================================================================================================================================
-Project:  GLOBIOMtools
-Author:   Michiel van Dijk
-Contact:  michiel.vandijk@wur.nl
-========================================================================================================================================
-A plot Function}
+\title{This function allows you to plot historical trends and globiom results}
 \usage{
 trend_plot(var_sel, item_sel, unit_sel, reg_sel, df_gl = globiom,
   df_hs = hist, display = T, output = T, ...)

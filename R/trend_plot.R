@@ -1,11 +1,3 @@
-#'========================================================================================================================================
-#' Project:  GLOBIOMtools
-#' Author:   Michiel van Dijk
-#' Contact:  michiel.vandijk@wur.nl
-#'========================================================================================================================================
-
-#' A plot Function
-#'
 #' This function allows you to plot historical trends and globiom results
 #' @param love Do you love cats? Defaults to TRUE.
 #' @keywords cats
