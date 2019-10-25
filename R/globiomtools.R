@@ -34,3 +34,18 @@ trend_plot <- function(var_sel, item_sel, unit_sel, reg_sel, df_gl = globiom, df
   if(output) {return(p)}
 }
 
+#' Combinations of all output dimensions
+#'
+#' Creates a dataframe with all variable, item and unit combinations in the data
+#'
+#' This is additional  information
+#'
+#' @param A dataframe with globiom output
+#' @Return A dataframe
+#' @examples
+
+expand_output <- function(df_gl){
+
+}
+
+
