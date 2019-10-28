@@ -36,89 +36,94 @@
 # is it might happen it is not present
 # Need to check unix part with Albert
 
-# search_gams <- function (path = NULL,
-#             cmd = ifelse(Sys.info()["sysname"] == "Windows", "gams.exe", "gams_cmd"), root = NULL)
-#   {
-#     if (is.null(root)) {
-#       if (Sys.info()["sysname"] == "Windows") {
-#         root = "C:/"
-#       }
-#       else if (Sys.info()["sysname"] == "Darwin") {
-#         root = "/usr/local/Cellar"
-#       }
-#       else {
-#         root = "/usr"
-#       }
-#     }
-#     if (!is.null(path)) {
-#       path = gsub(pattern = "\\/$", x = path, "")
-#     }
-#     if (!is.null(path)) {
-#       message("Verify specified path to GAMS command line program... \n")
-#       if (!file.exists(file.path(path, cmd))) {
-#         stop("GAMS command line program ", cmd, " not found in the specified path:\n",
-#              path)
-#       }
-#         message("Found GAMS command line program.\n")
-#         message("Done\n")
-#       }
-#
-#   if (is.null(path)) {
-#       message("Search for GAMS command line program... \n")
-#     if (Sys.info()["sysname"] == "Windows") {
-#       windows_default_path <- file.path(root, "GAMS/win64/")
-#       path.list = list.files(path = windows_default_path, pattern = paste0("^", cmd, "$"),
-#                            recursive = TRUE, full.names = TRUE)
-#       path.list = dirname(path.list)
-#       if (length(path.list) >= 2) {
-#         versions <- basename(path.list)
-#         path = path.list[which(versions == max(versions))]
-#         message(paste0("More than one GAMS version detected. Version ", max(versions), " is selected.\n"))
-#       } else {
-#         path = path.list
-#       }
-#         if (is.null(path)) {
-#           message("GAMS command line program not found in the following default paths:\n",
-#               paste0(windows_default_path, collapse = "\n"),
-#               "\nSearch on the entire hard drive...\n", sep = "")
-#           path.list = list.files(path = root, pattern = paste0("^", cmd, "$"),
-#                                  recursive = TRUE, full.names = TRUE)
-#           path.list = gsub(paste0(".{", nchar(cmd), "}$"),
-#                            "", path.list)
-#           if (length(path.list) == 0) {
-#             stop("GAMS command line program not found on ",
-#                  root, "\n")
-#           }
-#           if (length(path.list) >= 2) {
-#             message(paste0("More than one GAMS version detected. Version ", max(versions), " is selected.\n"))
-#             versions <- basename(path.list)
-#             path = path.list[which(versions == max(versions))]
-#           } else {
-#             path = path.list
-#           }
-#         }
-#       }
-#       else {
-#         unix.defaults.paths = c("/usr/bin", "/usr/local/bin",
-#                                 "/usr/local/Cellar/saga-gis-lts/2.3.2/bin", sub(paste0("/",
-#                                                                                        cmd), "", system2("which", args = cmd, stdout = TRUE)))
-#         for (pa in unix.defaults.paths) {
-#           if (file.exists(file.path(pa, cmd))) {
-#             path = pa
-#           }
-#         }
-#         if (is.null(path)) {
-#           path = list.files(path = root, pattern = paste0(cmd,
-#                                                           "$"), recursive = TRUE, full.names = TRUE)[1]
-#           path = gsub(paste0(".{", nchar(cmd), "}$"), "",
-#                       path)
-#           if (is.na(path)) {
-#             stop("SAGA command line program not found on ",
-#                  root, "\n")
-#           }
-#         }
-#       }
-#     message("Done\n")
-#   }
-#   return(path)
-# }
+search_gams <- function (path = NULL,
+            cmd = ifelse(Sys.info()["sysname"] == "Windows", "gams.exe", "gams_cmd"),
+            root = NULL)
+  {
+    if (is.null(root)) {
+      if (Sys.info()["sysname"] == "Windows") {
+        root = "C:/"
+      }
+      else if (Sys.info()["sysname"] == "Darwin") {
+        root = "/usr/local/Cellar"
+      }
+      else {
+        root = "/usr"
+      }
+    }
+    if (!is.null(path)) {
+      path = gsub(pattern = "\\/$", x = path, "")
+    }
+    if (!is.null(path)) {
+      message("Verify specified path to GAMS command line program... \n")
+      if (!file.exists(file.path(path, cmd))) {
+        stop("GAMS command line program ", cmd, " not found in the specified path:\n",
+             path)
+      }
+        message("Found GAMS command line program.\n")
+        message("Done\n")
+      }
+
+  if (is.null(path)) {
+      message("Search for GAMS command line program... \n")
+    if (Sys.info()["sysname"] == "Windows") {
+      windows_default_path <- file.path(root, "GAMS/win64/")
+      path.list = list.files(path = windows_default_path, pattern = paste0("^", cmd, "$"),
+                           recursive = TRUE, full.names = TRUE)
+      path.list = dirname(path.list)
+      versions <- lapply(file.path(path.list, "gamsstmp.txt"), function(x) readChar(x, file.info(x)$size))
+      versions <- sapply(versions, function(x) strsplit(x, "[. ]")[[1]][c(2,3)], USE.NAMES = F)
+      versionsx <- paste(versions, sep = ".")
+
+      if (length(path.list) >= 2) {
+        versions <- basename(path.list)
+        path = path.list[which(versions == max(versions))]
+        message(paste0("More than one GAMS version detected. Version ", max(versions), " is selected.\n"))
+      } else {
+        path = path.list
+      }
+        if (is.null(path)) {
+          message("GAMS command line program not found in the following default paths:\n",
+              paste0(windows_default_path, collapse = "\n"),
+              "\nSearch on the entire hard drive...\n", sep = "")
+          path.list = list.files(path = root, pattern = paste0("^", cmd, "$"),
+                                 recursive = TRUE, full.names = TRUE)
+          path.list = gsub(paste0(".{", nchar(cmd), "}$"),
+                           "", path.list)
+          if (length(path.list) == 0) {
+            stop("GAMS command line program not found on ",
+                 root, "\n")
+          }
+          if (length(path.list) >= 2) {
+            message(paste0("More than one GAMS version detected. Version ", max(versions), " is selected.\n"))
+            versions <- basename(path.list)
+            path = path.list[which(versions == max(versions))]
+          } else {
+            path = path.list
+          }
+        }
+      }
+      else {
+        unix.defaults.paths = c("/usr/bin", "/usr/local/bin",
+                                "/usr/local/Cellar/saga-gis-lts/2.3.2/bin", sub(paste0("/",
+                                                                                       cmd), "", system2("which", args = cmd, stdout = TRUE)))
+        for (pa in unix.defaults.paths) {
+          if (file.exists(file.path(pa, cmd))) {
+            path = pa
+          }
+        }
+        if (is.null(path)) {
+          path = list.files(path = root, pattern = paste0(cmd,
+                                                          "$"), recursive = TRUE, full.names = TRUE)[1]
+          path = gsub(paste0(".{", nchar(cmd), "}$"), "",
+                      path)
+          if (is.na(path)) {
+            stop("SAGA command line program not found on ",
+                 root, "\n")
+          }
+        }
+      }
+    message("Done\n")
+  }
+  return(path)
+}
