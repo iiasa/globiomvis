@@ -11,16 +11,16 @@
 #' @Return A ggplot
 #' @examples
 
-GLOBIOMtools_env <- function (search_path = NULL, rescan = FALSE, ignore.full_scan = TRUE,
-          verbose = FALSE){}
-
-globiomtools_set_env <- function (cmd = NULL, path = NULL, version = NA){
-  env = list(cmd = cmd, path = path, version = version)
-  return(env)
-}
-env = globiomtools_set_env(cmd = cmd, path = path, version = version)
-return(env)
-}
+# GLOBIOMtools_env <- function (search_path = NULL, rescan = FALSE, ignore.full_scan = TRUE,
+#           verbose = FALSE){}
+#
+# globiomtools_set_env <- function (cmd = NULL, path = NULL, version = NA){
+#   env = list(cmd = cmd, path = path, version = version)
+#   return(env)
+# }
+# env = globiomtools_set_env(cmd = cmd, path = path, version = version)
+# return(env)
+# }
 
 
 #' Search GAMS path
