@@ -10,6 +10,7 @@
 #' @param reg Region
 #' @param df_gl dataframe with globiom output
 #' @param df_hs dataframe with historical data
+#' @export
 #' @Return A ggplot
 #' @examples
 
