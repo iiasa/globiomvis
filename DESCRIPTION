@@ -1,12 +1,16 @@
 Package: GLOBIOMtools
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R: c(
     person(given = "Michiel",
            family = "van Dijk",
            role = c("aut", "cre"),
            email = "vandijkm@iiasa.ac.at",
-           comment = c(ORCID = "0000-0002-5207-7304"))
+           comment = c(ORCID = "0000-0002-5207-7304")),
+    person(given = "Stefan",
+           family = "Frank",
+           role = c("ctb"),
+           email = "frank@iiasa.ac.at"))
 Description: Facilitates the use of R to analyse GLOBIOM output.
 License: MIT + file LICENSE
 Encoding: UTF-8
