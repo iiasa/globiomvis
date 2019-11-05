@@ -2,7 +2,7 @@
 title: "1. Install R and other software"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Before you use GLOBIOMtools}
+  %\VignetteIndexEntry{1. Install R and other software}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

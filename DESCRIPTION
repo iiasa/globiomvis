@@ -14,7 +14,9 @@ LazyData: true
 Imports: 
     ggplot2,
     dplyr,
-    magrittr
+    magrittr,
+    tidyr,
+    purrr
 Suggests: 
     testthat,
     knitr,
