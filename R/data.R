@@ -11,6 +11,6 @@
 #' @source GLOBIOM
 #'
 #' @examples
-#' output_comb_base
-"output_comb_base"
+#' main_output_comb
+"main_output_comb"
 

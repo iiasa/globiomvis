@@ -6,11 +6,13 @@
 #' @return A data.frame with existing VAR_ID, VAR_UNIT, ITEM_AG combinations in df_gl
 #'
 #' @examples
-#' all_output(globiom)
+#' \dontrun{
+#' all_output_comb(globiom)
+#' }
 #'
 #' @export
 
-all_output <- function(df_gl){
+all_output_comb <- function(df_gl){
   output_comb <- df_gl %>%
     dplyr::select(VAR_ID, VAR_UNIT, ITEM_AG) %>%
     tidyr::complete(nesting(VAR_ID, VAR_UNIT, ITEM_AG)) %>%

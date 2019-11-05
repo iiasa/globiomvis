@@ -32,6 +32,8 @@ unit (VAR_UNIT) and region (REGION_AG) nomenclature as input. VAR_ID, ITEM_AG an
 have to be in upper case!
 }
 \examples{
+\dontrun{
 trend_plot(var = "LAND", item = "1000 HA", reg = "World", df_gl = globiom, df_hs = hist)
+}
 
 }

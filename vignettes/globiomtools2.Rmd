@@ -14,11 +14,16 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introduction
+
+To quikly inspect GLOBIOM runs it is often useful to compare historical trends of key variables with model projections. The package includes several functions to support this task. `trend_plot_all` produces a pdf file with plots for key combinations of variables, items and units across all GLOBIOM regions for which data is created. `trend_plot` is basic function that allows the user to make individual plots for selected variables, items, units and regions. Before the functions can be used historical data and globiom output needs to be loaded first. 
+
+
 ## Loading and preparing data
 
 Start by loading the required packages. Apart from the gdxrwww package, all packages can be installed from CRAN, the R package repository. See the Vignette '1. Install R and other software' for instructions if you do not know how to do this.
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r message=FALSE, warning=FALSE, include=TRUE}
 library(gdxrrw)
 library(dplyr)
 library(tidyr)
@@ -65,5 +70,20 @@ hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT
 
 ## Create a pdf with plots for key variable, item and unit combinations
 
-To inspect GLOBIOM output
+Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations. In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/test`. Note that this might take a bit of time as more than 200 plots are generated.
+
+```{r eval=FALSE}
+trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/test")
+```
+
+It is also possible to create a pdf with a subset of combinations. The function `all_output_comb()` creates a data frame with all VAR_ID, ITEM_AG and VAR_UNIT combinations in a globiom output file. This file can be used as a basis to filter out relevant output combinations. Alternatively, one can use `main_output_comb` as a basis or create a new data frame with output combinations. 
+
+```{r eval=FALSE}
+all_comb <- all_output_comb(globiom) %>%
+  filter(VAR_ID %in% c("AREA", "PROD"), ITEM_AG %in% c("CORN", "CRPLND"), UNIT_ID %in% c("1000 HA", "1000 T"))
+
+trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/test", comb = all_comb)
+
+
+```
 

@@ -5,7 +5,7 @@
 \title{Creates pdf with plots for selected GLOBIOM output dimensions}
 \usage{
 trend_plot_all(df_gl = NULL, df_hs = NULL, path = NULL,
-  file_name = NULL, output_sel = NULL)
+  file_name = NULL, comb = NULL)
 }
 \arguments{
 \item{df_gl}{dataframe with globiom output}
@@ -16,9 +16,11 @@ trend_plot_all(df_gl = NULL, df_hs = NULL, path = NULL,
 
 \item{file_name}{name of the pdf file that is generated. Default is
 \code{globiom_trend_plots_YYYY-MM-DD.pdf}.}
+
+\item{comb}{output combinations used for plotting. Default is main_output_comb}
 }
 \value{
-A dataframe
+None but a pdf file is saved in the working directory or a specified location.
 }
 \description{
 Creates a pdf file with plots for selected GLOBIOM VAR_ID, ITEM_AG and VAR_UNIT combinations.
@@ -28,7 +30,9 @@ Plots are produced for a standard set of key VAR_ID, ITEM_AG and VAR_UNIT combin
 stored in \code{output_comb_base} unless specified otherwise
 }
 \examples{
+\dontrun{
 trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/temp", file_name = "globiom_output",
 output_se = df)
+}
 
 }

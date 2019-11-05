@@ -16,7 +16,9 @@
 #' @return A ggplot object
 #'
 #' @examples
+#' \dontrun{
 #' trend_plot(var = "LAND", item = "1000 HA", reg = "World", df_gl = globiom, df_hs = hist)
+#'}
 #'
 #' @export
 
@@ -56,22 +58,24 @@ trend_plot <- function(var, item, unit, reg, df_gl = NULL, df_hs = NULL,
 #' @param path path where the pdf file will be saved. Default is the working directory.
 #' @param file_name name of the pdf file that is generated. Default is
 #' \code{globiom_trend_plots_YYYY-MM-DD.pdf}.
+#' @param comb output combinations used for plotting. Default is main_output_comb
 #'
 #' @return None but a pdf file is saved in the working directory or a specified location.
 #'
 #' @examples
+#' \dontrun{
 #' trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/temp", file_name = "globiom_output",
 #' output_se = df)
+#' }
 #'
 #' @export
 
-trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = NULL, output_sel = NULL) {
-  if(is.null(output_sel)){
-    output_comb <- output_comb_base
+trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = NULL, comb = NULL) {
+  if(is.null(comb)){
+    output_comb <- main_output_comb
     all_region <- unique(df_gl$REGION_AG)
-    output_comb <- output_comb
-  } else {
-    output_comb <- output_sel
+    } else {
+    output_comb <- comb
   }
 
   n_plot <- nrow(output_comb)
@@ -85,7 +89,7 @@ trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = 
   message(file_name, " will be saved in ", path)
 
   pdf(file = file.path(path, file_name))
-  walk(1:n_plot, function(i){
+  purrr::walk(1:n_plot, function(i){
     message("Adding plot ", i, " out of ", n_plot)
     trend_plot(var = output_comb$VAR_ID[i], item = output_comb$ITEM_AG[i],
                unit = output_comb$VAR_UNIT[i], reg = all_region, df_gl = df_gl, df_hs = df_hs)
