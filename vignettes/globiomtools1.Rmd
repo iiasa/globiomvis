@@ -1,8 +1,8 @@
 ---
-title: "1. Install R, RStudio and relevant packages"
+title: "1. Install R, packages and other relevant software"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{1. Install R, RStudio and relevant packages}
+  %\VignetteIndexEntry{1. Install R, packages and other relevant software}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,21 +18,21 @@ knitr::opts_chunk$set(
 
 To use the package one needs to install R and RStudio. R can be downloaded [here](https://cran.r-project.org/bin/windows/base/) and is available for various operating systems. I recommend not to use the latest release as it takes some time before all packages are updated and therefore might results in errors. I normally use the second to last release.
 
-Rstudio can be downloaded [here](https://rstudio.com/products/rstudio/download/). The free version is sufficient. 
+Rstudio is most used open source software to code in R (but it can do a lot more). It can be downloaded [here](https://rstudio.com/products/rstudio/download/). The free version is sufficient. 
 
 
-## Installing gdxrrw
+## Installing GDXRRW
 
-To interface between R and GAMS the GDXRRW package is required. This package is not available in CRAN, the R package repository and therefore cannot be installed using the standard approach (i.e. `install.packages("gdxrwww")`). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
+To interface between R and GAMS the GDXRRW package is required. This package is not available in CRAN, the R package repository and therefore cannot be installed using the standard approach (i.e. `install.packages("gdxrrw")`). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
 
-To install GDXRWW:
+To install GDXRRW:
 
 1. Copy the latest version (GDXRRW.zip) to a temporary folder on your machine
 2. Click 'Packages' > 'install' in RStudio
 3. Select 'Install from: Package Archive File (.zip; .tar; .gz)
 4. Select GDXRRW.zip to install the package in your R library
 
-Note that the version of GDXRWW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRWW version that is built with R 3.5.x.
+Note that the version of GDXRRW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.
 
 ## Installing GLOBIOMtools
 
@@ -45,7 +45,7 @@ Note that the version of GDXRWW has to match your R version, otherwise there mig
 
 Although not strictly necessary to use GLOBIOMtools (for now), I recommend installing the following additional software:
 
-- osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded [here](https://trac.osgeo.org/osgeo4w). Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data. osgeo4w is only available for windows. gdal for other systems can be downloaded [here](https://gdal.org/download.html).
+- osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded [here](https://trac.osgeo.org/osgeo4w). Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded [here](https://gdal.org/download.html).
 
 - miktex. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of [miktex](https://miktex.org). If you want to learn more about this look [here](https://bookdown.org/yihui/rmarkdown/)
 
