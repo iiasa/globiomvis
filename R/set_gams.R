@@ -8,8 +8,11 @@
 #' @param rescan Logical. Force a rescan if neccessary (e.g. if you updated your GDAL install).
 #' @param ignore.full_scan	Logical. If FALSE, perform a brute-force scan if other installs are not found. Default is TRUE.
 #' @param verbose	Logical. Enable verbose execution? Default is FALSE.
-#' @Return A ggplot
+#'
+#' @return Location of folder where most recent version of gams.exe is stored.
+
 #' @examples
+#' search_gams()
 
 # GLOBIOMtools_env <- function (search_path = NULL, rescan = FALSE, ignore.full_scan = TRUE,
 #           verbose = FALSE){}
@@ -29,7 +32,6 @@
 #'
 #' This is additional  information
 #'
-#' @examples
 
 # Check: rsaga.env and plotKML.env
 # Need to add function that reads version number from main gams folder and not from subfolder

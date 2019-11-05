@@ -16,7 +16,8 @@ Imports:
     dplyr,
     magrittr,
     tidyr,
-    purrr
+    purrr,
+    scales
 Suggests: 
     testthat,
     knitr,

@@ -2,7 +2,7 @@
 title: "2. Generating GLOBIOM scenario plots"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Software}
+  %\VignetteIndexEntry{Generating GLOBIOM scenario plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,8 +14,56 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Loading and preparing data
 
+Start by loading the required packages. Apart from the gdxrwww package, all packages can be installed from CRAN, the R package repository. See the Vignette '1. Install R and other software' for instructions if you do not know how to do this.
 
-```{r setup}
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(gdxrrw)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(ggplot2)
 library(GLOBIOMtools)
 ```
+
+Next, we need to link R and GAMS so that R is able to load GDX files using the command `igdx()`. Use the folder where gams.exe is stored on your machine. If the link is created you should get the message `The GDX library has been loaded`.
+
+```{r}
+gams_path <- "c:/GAMS/win64/25.0"
+igdx(gams_path)
+```
+
+We load a GLOBIOM output file. We use `setNames` to add column names. The will be missing if the gams data table (i.e. the Symbol) has '*' instead of variables. We also ensure that `YEAR` is an integer (and not a character) and `ITEM_AG, VAR_ID and VAR_UNIT` are in capitals, and add a 'source' column.
+
+```{r}
+globiom_path <- "P:/globiom"
+globiom_file <- file.path(globiom_path, "projects/TEMP/globiom_results/MODEL_OUTPUT_AG_SSP2_lookup_q_SDG_10052019.gdx")
+symbol <- "OUTPUT_AG"
+globiom <- rgdx.param(globiom_file, symbol) %>%
+  setNames(c("VAR_ID", "VAR_UNIT", "REGION_AG", "ITEM_AG", "MacroScen", "BioenScen", "IEA_Scen", "YEAR", "OUTPUT_AG")) %>%
+  mutate(YEAR = as.integer(as.character(YEAR)),
+         ITEM_AG = toupper(as.character(ITEM_AG)),
+         VAR_ID = toupper(VAR_ID),
+         VAR_UNIT = toupper(VAR_UNIT),
+         source = "globiom") %>%
+  droplevels
+```
+
+We also load the historical FAOSTAT data, aggregated to GLOBIOM nomenclature and make some adjustments in the same way as we did for the globiom data file.
+
+```{r}
+hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT_FAO_REGION_since1961_ag_NSUST.gdx"), "OUTPUT_AG") %>%
+  mutate(YEAR = as.integer(as.character(YEAR)),
+         ITEM_AG = toupper(as.character(ITEM_AG)),
+         VAR_ID = toupper(VAR_ID),
+         VAR_UNIT = toupper(VAR_UNIT),
+         source = "historical") %>%
+  droplevels
+```
+
+
+## Create a pdf with plots for key variable, item and unit combinations
+
+To inspect GLOBIOM output
+

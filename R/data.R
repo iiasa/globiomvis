@@ -9,4 +9,8 @@
 #'   \item{ITEM_AG}{GLOBIOM item code}
 #' }
 #' @source GLOBIOM
+#'
+#' @examples
+#' output_comb_base
+"output_comb_base"
 

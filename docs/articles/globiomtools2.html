@@ -88,10 +88,52 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(GLOBIOMtools)</a></code></pre></div>
+<div id="loading-and-preparing-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#loading-and-preparing-data" class="anchor"></a>Loading and preparing data</h2>
+<p>Start by loading the required packages. Apart from the gdxrwww package, all packages can be installed from CRAN, the R package repository. See the Vignette ‘1. Install R and other software’ for instructions if you do not know how to do this.</p>
+<p>Next, we need to link R and GAMS so that R is able to load GDX files using the command <code>igdx()</code>. Use the folder where gams.exe is stored on your machine. If the link is created you should get the message <code>The GDX library has been loaded</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">gams_path &lt;-<span class="st"> "c:/GAMS/win64/25.0"</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">igdx</span>(gams_path)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">#&gt; GDX API loaded from gamsSysDir=c:/GAMS/win64/25.0</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">#&gt; The GDX library has been loaded</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt; GDX library load path: c:/GAMS/win64/25.0</span></a></code></pre></div>
+<p>We load a GLOBIOM output file. We use <code>setNames</code> to add column names. The will be missing if the gams data table (i.e. the Symbol) has ’*’ instead of variables. We also ensure that <code>YEAR</code> is an integer (and not a character) and <code>ITEM_AG, VAR_ID and VAR_UNIT</code> are in capitals, and add a ‘source’ column.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">globiom_path &lt;-<span class="st"> "P:/globiom"</span></a>
+<a class="sourceLine" id="cb2-2" title="2">globiom_file &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(globiom_path, <span class="st">"projects/TEMP/globiom_results/MODEL_OUTPUT_AG_SSP2_lookup_q_SDG_10052019.gdx"</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3">symbol &lt;-<span class="st"> "OUTPUT_AG"</span></a>
+<a class="sourceLine" id="cb2-4" title="4">globiom &lt;-<span class="st"> </span><span class="kw">rgdx.param</span>(globiom_file, symbol) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"VAR_ID"</span>, <span class="st">"VAR_UNIT"</span>, <span class="st">"REGION_AG"</span>, <span class="st">"ITEM_AG"</span>, <span class="st">"MacroScen"</span>, <span class="st">"BioenScen"</span>, <span class="st">"IEA_Scen"</span>, <span class="st">"YEAR"</span>, <span class="st">"OUTPUT_AG"</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">YEAR =</span> <span class="kw"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(YEAR)),</a>
+<a class="sourceLine" id="cb2-7" title="7">         <span class="dt">ITEM_AG =</span> <span class="kw"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(ITEM_AG)),</a>
+<a class="sourceLine" id="cb2-8" title="8">         <span class="dt">VAR_ID =</span> <span class="kw"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span>(VAR_ID),</a>
+<a class="sourceLine" id="cb2-9" title="9">         <span class="dt">VAR_UNIT =</span> <span class="kw"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span>(VAR_UNIT),</a>
+<a class="sourceLine" id="cb2-10" title="10">         <span class="dt">source =</span> <span class="st">"globiom"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="st">  </span>droplevels</a></code></pre></div>
+<p>We also load the historical FAOSTAT data, aggregated to GLOBIOM nomenclature and process it a similar was as the global data file.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">hist &lt;-<span class="st"> </span><span class="kw">rgdx.param</span>(<span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(globiom_path, <span class="st">"projects/TEMP/globiom_results/OUTPUT_FAO_REGION_since1961_ag_NSUST.gdx"</span>), <span class="st">"OUTPUT_AG"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">YEAR =</span> <span class="kw"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(YEAR)),</a>
+<a class="sourceLine" id="cb3-3" title="3">         <span class="dt">ITEM_AG =</span> <span class="kw"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(ITEM_AG)),</a>
+<a class="sourceLine" id="cb3-4" title="4">         <span class="dt">VAR_ID =</span> <span class="kw"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span>(VAR_ID),</a>
+<a class="sourceLine" id="cb3-5" title="5">         <span class="dt">VAR_UNIT =</span> <span class="kw"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span>(VAR_UNIT),</a>
+<a class="sourceLine" id="cb3-6" title="6">         <span class="dt">source =</span> <span class="st">"historical"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="st">  </span>droplevels</a></code></pre></div>
+</div>
+<div id="create-a-pdf-with-plots-for-key-variable-item-and-unit-combinations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#create-a-pdf-with-plots-for-key-variable-item-and-unit-combinations" class="anchor"></a>Create a pdf with plots for key variable, item and unit combinations</h2>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li><a href="#loading-and-preparing-data">Loading and preparing data</a></li>
+      <li><a href="#create-a-pdf-with-plots-for-key-variable-item-and-unit-combinations">Create a pdf with plots for key variable, item and unit combinations</a></li>
+      </ul>
+</div>
       </div>
 
 </div>

@@ -1,13 +1,14 @@
-#' Create plots for GLOBIOM scenarios
+#' GLOBIOM output combinations
 #'
-#' Creates scenario plots by region for selected items
+#' Creates data frame with all existing combinations of VAR_ID, VAR_UNIT and ITEM_AG in GLOBIOM output file.
 #'
-#' This is additional  information
+#' @param df_gl dataframe with globiom output.
+#' @return A data.frame with existing VAR_ID, VAR_UNIT, ITEM_AG combinations in df_gl
 #'
-#' @param df_gl dataframe with globiom output
-#' @export
-#' @Return A data.frame with all unique and existing VAR_ID, VAR_UNIT, ITEM_AG combinations in df_gl
 #' @examples
+#' all_output(globiom)
+#'
+#' @export
 
 all_output <- function(df_gl){
   output_comb <- df_gl %>%
