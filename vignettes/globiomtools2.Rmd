@@ -73,7 +73,8 @@ hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT
 Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations. In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/test`. Note that this might take a bit of time as more than 200 plots are generated.
 
 ```{r eval=FALSE}
-trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/test")
+dir.create("c:/globiom", showWarnings = F)
+trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom")
 ```
 
 It is also possible to create a pdf with a subset of combinations. The function `all_output_comb()` creates a data frame with all VAR_ID, ITEM_AG and VAR_UNIT combinations in a globiom output file. This file can be used as a basis to filter out relevant output combinations. Alternatively, one can use `main_output_comb` as a basis or create a new data frame with output combinations. 
