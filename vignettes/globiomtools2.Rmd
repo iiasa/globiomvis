@@ -29,7 +29,7 @@ library(dplyr)
 library(tidyr)
 library(purrr)
 library(ggplot2)
-library(GLOBIOMtools)
+library(rglobiom)
 ```
 
 Next, we need to link R and GAMS so that R is able to load GDX files using the command `igdx()`. Use the folder where gams.exe is stored on your machine. If the link is created you should get the message `The GDX library has been loaded`.

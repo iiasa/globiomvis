@@ -34,7 +34,7 @@ To install GDXRRW:
 
 Note that the version of GDXRRW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.
 
-## Installing GLOBIOMtools
+## Installing rglobiom
 
 
 ## Installing other R packages
@@ -43,7 +43,7 @@ Note that the version of GDXRRW has to match your R version, otherwise there mig
 
 ## Installing additional software
 
-Although not strictly necessary to use GLOBIOMtools (for now), I recommend installing the following additional software:
+Although not strictly necessary to use rglobiom (for now), I recommend installing the following additional software:
 
 - osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded [here](https://trac.osgeo.org/osgeo4w). Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded [here](https://gdal.org/download.html).
 

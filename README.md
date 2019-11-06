@@ -1,23 +1,23 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# GLOBIOMtools
+# rglobiom
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of GLOBIOMtools is facilitate the use of R to analyse GLOBIOM
+The goal of rglobiom is facilitate the use of R to analyse GLOBIOM
 output.
 
 ## Installation
 
-You can install the development version of GLOBIOMtools from
+You can install the development version of rglobiom from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("iiasa/GLOBIOMtools")
+devtools::install_github("iiasa/rglobiom")
 ```
 
 The package depends on several other packages that need to be installed
@@ -30,6 +30,6 @@ instructions in ‘Install R and other software’.
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(GLOBIOMtools)
+library(rglobiom)
 ## basic example code
 ```

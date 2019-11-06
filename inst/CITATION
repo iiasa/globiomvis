@@ -1,4 +1,4 @@
-citHeader("To cite GLOBIOMtools in publications use:")
+citHeader("To cite rglobiom in publications use:")
 
 citEntry(
   entry    = "Article",
