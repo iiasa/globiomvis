@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1. Install R, packages and other relevant software • GLOBIOMtools</title>
+<title>1. Install R, packages and other relevant software • rglobiom</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
@@ -30,7 +30,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">GLOBIOMtools</a>
+        <a class="navbar-link" href="../index.html">rglobiom</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -44,9 +44,6 @@
   </a>
 </li>
 <li>
-  <a href="../articles/GLOBIOMtools.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -57,6 +54,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/GLOBIOMtools.html">Introduction to rglobiom</a>
+    </li>
+    <li>
       <a href="../articles/globiomtools1.html">1. Install R, packages and other relevant software</a>
     </li>
     <li>
@@ -107,9 +107,9 @@
 </ol>
 <p>Note that the version of GDXRRW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.</p>
 </div>
-<div id="installing-globiomtools" class="section level2">
+<div id="installing-rglobiom" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installing-globiomtools" class="anchor"></a>Installing GLOBIOMtools</h2>
+<a href="#installing-rglobiom" class="anchor"></a>Installing rglobiom</h2>
 </div>
 <div id="installing-other-r-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -118,7 +118,7 @@
 <div id="installing-additional-software" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-additional-software" class="anchor"></a>Installing additional software</h2>
-<p>Although not strictly necessary to use GLOBIOMtools (for now), I recommend installing the following additional software:</p>
+<p>Although not strictly necessary to use rglobiom (for now), I recommend installing the following additional software:</p>
 <ul>
 <li><p>osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded <a href="https://trac.osgeo.org/osgeo4w">here</a>. Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded <a href="https://gdal.org/download.html">here</a>.</p></li>
 <li><p>miktex. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of <a href="https://miktex.org">miktex</a>. If you want to learn more about this look <a href="https://bookdown.org/yihui/rmarkdown/">here</a></p></li>
@@ -135,7 +135,7 @@
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#installing-r-and-rstudio">Installing R and RStudio</a></li>
       <li><a href="#installing-gdxrrw">Installing GDXRRW</a></li>
-      <li><a href="#installing-globiomtools">Installing GLOBIOMtools</a></li>
+      <li><a href="#installing-rglobiom">Installing rglobiom</a></li>
       <li><a href="#installing-other-r-packages">Installing other R packages</a></li>
       <li><a href="#installing-additional-software">Installing additional software</a></li>
       </ul>
