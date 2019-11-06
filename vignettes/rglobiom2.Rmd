@@ -88,7 +88,7 @@ comb_sel <- all_output_comb(globiom) %>%
 trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom", comb = comb_sel)
 ```
 
-If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function `trend_plot`. The following example uses `trend_plot` to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA and regions, World and X, including all scenarios.
+If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function `trend_plot`. The following example uses `trend_plot` to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA, regions: World and EUR and two scenarios: GHG000_BIO00 and GHG000_BIO06.
 
 ```{r eval=FALSE}
 trend_plot(var = "AREA", item = "CORN", unit = "1000 HA", reg = c("World", "EUR"), df_gl = globiom, df_hs = hist)
@@ -98,11 +98,11 @@ If you want multiple figures, one has to loop this function over a selection of 
 
 ```{r eval=FALSE}
 # Select scenarios, variables, items and units
-scen_sel <- c("GHG000_BIO00", "GHG000_BIO06")
 var_sel <- c("AREA", "PROD")
 item_sel <- c("CORN", "CRPLND")
 unit_sel <- c("1000 HA", "1000 T")
 reg_sel <- c("World", "EUR")
+scen_sel <- c("GHG000_BIO00", "GHG000_BIO06")
 
 # Create data frame with selected GLOBIOM output
 globiom_sel <- globiom %>%
