@@ -2,6 +2,6 @@ pandoc: 2.7.2
 pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
-  globiomtools1: globiomtools1.html
-  globiomtools2: globiomtools2.html
+  rglobiom1: rglobiom1.html
+  rglobiom2: rglobiom2.html
 
