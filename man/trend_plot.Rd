@@ -18,7 +18,8 @@ trend_plot(var, item, unit, reg, df_gl = NULL, df_hs = NULL,
 
 \item{df_gl}{data frame with globiom output}
 
-\item{df_hs}{data frame with historical data aggregated to GLOBIOM nomenclature}
+\item{df_hs}{data frame with historical data aggregated to GLOBIOM
+nomenclature}
 }
 \value{
 A ggplot object
@@ -27,9 +28,9 @@ A ggplot object
 Creates scenario plots by region for selected items.
 }
 \details{
-Note that the function uses standard GLOBIOM variable (VAR_ID), item (ITEM_AG),
-unit (VAR_UNIT) and region (REGION_AG) nomenclature as input. VAR_ID, ITEM_AG and VAR_UNIT
-have to be in upper case!
+Note that the function uses standard GLOBIOM variable (VAR_ID), item
+(ITEM_AG), unit (VAR_UNIT) and region (REGION_AG) nomenclature as input.
+VAR_ID, ITEM_AG and VAR_UNIT have to be in upper case!
 }
 \examples{
 \dontrun{

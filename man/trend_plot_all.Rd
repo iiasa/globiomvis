@@ -10,24 +10,30 @@ trend_plot_all(df_gl = NULL, df_hs = NULL, path = NULL,
 \arguments{
 \item{df_gl}{dataframe with globiom output}
 
-\item{df_hs}{data frame with historical data aggregated to GLOBIOM nomenclature}
+\item{df_hs}{data frame with historical data aggregated to GLOBIOM
+nomenclature}
 
-\item{path}{path where the pdf file will be saved. Default is the working directory.}
+\item{path}{path where the pdf file will be saved. Default is the working
+directory.}
 
 \item{file_name}{name of the pdf file that is generated. Default is
 \code{globiom_trend_plots_YYYY-MM-DD.pdf}.}
 
-\item{comb}{output combinations used for plotting. Default is main_output_comb}
+\item{comb}{output combinations used for plotting. Default is
+main_output_comb}
 }
 \value{
-None but a pdf file is saved in the working directory or a specified location.
+None but a pdf file is saved in the working directory or a specified
+  location.
 }
 \description{
-Creates a pdf file with plots for selected GLOBIOM VAR_ID, ITEM_AG and VAR_UNIT combinations.
+Creates a pdf file with plots for selected GLOBIOM VAR_ID, ITEM_AG and
+VAR_UNIT combinations.
 }
 \details{
-Plots are produced for a standard set of key VAR_ID, ITEM_AG and VAR_UNIT combinations
-stored in \code{output_comb_base} unless specified otherwise
+Plots are produced for a standard set of key VAR_ID, ITEM_AG and VAR_UNIT
+combinations stored in \code{output_comb_base} unless specified otherwise.
+Plots are only produced for output combinations that exist in the data.
 }
 \examples{
 \dontrun{
