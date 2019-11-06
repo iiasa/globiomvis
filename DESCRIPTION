@@ -1,5 +1,5 @@
 Package: rglobiom
-Title: What the Package Does (One Line, Title Case)
+Title: Interface between r and GLOBIOM
 Version: 0.0.0.9000
 Authors@R: c(
     person(given = "Michiel",
