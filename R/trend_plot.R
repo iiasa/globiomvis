@@ -1,26 +1,27 @@
-#' Create plots for GLOBIOM scenarios
+#'Create plots for GLOBIOM scenarios
 #'
-#' Creates scenario plots by region for selected items.
+#'Creates scenario plots by region for selected items.
 #'
-#' Note that the function uses standard GLOBIOM variable (VAR_ID), item (ITEM_AG),
-#' unit (VAR_UNIT) and region (REGION_AG) nomenclature as input. VAR_ID, ITEM_AG and VAR_UNIT
-#' have to be in upper case!
+#'Note that the function uses standard GLOBIOM variable (VAR_ID), item
+#'(ITEM_AG), unit (VAR_UNIT) and region (REGION_AG) nomenclature as input.
+#'VAR_ID, ITEM_AG and VAR_UNIT have to be in upper case!
 #'
-#' @param var VAR_ID
-#' @param item ITEM_AG
-#' @param unit VAR_UNIT
-#' @param reg REGION_AG
-#' @param df_gl data frame with globiom output
-#' @param df_hs data frame with historical data aggregated to GLOBIOM nomenclature
+#'@param var VAR_ID
+#'@param item ITEM_AG
+#'@param unit VAR_UNIT
+#'@param reg REGION_AG
+#'@param df_gl data frame with globiom output
+#'@param df_hs data frame with historical data aggregated to GLOBIOM
+#'  nomenclature
 #'
-#' @return A ggplot object
+#'@return A ggplot object
 #'
 #' @examples
 #' \dontrun{
 #' trend_plot(var = "LAND", item = "1000 HA", reg = "World", df_gl = globiom, df_hs = hist)
 #'}
 #'
-#' @export
+#'@export
 
 
 trend_plot <- function(var, item, unit, reg, df_gl = NULL, df_hs = NULL,
@@ -48,19 +49,25 @@ trend_plot <- function(var, item, unit, reg, df_gl = NULL, df_hs = NULL,
 
 #' Creates pdf with plots for selected GLOBIOM output dimensions
 #'
-#' Creates a pdf file with plots for selected GLOBIOM VAR_ID, ITEM_AG and VAR_UNIT combinations.
+#' Creates a pdf file with plots for selected GLOBIOM VAR_ID, ITEM_AG and
+#' VAR_UNIT combinations.
 #'
-#' Plots are produced for a standard set of key VAR_ID, ITEM_AG and VAR_UNIT combinations
-#' stored in \code{output_comb_base} unless specified otherwise
+#' Plots are produced for a standard set of key VAR_ID, ITEM_AG and VAR_UNIT
+#' combinations stored in \code{output_comb_base} unless specified otherwise.
+#' Plots are only produced for output combinations that exist in the data.
 #'
 #' @param df_gl dataframe with globiom output
-#' @param df_hs data frame with historical data aggregated to GLOBIOM nomenclature
-#' @param path path where the pdf file will be saved. Default is the working directory.
+#' @param df_hs data frame with historical data aggregated to GLOBIOM
+#'   nomenclature
+#' @param path path where the pdf file will be saved. Default is the working
+#'   directory.
 #' @param file_name name of the pdf file that is generated. Default is
-#' \code{globiom_trend_plots_YYYY-MM-DD.pdf}.
-#' @param comb output combinations used for plotting. Default is main_output_comb
+#'   \code{globiom_trend_plots_YYYY-MM-DD.pdf}.
+#' @param comb output combinations used for plotting. Default is
+#'   main_output_comb
 #'
-#' @return None but a pdf file is saved in the working directory or a specified location.
+#' @return None but a pdf file is saved in the working directory or a specified
+#'   location.
 #'
 #' @examples
 #' \dontrun{
@@ -71,11 +78,13 @@ trend_plot <- function(var, item, unit, reg, df_gl = NULL, df_hs = NULL,
 #' @export
 
 trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = NULL, comb = NULL) {
+  df_gl_comb <- all_output_comb(df_gl)
   if(is.null(comb)){
-    output_comb <- main_output_comb
+    output_comb <- dplyr::inner_join(df_gl_comb, main_output_comb)
     all_region <- unique(df_gl$REGION_AG)
-    } else {
-    output_comb <- comb
+  } else {
+    output_comb <- dplyr::inner_join(df_gl_comb, comb)
+    if(dim(output_comb)[1]== 0) stop("None of the provided output combinations are in the globiom output file")
   }
 
   n_plot <- nrow(output_comb)
@@ -85,7 +94,8 @@ trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = 
   } else {
     paste0(file_name, ".pdf")
   }
-  path <- if(is.null(path)) {getwd()}
+  if(is.null(path)) {getwd()}
+
   message(file_name, " will be saved in ", path)
 
   pdf(file = file.path(path, file_name))

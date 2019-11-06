@@ -23,7 +23,7 @@ Rstudio is most used open source software to code in R (but it can do a lot more
 
 ## Installing GDXRRW
 
-To interface between R and GAMS the GDXRRW package is required. This package is not available in CRAN, the R package repository and therefore cannot be installed using the standard approach (i.e. `install.packages("gdxrrw")`). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
+To interface between R and GAMS the GDXRRW package is required. This package is not available o CRAN, the R package repository, and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
 
 To install GDXRRW:
 
@@ -34,14 +34,29 @@ To install GDXRRW:
 
 Note that the version of GDXRRW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.
 
+
+## Installing R packages
+
+In contrast to GDXRRW, most packages can be easily installed from CRAN by using the following command: `install.packages()`). In order to install rglobiom, which is also not on CRAN, one needs the package devtools. This is installed in the following way:
+
+```{r, eval=FALSE}
+install.packages("devtools")
+```
+
+A number of other packages, most importantly dplyr, purrr, tidyr and ggplot2, which are all part of the [tidyverse](https://www.tidyverse.org/) and are used by rglobiom, will be installed automatically when rglobiom is installed. 
+
+
 ## Installing rglobiom
 
+To install rglobiom, first install the devtools package and do the following:
 
-## Installing other R packages
+```{r}
+library(devtools)
+devtools::install_github("iiasa/rglobiom")
+```
 
 
-
-## Installing additional software
+## Additional software
 
 Although not strictly necessary to use rglobiom (for now), I recommend installing the following additional software:
 
@@ -49,7 +64,4 @@ Although not strictly necessary to use rglobiom (for now), I recommend installin
 
 - miktex. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of [miktex](https://miktex.org). If you want to learn more about this look [here](https://bookdown.org/yihui/rmarkdown/)
 
-- git. [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-
-
-[here](https://www.r-bloggers.com/rstudio-and-github/) and [here](https://www.r-bloggers.com/using-rstudio-and-git-version-control/)
+- git. This is software to version you code and can be downloaded [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). RStudio and git can be easily linked to version your code and use [github](https://github.com) to store code in the cloud and facilitate collaborative code development. More information about how to set this up can be found [here](https://www.r-bloggers.com/rstudio-and-github/) and [here](https://www.r-bloggers.com/using-rstudio-and-git-version-control/).

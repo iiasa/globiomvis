@@ -70,7 +70,7 @@ hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT
 
 ## Create a pdf with plots for key variable, item and unit combinations
 
-Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations. In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/test`. Note that this might take a bit of time as more than 200 plots are generated.
+Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/globiom`, which is created first. Note that it might take a bit of time as more than 200 plots are generated.
 
 ```{r eval=FALSE}
 dir.create("c:/globiom", showWarnings = F)
