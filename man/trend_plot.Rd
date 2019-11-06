@@ -4,8 +4,8 @@
 \alias{trend_plot}
 \title{Create plots for GLOBIOM scenarios}
 \usage{
-trend_plot(var, item, unit, reg, df_gl = NULL, df_hs = NULL,
-  display = T, output = T, ...)
+trend_plot(var, item, unit, reg, df_gl, df_hs, display = T, output = T,
+  ...)
 }
 \arguments{
 \item{var}{VAR_ID}

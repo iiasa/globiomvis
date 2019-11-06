@@ -24,7 +24,7 @@
 #'@export
 
 
-trend_plot <- function(var, item, unit, reg, df_gl = NULL, df_hs = NULL,
+trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
                        display = T, output = T,...) {
   df_gl_sel <- filter(df_gl, ITEM_AG %in% item, VAR_ID %in% var, VAR_UNIT %in% unit, REGION_AG %in% reg)
   df_hs_sel <- filter(df_hs, ITEM_AG %in% item, VAR_ID %in% var, VAR_UNIT %in% unit, REGION_AG %in% reg)
@@ -85,6 +85,7 @@ trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = 
   } else {
     output_comb <- dplyr::inner_join(df_gl_comb, comb)
     if(dim(output_comb)[1]== 0) stop("None of the provided output combinations are in the globiom output file")
+    all_region <- unique(df_gl$REGION_AG)
   }
 
   n_plot <- nrow(output_comb)

@@ -77,14 +77,48 @@ dir.create("c:/globiom", showWarnings = F)
 trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom")
 ```
 
+## Create plots for your own selection of GLOBIOM output
+
 It is also possible to create a pdf with a subset of combinations. The function `all_output_comb()` creates a data frame with all VAR_ID, ITEM_AG and VAR_UNIT combinations in a globiom output file. This file can be used as a basis to filter out relevant output combinations. Alternatively, one can use `main_output_comb` as a basis or create a new data frame with output combinations. 
 
 ```{r eval=FALSE}
-all_comb <- all_output_comb(globiom) %>%
-  filter(VAR_ID %in% c("AREA", "PROD"), ITEM_AG %in% c("CORN", "CRPLND"), UNIT_ID %in% c("1000 HA", "1000 T"))
+comb_sel <- all_output_comb(globiom) %>%
+  filter(VAR_ID %in% c("AREA", "PROD"), ITEM_AG %in% c("CORN", "CRPLND"), VAR_UNIT %in% c("1000 HA", "1000 T"))
 
-trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/test", comb = all_comb)
-
-
+trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom", comb = comb_sel)
 ```
+
+If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function `trend_plot`. The following example uses `trend_plot` to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA and regions, World and X, including all scenarios.
+
+```{r eval=FALSE}
+trend_plot(var = "AREA", item = "CORN", unit = "1000 HA", reg = c("World", "EUR"), df_gl = globiom, df_hs = hist)
+```
+
+If you want multiple figures, one has to loop this function over a selection of the data. This requires some additional code and is illustrated below. 
+
+```{r eval=FALSE}
+# Select scenarios, variables, items and units
+scen_sel <- c("GHG000_BIO00", "GHG000_BIO06")
+var_sel <- c("AREA", "PROD")
+item_sel <- c("CORN", "CRPLND")
+unit_sel <- c("1000 HA", "1000 T")
+reg_sel <- c("World", "EUR")
+
+# Create data frame with selected GLOBIOM output
+globiom_sel <- globiom %>%
+  filter(VAR_ID %in% var_sel , ITEM_AG %in% item_sel , VAR_UNIT %in% unit_sel, BioenScen %in% scen_sel)
+
+# Create data frame with unique output combinations in selected globiom output
+sel_output_comb <- all_output_comb(globiom_sel)
+
+# Loop over VAR_ID, ITEM_AG and VAR_UNIT 
+pdf(file = file.path("c:/globiom", paste0("globiom_trend_plots_", Sys.Date(), ".pdf")))
+    purrr::walk(1:nrow(sel_output_comb), function(i){
+      trend_plot(var = sel_output_comb$VAR_ID[i], item = sel_output_comb$ITEM_AG[i], 
+                 unit = sel_output_comb$VAR_UNIT[i], reg = reg_sel, df_gl = globiom_sel, df_hs = hist)
+    })
+    dev.off()
+    
+```
+
 
