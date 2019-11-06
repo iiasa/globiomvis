@@ -54,9 +54,6 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/GLOBIOMtools.html">Introduction to rglobiom</a>
-    </li>
-    <li>
       <a href="../articles/globiomtools1.html">1. Install R, packages and other relevant software</a>
     </li>
     <li>
@@ -97,7 +94,7 @@
 <div id="installing-gdxrrw" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-gdxrrw" class="anchor"></a>Installing GDXRRW</h2>
-<p>To interface between R and GAMS the GDXRRW package is required. This package is not available in CRAN, the R package repository and therefore cannot be installed using the standard approach (i.e. <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("gdxrrw")</a></code>). Hence, one has to install it manually. The package can be found <a href="https://support.gams.com/gdxrrw:interfacing_gams_and_r">here</a></p>
+<p>To interface between R and GAMS the GDXRRW package is required. This package is not available o CRAN, the R package repository, and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found <a href="https://support.gams.com/gdxrrw:interfacing_gams_and_r">here</a></p>
 <p>To install GDXRRW:</p>
 <ol style="list-style-type: decimal">
 <li>Copy the latest version (GDXRRW.zip) to a temporary folder on your machine</li>
@@ -107,24 +104,29 @@
 </ol>
 <p>Note that the version of GDXRRW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.</p>
 </div>
+<div id="installing-r-packages" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installing-r-packages" class="anchor"></a>Installing R packages</h2>
+<p>In contrast to GDXRRW, most packages can be easily installed from CRAN by using the following command: <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>). In order to install rglobiom, which is also not on CRAN, one needs the package devtools. This is installed in the following way:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</a></code></pre></div>
+<p>A number of other packages, most importantly dplyr, purrr, tidyr and ggplot2, which are all part of the <a href="https://www.tidyverse.org/">tidyverse</a> and are used by rglobiom, will be installed automatically when rglobiom is installed.</p>
+</div>
 <div id="installing-rglobiom" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-rglobiom" class="anchor"></a>Installing rglobiom</h2>
+<p>To install rglobiom, first install the devtools package and do the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</a>
+<a class="sourceLine" id="cb2-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/reexports.html">install_github</a></span>(<span class="st">"iiasa/rglobiom"</span>)</a></code></pre></div>
 </div>
-<div id="installing-other-r-packages" class="section level2">
+<div id="additional-software" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installing-other-r-packages" class="anchor"></a>Installing other R packages</h2>
-</div>
-<div id="installing-additional-software" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installing-additional-software" class="anchor"></a>Installing additional software</h2>
+<a href="#additional-software" class="anchor"></a>Additional software</h2>
 <p>Although not strictly necessary to use rglobiom (for now), I recommend installing the following additional software:</p>
 <ul>
 <li><p>osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded <a href="https://trac.osgeo.org/osgeo4w">here</a>. Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded <a href="https://gdal.org/download.html">here</a>.</p></li>
 <li><p>miktex. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of <a href="https://miktex.org">miktex</a>. If you want to learn more about this look <a href="https://bookdown.org/yihui/rmarkdown/">here</a></p></li>
-<li><p>git. <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a></p></li>
+<li><p>git. This is software to version you code and can be downloaded <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>. RStudio and git can be easily linked to version your code and use <a href="https://github.com">github</a> to store code in the cloud and facilitate collaborative code development. More information about how to set this up can be found <a href="https://www.r-bloggers.com/rstudio-and-github/">here</a> and <a href="https://www.r-bloggers.com/using-rstudio-and-git-version-control/">here</a>.</p></li>
 </ul>
-<p><a href="https://www.r-bloggers.com/rstudio-and-github/">here</a> and <a href="https://www.r-bloggers.com/using-rstudio-and-git-version-control/">here</a></p>
 </div>
   </div>
 
@@ -135,9 +137,9 @@
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#installing-r-and-rstudio">Installing R and RStudio</a></li>
       <li><a href="#installing-gdxrrw">Installing GDXRRW</a></li>
+      <li><a href="#installing-r-packages">Installing R packages</a></li>
       <li><a href="#installing-rglobiom">Installing rglobiom</a></li>
-      <li><a href="#installing-other-r-packages">Installing other R packages</a></li>
-      <li><a href="#installing-additional-software">Installing additional software</a></li>
+      <li><a href="#additional-software">Additional software</a></li>
       </ul>
 </div>
       </div>

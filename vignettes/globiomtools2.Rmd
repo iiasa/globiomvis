@@ -41,7 +41,7 @@ igdx(gams_path)
 
 We load a GLOBIOM output file. We use `setNames` to add column names. The will be missing if the gams data table (i.e. the Symbol) has '*' instead of variables. We also ensure that `YEAR` is an integer (and not a character) and `ITEM_AG, VAR_ID and VAR_UNIT` are in capitals, and add a 'source' column.
 
-```{r}
+```{r eval=FALSE}
 globiom_path <- "P:/globiom"
 globiom_file <- file.path(globiom_path, "projects/TEMP/globiom_results/MODEL_OUTPUT_AG_SSP2_lookup_q_SDG_10052019.gdx")
 symbol <- "OUTPUT_AG"
@@ -57,7 +57,7 @@ globiom <- rgdx.param(globiom_file, symbol) %>%
 
 We also load the historical FAOSTAT data, aggregated to GLOBIOM nomenclature and make some adjustments in the same way as we did for the globiom data file.
 
-```{r}
+```{r eval=FALSE}
 hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT_FAO_REGION_since1961_ag_NSUST.gdx"), "OUTPUT_AG") %>%
   mutate(YEAR = as.integer(as.character(YEAR)),
          ITEM_AG = toupper(as.character(ITEM_AG)),

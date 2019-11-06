@@ -50,7 +50,7 @@ A number of other packages, most importantly dplyr, purrr, tidyr and ggplot2, wh
 
 To install rglobiom, first install the devtools package and do the following:
 
-```{r}
+```{r, eval=FALSE}
 library(devtools)
 devtools::install_github("iiasa/rglobiom")
 ```
