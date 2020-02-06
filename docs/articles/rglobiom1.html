@@ -94,10 +94,16 @@
 <p>To use the package one needs to install R and RStudio. R can be downloaded <a href="https://cran.r-project.org/bin/windows/base/">here</a> and is available for various operating systems. I recommend not to use the latest release as it takes some time before all packages are updated and therefore might results in errors. I normally use the second to last release.</p>
 <p>Rstudio is most used open source software to code in R (but it can do a lot more). It can be downloaded <a href="https://rstudio.com/products/rstudio/download/">here</a>. The free version is sufficient.</p>
 </div>
+<div id="installing-packages" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installing-packages" class="anchor"></a>Installing packages</h2>
+<p>Packages are pieces of bundled R code, frequently including scripts from other languages (e.g. C or C++) to speed up calculations or interface with other software (e.g. GAMS). Package can be easily installed by typing `install.packages(“PACKAGE_NAME”) or by clicking on the ‘package’ tab in RStudio. Nearly all packages are directly downloaded from CRAN, the R package repository, on your system.</p>
+<p>Most of the examples explained in the vignettes require the use of a small number of packages, which are jointly referred to as the <a href="https://www.tidyverse.org/">tidyverse</a>, most importantly dplyr, purrr, tidyr and ggplot2. Some of them are also used by rglobiom internally and will be installed automatically when rglobiom is installed if they have not been installed before.</p>
+</div>
 <div id="installing-gdxrrw" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-gdxrrw" class="anchor"></a>Installing GDXRRW</h2>
-<p>To interface between R and GAMS the GDXRRW package is required. This package is not available o CRAN, the R package repository, and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found <a href="https://support.gams.com/gdxrrw:interfacing_gams_and_r">here</a></p>
+<p>To interface between R and GAMS the GDXRRW package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found <a href="https://support.gams.com/gdxrrw:interfacing_gams_and_r">here</a></p>
 <p>To install GDXRRW:</p>
 <ol style="list-style-type: decimal">
 <li>Copy the latest version (GDXRRW.zip) to a temporary folder on your machine</li>
@@ -107,19 +113,13 @@
 </ol>
 <p>Note that the version of GDXRRW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.</p>
 </div>
-<div id="installing-r-packages" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installing-r-packages" class="anchor"></a>Installing R packages</h2>
-<p>In contrast to GDXRRW, most packages can be easily installed from CRAN by using the following command: <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>). In order to install rglobiom, which is also not on CRAN, one needs the package devtools. This is installed in the following way:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</a></code></pre></div>
-<p>A number of other packages, most importantly dplyr, purrr, tidyr and ggplot2, which are all part of the <a href="https://www.tidyverse.org/">tidyverse</a> and are used by rglobiom, will be installed automatically when rglobiom is installed.</p>
-</div>
 <div id="installing-rglobiom" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-rglobiom" class="anchor"></a>Installing rglobiom</h2>
-<p>To install rglobiom, first install the devtools package and do the following:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</a>
-<a class="sourceLine" id="cb2-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/reexports.html">install_github</a></span>(<span class="st">"iiasa/rglobiom"</span>)</a></code></pre></div>
+<p>To install rglobiom, which is also not on CRAN, one first has to install the devtools package (if not already installed):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</a>
+<a class="sourceLine" id="cb1-3" title="3">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/reexports.html">install_github</a></span>(<span class="st">"iiasa/rglobiom"</span>)</a></code></pre></div>
 </div>
 <div id="additional-software" class="section level2">
 <h2 class="hasAnchor">
@@ -139,8 +139,8 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#installing-r-and-rstudio">Installing R and RStudio</a></li>
+      <li><a href="#installing-packages">Installing packages</a></li>
       <li><a href="#installing-gdxrrw">Installing GDXRRW</a></li>
-      <li><a href="#installing-r-packages">Installing R packages</a></li>
       <li><a href="#installing-rglobiom">Installing rglobiom</a></li>
       <li><a href="#additional-software">Additional software</a></li>
       </ul>
