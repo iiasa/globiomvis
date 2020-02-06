@@ -21,9 +21,16 @@ To use the package one needs to install R and RStudio. R can be downloaded [here
 Rstudio is most used open source software to code in R (but it can do a lot more). It can be downloaded [here](https://rstudio.com/products/rstudio/download/). The free version is sufficient. 
 
 
+## Installing packages
+
+Packages are pieces of bundled R code, frequently including scripts from other languages (e.g. C or C++) to speed up calculations or interface with other software (e.g. GAMS). Package can be easily installed by typing `install.packages("PACKAGE_NAME") or by clicking on the 'package' tab in RStudio. Nearly all packages are directly downloaded from CRAN, the R package repository, on your system.
+
+Most of the examples explained in the vignettes require the use of a small number of packages, which are jointly referred to as the [tidyverse](https://www.tidyverse.org/), most importantly dplyr, purrr, tidyr and ggplot2. Some of them are also used by rglobiom internally and will be installed automatically when rglobiom is installed if they have not been installed before. 
+
+
 ## Installing GDXRRW
 
-To interface between R and GAMS the GDXRRW package is required. This package is not available o CRAN, the R package repository, and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
+To interface between R and GAMS the GDXRRW package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
 
 To install GDXRRW:
 
@@ -35,22 +42,12 @@ To install GDXRRW:
 Note that the version of GDXRRW has to match your R version, otherwise there might be an error. Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.
 
 
-## Installing R packages
+## Installing rglobiom
 
-In contrast to GDXRRW, most packages can be easily installed from CRAN by using the following command: `install.packages()`). In order to install rglobiom, which is also not on CRAN, one needs the package devtools. This is installed in the following way:
+To install rglobiom, which is also not on CRAN, one first has to install the devtools package (if not already installed):
 
 ```{r, eval=FALSE}
 install.packages("devtools")
-```
-
-A number of other packages, most importantly dplyr, purrr, tidyr and ggplot2, which are all part of the [tidyverse](https://www.tidyverse.org/) and are used by rglobiom, will be installed automatically when rglobiom is installed. 
-
-
-## Installing rglobiom
-
-To install rglobiom, first install the devtools package and do the following:
-
-```{r, eval=FALSE}
 library(devtools)
 devtools::install_github("iiasa/rglobiom")
 ```
