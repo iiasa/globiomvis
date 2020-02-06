@@ -84,7 +84,7 @@ ggplot() +
   geom_sf(data = eu_nuts_poly_s, colour = "grey30", fill = "red") +
   geom_sf(data = df2, colour = "grey30", aes(fill = value)) +
   scale_fill_gradientn(colours = terrain.colors(10)) +
-  labs(fill = "", x = "", y = "", title = "Potentially Disappeared Fraction of global species for 2050") +
+  labs(fill = "", x = "", y = "", title = "Potentially Disappeared Fraction of global species for 2010-2050") +
   facet_wrap(~year) +
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(), 
