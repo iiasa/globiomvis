@@ -35,8 +35,8 @@ library(dplyr)
 # Load the EU NUTS polygons
 eu_nuts_poly <- st_read(system.file("shp", "NUTS2_revised.shp", package = "rglobiom"))
 
-# Load the test data into the global environment (i.e. it will display in RStudio so you can click on it)
-list2env(eu_nuts_pdf ,.GlobalEnv)
+# Load the test data from the into the global R environment (i.e. it will display in RStudio so you can see it)
+data("eu_nuts_pdf", package="rglobiom")
 
 # Join the data. The variable names in the polygon file and the data file are the same (NUTS2) so they are automatically linked. Note that the order is important because otherwise the polygon format will be lost.
 eu_nuts <- left_join(eu_nuts_poly, eu_nuts_pdf)
@@ -75,7 +75,7 @@ interval <- c(0, 1.5, 3, 6, 9, 12, 15, 20, 30, 60, 100, 110)
 # Create legend labels
 lab <- paste(interval, interval[-1], sep = " - ")[c(1:11)]
 
-# As the palette has only 9 colors and we need 12, we need to interpolate.
+# As the palette has only 9 colors and we need 12, we need to interpolate additional colors.
 library(RColorBrewer)
 n_col = length(interval)
 getPalette = colorRampPalette(brewer.pal(9, "YlOrBr"))
