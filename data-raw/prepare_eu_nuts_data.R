@@ -4,26 +4,25 @@
 # losses due to different bioenergy policies in the European Union, Science of the
 # Total Environment, 651, 1505-1516.
 #
-# Data represents potentially disappeared fraction of global species (PDF/m2) per EU Nuts region.
+# Data represents potentially disappeared fraction of global species (PDF/ha) per EU Nuts region.
 
 
 # Load packages
-library(tidyverse)
+library(readxl)
 
-# Load data
-# Use second row as header
-eu_nuts_pdf_raw <- read_csv("E:/OneDrive - IIASA/rglobiom/data/Cropland_EU_NUTS_baseline_scenario.csv", skip = 1)
+# Load data and combine scenario data
+eu_nuts_pdf_raw <- bind_rows(
+  read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
+    mutate(scenario = "BASE"),
+  read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
+    mutate(scenario = "CONST"),
+  read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
+    mutate(scenario = "EMIRED"))
 
 # Put in long format
-
 eu_nuts_pdf <- eu_nuts_pdf_raw %>%
-  gather(year, value, -NUTS2) %>%
+  gather(year, value, -NUTS2, -scenario) %>%
   mutate(year = as.integer(year))
 
-# Aggregate two nuts regions that have duplicates
-eu_nuts_pdf <- eu_nuts_pdf %>%
-  group_by(NUTS2, year) %>%
-  summarize(value = sum(value))
-
 # Add as data to package
-usethis::use_data(eu_nuts_pdf)
+usethis::use_data(eu_nuts_pdf, overwrite = T)

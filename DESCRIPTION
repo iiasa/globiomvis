@@ -26,7 +26,8 @@ Imports:
     tidyr,
     purrr,
     scales,
-    sf
+    sf,
+    RColorBrewer
 Suggests: 
     testthat,
     knitr,
