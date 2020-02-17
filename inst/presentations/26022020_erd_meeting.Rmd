@@ -1,0 +1,75 @@
+---
+title: "rglobiom"
+output: revealjs::revealjs_presentation
+---
+
+## Introduction
+
+## Who uses R?
+
+
+## Objective
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+
+## Motivation
+
+- High demand for 'pieces of scripts' 
+- Convinced it can make life easier
+- Similar efforts by other model teams, e.g. MagPIE
+- Keen to learn how to build an R package
+
+## What is an R package?
+
+
+## Purpose of the rglobiom at the moment
+
+- To facilitate GLOBIOM support tasks
+- Show examples on how to do this
+- Store lists of GLOBIOM variables/units/conversion factors
+- Store Central location for main maps
+- ?
+
+
+## Current contents
+
+- EU NUTS map
+- ColRow map
+- GLOBIOM EU 30 map
+- Historical trends versus globiom projections
+
+
+## How to use it?
+
+
+
+## Other task?
+
+
+
+## Maintenance, updates and extensions
+
+- Albert
+- Project in the IIASA Github repository
+- Easy to extent and generate documentation
+
+  
+
+
+
+
+## Slide with R Code and Output
+
+```{r}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
