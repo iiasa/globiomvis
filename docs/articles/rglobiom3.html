@@ -105,7 +105,7 @@
 <a class="sourceLine" id="cb1-5" title="5"></a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="co"># Load the EU NUTS polygons</span></a>
 <a class="sourceLine" id="cb1-7" title="7">eu_nuts_poly &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"shp"</span>, <span class="st">"NUTS2_revised.shp"</span>, <span class="dt">package =</span> <span class="st">"rglobiom"</span>))</a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `c:\Temp\Rtmp8CipXn\temp_libpath11dc47354e59\rglobiom\shp\NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `c:\Temp\Rtmp02h6LF\temp_libpath3004423e1078\rglobiom\shp\NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
 <a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt; Simple feature collection with 260 features and 8 fields</span></a>
 <a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt; geometry type:  MULTIPOLYGON</span></a>
 <a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt; dimension:      XY</span></a>
@@ -113,12 +113,11 @@
 <a class="sourceLine" id="cb1-13" title="13"><span class="co">#&gt; epsg (SRID):    32633</span></a>
 <a class="sourceLine" id="cb1-14" title="14"><span class="co">#&gt; proj4string:    +proj=utm +zone=33 +datum=WGS84 +units=m +no_defs</span></a>
 <a class="sourceLine" id="cb1-15" title="15"></a>
-<a class="sourceLine" id="cb1-16" title="16"><span class="co"># Load the test data into the global environment (i.e. it will display in RStudio so you can click on it)</span></a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="kw"><a href="https://rdrr.io/r/base/list2env.html">list2env</a></span>(eu_nuts_pdf ,.GlobalEnv)</a>
-<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt; &lt;environment: R_GlobalEnv&gt;</span></a>
-<a class="sourceLine" id="cb1-19" title="19"></a>
-<a class="sourceLine" id="cb1-20" title="20"><span class="co"># Join the data. The variable names in the polygon file and the data file are the same (NUTS2) so they are automatically linked. Note that the order is important because otherwise the polygon format will be lost.</span></a>
-<a class="sourceLine" id="cb1-21" title="21">eu_nuts &lt;-<span class="st"> </span><span class="kw">left_join</span>(eu_nuts_poly, eu_nuts_pdf)</a></code></pre></div>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co"># Load the test data from the into the global R environment (i.e. it will display in RStudio so you can see it)</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="kw"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="st">"eu_nuts_pdf"</span>, <span class="dt">package=</span><span class="st">"rglobiom"</span>)</a>
+<a class="sourceLine" id="cb1-18" title="18"></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co"># Join the data. The variable names in the polygon file and the data file are the same (NUTS2) so they are automatically linked. Note that the order is important because otherwise the polygon format will be lost.</span></a>
+<a class="sourceLine" id="cb1-20" title="20">eu_nuts &lt;-<span class="st"> </span><span class="kw">left_join</span>(eu_nuts_poly, eu_nuts_pdf)</a></code></pre></div>
 </div>
 <div id="create-a-map-for-one-year-and-one-scenario" class="section level2">
 <h2 class="hasAnchor">
@@ -147,7 +146,7 @@
 <a class="sourceLine" id="cb3-4" title="4"><span class="co"># Create legend labels</span></a>
 <a class="sourceLine" id="cb3-5" title="5">lab &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(interval, interval[<span class="op">-</span><span class="dv">1</span>], <span class="dt">sep =</span> <span class="st">" - "</span>)[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)]</a>
 <a class="sourceLine" id="cb3-6" title="6"></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="co"># As the palette has only 9 colors and we need 12, we need to interpolate.</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co"># As the palette has only 9 colors and we need 12, we need to interpolate additional colors.</span></a>
 <a class="sourceLine" id="cb3-8" title="8"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(RColorBrewer)</a>
 <a class="sourceLine" id="cb3-9" title="9">n_col =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(interval)</a>
 <a class="sourceLine" id="cb3-10" title="10">getPalette =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span>(<span class="kw">brewer.pal</span>(<span class="dv">9</span>, <span class="st">"YlOrBr"</span>))</a>
