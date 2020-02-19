@@ -142,8 +142,8 @@ ggplot() +
 
 ## Maintenance, updates and extensions
 
-- RProject in the IIASA Github repository
-- Easy to extent and generate documentation
+>- RProject in the IIASA Github repository
+>- Easy to extent and generate documentation
 
 
 
