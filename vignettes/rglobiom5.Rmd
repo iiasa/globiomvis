@@ -46,10 +46,8 @@ igdx(gams_path)
 globiom_path <- "P:/globiom"
 file <- file.path(globiom_path, "Data/ClimateChangeShocks/cc_LPJmL.gdx")
 symbol <- "ISIMIP_CC_Impact_Data"
-yld_shocks <- rgdx.param(file, symbol)
-x <- yld_shocks
-x <- x %>% setNames(c("country", "luid", "item", "ALLTECH", "variable", "rcp", "gcm", "crop_model", "resolution", "year", "value"))
-yld_shocks <- x
+yld_shocks <- rgdx.param(file, symbol) %>% 
+  setNames(c("country", "luid", "item", "ALLTECH", "variable", "rcp", "gcm", "crop_model", "resolution", "year", "value"))
 
 # Load the LUID map
 luid_map <- read_sf(file.path(globiom_path, "Data/simu_luid_region_maps/LUId/LUID_CTY.shp")) %>%
