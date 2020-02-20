@@ -82,8 +82,6 @@ data("main_output_comb", package="rglobiom")
 trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom")
 ```
 
-To view the pdf that was created run click [here](`r paste0("file:///", system.file("pdf", "globiom_trend_plots.pdf", package = "rglobiom"))`).
-
 
 ## Create plots for your own selection of GLOBIOM output
 
