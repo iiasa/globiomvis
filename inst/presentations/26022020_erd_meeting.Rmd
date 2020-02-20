@@ -46,9 +46,8 @@ output:
 
 >- Provide functions to facilitate GLOBIOM pre/post processing tasks
 >- Provide documentation and examples on how to do this
->- Offer a central location for key maps (e.g, LU, CR and SIMU)
 >- Offer a central location for GLOBIOM related info that is nowhere to be found (e.g. list of simus, fm/dm conversion factors, standard crop names, etc)
->- ...
+>- ...?
 
 
 ## Contents: EU NUTS map
@@ -134,12 +133,12 @@ ggplot() +
 [Link](https://iiasa.github.io/rglobiom/index.html)
 
 
-## Need to decide on:
+## We need to decide on:
 
->- Location of maps
->- Location of FAOSTAT.gdx
->- Structure and naming of key GLOBIOM input and output
->- ANYREGION or ?
+>- Standard location of base maps
+>- Standard location of OUTPUT_FAO.gdx
+>- Standard GLOBIOM nomenclature 
+>- Standard scenario columns
 
 
 ## Next steps?

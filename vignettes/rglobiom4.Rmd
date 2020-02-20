@@ -31,127 +31,24 @@ library(dplyr)
 # Load the world map
 world_poly <- st_read(system.file("shp", "region30.shp", package = "rglobiom"))
 
-# Load the test data from the into the global R environment (i.e. it will display in RStudio so you can see it)
-data("eu_nuts_pdf", package="rglobiom")
+# We remove antartica
+world_poly <- world_poly %>%
+  filter(iso3c != "ATA")
 
-# Join the data. The variable names in the polygon file and the data file are the same (NUTS2) so they are automatically linked. Note that the order is important because otherwise the polygon format will be lost.
-eu_nuts <- left_join(eu_nuts_poly, eu_nuts_pdf)
-
-```
-
-
-## Create a map for one year and one scenario
-
-```{r message=FALSE, warning=FALSE, include=TRUE}
-# Prepare data. We select only the year 2050 and the BASE scenario.
-# We remove NA values, if any.
-df <- eu_nuts %>%
-  filter(year == 2050, scenario == "BASE", !is.na(value))
-
-# Create the map. Note that we plot the map twice (2xgeom_sf). The first call ensures that the full map is depicted (with background color white). As we used a filter, it is possible we removed polygons for which data was not available, which would otherwise be dropped.
-ggplot() +
-  geom_sf(data = eu_nuts_poly, colour = "grey30", fill = "white") +
-  geom_sf(data = df, colour = "grey30", aes(fill = value)) +
-  scale_fill_gradientn(colours = terrain.colors(10)) +
-  labs(fill = "", x = "", y = "", title = "PDF of global species for BASE scenario, 2050") +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
-        panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
-       plot.title = element_text(hjust = 0.5))
-```
-
-Like in the original figure 2, we add bin the data to better reveal the spatial pattern. I also use a similar color palette as in the original figure.
-
-
-```{r message=FALSE, warning=FALSE, include=TRUE}
-# Create bins
-interval <- c(0, 1.5, 3, 6, 9, 12, 15, 20, 30, 60, 100, 110)
-
-# Create legend labels
-lab <- paste(interval, interval[-1], sep = " - ")[c(1:11)]
-
-# As the palette has only 9 colors and we need 12, we need to interpolate additional colors.
+# As the palette has only 9 colors and we need 30, we need to interpolate additional colors.
 library(RColorBrewer)
-n_col = length(interval)
-getPalette = colorRampPalette(brewer.pal(9, "YlOrBr"))
+n_col = length(unique(world_poly$ANYREGION))
+getPalette = colorRampPalette(brewer.pal(12, "Paired"))
 
-# Add the binned data
-df <- df %>%
-  mutate(value2 = cut(value, interval, include.lowest = T))
-
-# Create the map
+# Create the world map showing the GLOBIOM regions.
+# We add a grey background map that will show polygons not included in ANYREGION.
 ggplot() +
-  geom_sf(data = eu_nuts_poly, colour = "grey30", fill = "transparent") +
-  geom_sf(data = df, colour = "grey30", aes(fill = value2)) +
-  scale_fill_manual(values = getPalette(n_col), labels = lab) +
-  labs(x = "", y = "", fill = "PDF/ha" , title = "EU nuts abandoned land for 2050") +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
-        panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
-        plot.title = element_text(hjust = 0.5),
-        legend.position = c(0.9, 0.65),
-        legend.background = element_rect(fill = "transparent")) 
+  geom_sf(data = world_poly, colour = "grey30", fill = "grey80") +
+  geom_sf(data = filter(world_poly, !is.na(ANYREGION)), aes(fill = ANYREGION)) +
+  theme_void() +
+  theme(legend.position = "bottom") +
+  labs(fill = NULL) +
+  scale_fill_manual(values = getPalette(n_col))
 ```
 
 
-## Create a set of maps for multiple periods and one scenario
-
-In this example we create multiple maps that show the change in PDF/ha over time and in space. As we are increasing the number of maps, we first 'simplify' the polygons to speed up the processing time. To simplify further (and speed up), increase the `dTolerance` parameter. The EU NUTS polygon is quite detailed (i.e. capturing complex border patterns), which consume a lot of memory when plotting. This information is not needed for exploratory mapping. 
-
-
-```{r,  message=FALSE, warning=FALSE, include=TRUE}
-
-# Simplify the map
-eu_nuts_poly_s <- st_simplify(eu_nuts_poly, dTolerance = 5000)
-
-# Select the BASE scenario
-df2 <- left_join(eu_nuts_poly_s, eu_nuts_pdf) %>%
-  filter(scenario == "BASE" , !is.na(value))
-
-# plot
-ggplot() +
-  geom_sf(data = eu_nuts_poly_s, colour = "grey30", fill = "red") +
-  geom_sf(data = df2, colour = "grey30", aes(fill = value)) +
-  scale_fill_gradientn(colours = terrain.colors(10)) +
-  labs(fill = "", x = "", y = "", title = "PDF/ha of global species for 2010-2050") +
-  facet_wrap(~year) +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
-        panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
-        plot.title = element_text(hjust = 0.5),
-        strip.background = element_rect(fill = "transparent"),
-        legend.position = "bottom")
-
-```
-
-
-## Create a map for multiple periods and multiple scenarios
-
-Now we show all maps covering both the time and scenario dimension. As the maps are very small, this is probably only useful if there are large differences over time and space that can be easily spotted.
-
-
-```{r,  message=FALSE, warning=FALSE, include=TRUE}
-
-# Remove NA values
-df2 <- left_join(eu_nuts_poly_s, eu_nuts_pdf) %>%
-  filter(!is.na(value))
-
-# plot
-ggplot() +
-  geom_sf(data = eu_nuts_poly_s, colour = "grey30", fill = "red") +
-  geom_sf(data = df2, colour = "grey30", aes(fill = value)) +
-  scale_fill_gradientn(colours = terrain.colors(10)) +
-  labs(fill = "", x = "", y = "", title = "PDF/ha of global species for 2010-2050") +
-  facet_grid(scenario~ year) +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
-        panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
-        plot.title = element_text(hjust = 0.5),
-        strip.background = element_rect(fill = "transparent"),
-        legend.position = "bottom")
-
-```

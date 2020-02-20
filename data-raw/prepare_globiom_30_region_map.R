@@ -30,7 +30,7 @@ anyregion2iso3c <- read_csv("P:/globiom/Data/simu_luid_region_maps/Mappings/ANYR
 region30 <- wld_raw %>%
   dplyr::mutate(iso3c = ISO_A3) %>%
   left_join(anyregion2iso3c) %>%
-  dplyr::select(SOVEREIGNT, ADMIN, iso3c, ANYREGION, ALLCOUNTRY, country.name, GLOBIOM, REGION, continent, GEO3major, GEO3) %>%
+  dplyr::select(SOVEREIGNT, ADMIN, iso3c, ANYREGION, ALLCOUNTRY, GLOBIOM, REGION, continent, GEO3major, GEO3) %>%
   mutate(GLOBIOM = if_else(is.na(GLOBIOM), "N", GLOBIOM))
 
 # Add as shapefile to package
