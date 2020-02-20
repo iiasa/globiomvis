@@ -1,8 +1,8 @@
 ---
-title: "4. Generating GLOBIOM 30 region map"
+title: "4. Generating GLOBIOM 30 region maps"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Generating GLOBIOM 30 region map}
+  %\VignetteIndexEntry{Generating GLOBIOM 30 region maps}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -31,7 +31,7 @@ library(dplyr)
 # Load the world map
 world_poly <- st_read(system.file("shp", "region30.shp", package = "rglobiom"))
 
-# We remove antartica
+# We remove Antartica
 world_poly <- world_poly %>%
   filter(iso3c != "ATA")
 

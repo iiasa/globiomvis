@@ -70,7 +70,7 @@ hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT
 
 ## Create a pdf with plots for key variable, item and unit combinations
 
-Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/globiom`, which is created first. Note that it might take a bit of time as more than 200 plots are generated.
+Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/globiom`, which is created first. Note that it might take a bit of time as more than 200 plots are generated. 
 
 ```{r eval=FALSE}
 # Create folder to save pdf
@@ -81,6 +81,9 @@ data("main_output_comb", package="rglobiom")
 
 trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom")
 ```
+
+To view the pdf that was created run click [here](`r paste0("file:///", system.file("pdf", "globiom_trend_plots.pdf", package = "rglobiom"))`).
+
 
 ## Create plots for your own selection of GLOBIOM output
 
@@ -99,8 +102,8 @@ If you want full flexibility to plot the GLOBIOM results, for instance by zoomin
 trend_plot(var = "AREA", item = "CORN", unit = "1000 HA", reg = c("World", "EUR"), df_gl = globiom, df_hs = hist)
 ```
 
-```{r message=FALSE, warning=FALSE, include=TRUE}
-knitr::include_graphics(system.file("images", "trend_plot_example.png", package = "rglobiom"))
+```{r echo=FALSE}
+knitr::include_graphics("rglobiom2_files/trend_plot_example.png")
 ```
 
 If you want multiple figures, one has to loop this function over a selection of the data. This requires some additional code and is illustrated below. 

@@ -9,22 +9,22 @@ output:
 
 ## Q1: Who has never used R? 
 
-<img src="images/r_logo.png"  height="600" width="1000">
+<img src="images/r_logo.png"  height="500" width="800">
 
 
 ## Q2: Who mainly uses R for ggplot2? 
 
-<img src="images/ggplot2_masterpiece.png"  height="600" width="1000">
+<img src="images/ggplot2_masterpiece.png"  height="500" width="800">
 
 
 ## Q3: And the rest?
 
-<img src="images/bike_ggplot.png">
+<img src="images/bike_ggplot.png" height="500" width="800">
 
 
 ## Why R?
 
-<img src="images/rmarkdown_band.jpg"  height="600" width="1000">
+<img src="images/rmarkdown_band.jpg"  height="500" width="800">
 
 
 ## What is an R package?
@@ -50,7 +50,12 @@ output:
 >- ...?
 
 
-## Contents: EU NUTS map
+## Historical trends & projections
+
+<img src="images/trend_plot_example.png"  height="500" width="800">
+
+
+## EU NUTS map
 
 ```{r echo=FALSE, warning=FALSE, include = FALSE}
 library(rglobiom)
@@ -119,13 +124,43 @@ ggplot() +
 ```
 
 
-## Contents: ColRow map
+## GLOBIOM 30 region map
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(rglobiom)
+library(ggplot2)
+library(sf)
+library(dplyr)
+
+# Load the world map
+world_poly <- st_read(system.file("shp", "region30.shp", package = "rglobiom"))
+
+# We remove antartica
+world_poly <- world_poly %>%
+  filter(iso3c != "ATA")
+
+# As the palette has only 9 colors and we need 30, we need to interpolate additional colors.
+library(RColorBrewer)
+n_col = length(unique(world_poly$ANYREGION))
+getPalette = colorRampPalette(brewer.pal(12, "Paired"))
+```
+
+```{r echo=FALSE, warning=FALSE}
+# Create the world map showing the GLOBIOM regions.
+# We add a grey background map that will show polygons not included in ANYREGION.
+ggplot() +
+  geom_sf(data = world_poly, colour = "grey30", fill = "grey80") +
+  geom_sf(data = filter(world_poly, !is.na(ANYREGION)), aes(fill = ANYREGION)) +
+  theme_void() +
+  theme(legend.position = "bottom") +
+  labs(fill = NULL) +
+  scale_fill_manual(values = getPalette(n_col))
+```
 
 
-## Contents: GLOBIOM 30 region map
+## LUID map
 
-
-## Contents: Historical trends & projections
+<img src="images/luid.png"  height="500" width="800">
 
 
 ## How does it work?
@@ -149,7 +184,7 @@ ggplot() +
 
 ## Maintenance, updates and extensions
 
->- RProject in the IIASA Github repository
+>- Project in the IIASA Github repository
 >- Easy to extent and generate documentation
 
 

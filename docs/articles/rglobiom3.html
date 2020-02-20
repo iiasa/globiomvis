@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3. Generating EU NUTS MAP • rglobiom</title>
+<title>3. Generating EU NUTS maps • rglobiom</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="3. Generating EU NUTS MAP">
+<script src="../pkgdown.js"></script><meta property="og:title" content="3. Generating EU NUTS maps">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -60,10 +60,13 @@
       <a href="../articles/rglobiom2.html">2. Generating GLOBIOM scenario plots</a>
     </li>
     <li>
-      <a href="../articles/rglobiom3.html">3. Generating EU NUTS MAP</a>
+      <a href="../articles/rglobiom3.html">3. Generating EU NUTS maps</a>
     </li>
     <li>
-      <a href="../articles/rglobiom4.html">4. Generating GLOBIOM 30 region map</a>
+      <a href="../articles/rglobiom4.html">4. Generating GLOBIOM 30 region maps</a>
+    </li>
+    <li>
+      <a href="../articles/rglobiom5.html">5. Generating LUID maps</a>
     </li>
   </ul>
 </li>
@@ -81,7 +84,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>3. Generating EU NUTS MAP</h1>
+      <h1>3. Generating EU NUTS maps</h1>
             
       
       
@@ -108,7 +111,7 @@
 <a class="sourceLine" id="cb1-5" title="5"></a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="co"># Load the EU NUTS polygons</span></a>
 <a class="sourceLine" id="cb1-7" title="7">eu_nuts_poly &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"shp"</span>, <span class="st">"NUTS2_revised.shp"</span>, <span class="dt">package =</span> <span class="st">"rglobiom"</span>))</a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `c:\Temp\RtmpCkuWPL\temp_libpath454877f1c90\rglobiom\shp\NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `C:\R-3.5.1\library\rglobiom\shp\NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
 <a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt; Simple feature collection with 260 features and 8 fields</span></a>
 <a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt; geometry type:  MULTIPOLYGON</span></a>
 <a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt; dimension:      XY</span></a>
