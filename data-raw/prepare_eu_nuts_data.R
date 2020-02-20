@@ -1,3 +1,4 @@
+-------------------------------------------------------------------------------------------------
 # Code to process eu nuts example data obtained from Fulvio di Fulvio.
 #
 # Data is taken from Di Fulvio et al. (2019), Spatially explicit LCA analysis of biodiversity
@@ -5,11 +6,12 @@
 # Total Environment, 651, 1505-1516.
 #
 # Data represents potentially disappeared fraction of global species (PDF/ha) per EU Nuts region.
+  -------------------------------------------------------------------------------------------------
 
-
-# Load packages
+############### PACKAGES ###############
 library(readxl)
 
+############### LOAD DATA ###############
 # Load data and combine scenario data
 eu_nuts_pdf_raw <- bind_rows(
   read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
@@ -19,6 +21,8 @@ eu_nuts_pdf_raw <- bind_rows(
   read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
     mutate(scenario = "EMIRED"))
 
+
+############### PROCESS ###############
 # Put in long format
 eu_nuts_pdf <- eu_nuts_pdf_raw %>%
   gather(year, value, -NUTS2, -scenario) %>%

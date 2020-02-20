@@ -129,9 +129,17 @@ ggplot() +
 ## Contents: Historical trends & projections
 
 
-## How does it work? {data-background-iframe="https://iiasa.github.io/rglobiom/index.html"}
+## How does it work?
 
 [Link](https://iiasa.github.io/rglobiom/index.html)
+
+
+## Need to decide on:
+
+>- Location of maps
+>- Location of FAOSTAT.gdx
+>- Structure and naming of key GLOBIOM input and output
+>- ANYREGION or ?
 
 
 ## Next steps?
@@ -144,6 +152,15 @@ ggplot() +
 
 >- RProject in the IIASA Github repository
 >- Easy to extent and generate documentation
+
+
+## Thank you
+
+<img src="images/datasaurus.gif"  height="500" width="900">
+
+<small>source: https://blog.revolutionanalytics.com/2017/05/tweenr.html </small>
+
+
 
 
 
