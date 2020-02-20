@@ -2,14 +2,11 @@ citHeader("To cite rglobiom in publications use:")
 
 citEntry(
   entry    = "Article",
-  title    = "test",
-  author   = "test",
-  journal  = "test",
-  year     = "test",
-  volume   = "test",
-  number   = "test",
-  pages    = "test",
-  url      = "test",
+  title    = "rglobiom: An R package to support GLOBIOM analysis",
+  author   = "Michiel van Dijk",
+  journal  = "not published",
+  year     = "2020",
+  url      = "https://iiasa.github.io/rglobiom/authors.html",
   textVersion = paste(
 
   )
