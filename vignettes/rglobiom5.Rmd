@@ -70,7 +70,7 @@ ggplot() +
     geom_sf(data = df, aes(fill = value), colour = "transparent") +
     geom_sf(data = world_poly, fill = "transparent", colour = "black") +
     theme_void() +
-    labs(fill = "RCP8.5 Yield shocks for maize, 2100") +
+    labs(fill = "RCP8.5 Yield growth (2000 = 1) for maize, 2100") +
     theme(legend.position = "bottom") +
     scale_fill_continuous(limits = c(0,10), breaks = c(0, 2.5, 5, 7.5, 10),
     guide = guide_colourbar(nbin=100, draw.ulim = FALSE, draw.llim = FALSE, 
