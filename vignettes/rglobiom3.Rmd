@@ -1,8 +1,8 @@
 ---
-title: "3. Generating EU NUTS MAP"
+title: "3. Generating EU NUTS maps"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Generating GLOBIOM eu nuts map}
+  %\VignetteIndexEntry{Generating EU NUTS maps}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-To quikly inspect GLOBIOM runs it is often useful to compare historical trends of key variables with model projections. The package includes several functions to support this task. `trend_plot_all` produces a pdf file with plots for key combinations of variables, items and units across all GLOBIOM regions for which data is created. `trend_plot` is basic function that allows the user to make individual plots for selected variables, items, units and regions. Before the functions can be used historical data and globiom output needs to be loaded first. 
+To quickly inspect GLOBIOM runs it is often useful to compare historical trends of key variables with model projections. The package includes several functions to support this task. `trend_plot_all` produces a pdf file with plots for key combinations of variables, items and units across all GLOBIOM regions for which data is created. `trend_plot` is basic function that allows the user to make individual plots for selected variables, items, units and regions. Before the functions can be used historical data and globiom output needs to be loaded first. 
 
 
 ## Loading and preparing data
@@ -70,12 +70,18 @@ hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT
 
 ## Create a pdf with plots for key variable, item and unit combinations
 
-Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/globiom`, which is created first. Note that it might take a bit of time as more than 200 plots are generated.
+Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a pdf file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the pdf file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to the folder `c:/globiom`, which is created first. Note that it might take a bit of time as more than 200 plots are generated. 
 
 ```{r eval=FALSE}
+# Create folder to save pdf
 dir.create("c:/globiom", showWarnings = F)
+
+# Show main combinations of globiom variables
+data("main_output_comb", package="rglobiom")
+
 trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom")
 ```
+
 
 ## Create plots for your own selection of GLOBIOM output
 
@@ -85,13 +91,17 @@ It is also possible to create a pdf with a subset of combinations. The function 
 comb_sel <- all_output_comb(globiom) %>%
   filter(VAR_ID %in% c("AREA", "PROD"), ITEM_AG %in% c("CORN", "CRPLND"), VAR_UNIT %in% c("1000 HA", "1000 T"))
 
-trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom", comb = comb_sel)
+trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/globiom", comb = comb_sel, file_name = "globiom_selected")
 ```
 
-If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function `trend_plot`. The following example uses `trend_plot` to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA, regions: World and EUR and two scenarios: GHG000_BIO00 and GHG000_BIO06.
+If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function `trend_plot`. The following example uses `trend_plot` to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA, regions: World and EUR and two scenarios: GHG000_BIO00 and GHG000_BIO06. Note that the function gives an error if the combination of variables is not present in the data.
 
 ```{r eval=FALSE}
 trend_plot(var = "AREA", item = "CORN", unit = "1000 HA", reg = c("World", "EUR"), df_gl = globiom, df_hs = hist)
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("rglobiom2_files/trend_plot_example.png")
 ```
 
 If you want multiple figures, one has to loop this function over a selection of the data. This requires some additional code and is illustrated below. 
@@ -112,7 +122,7 @@ globiom_sel <- globiom %>%
 sel_output_comb <- all_output_comb(globiom_sel)
 
 # Loop over VAR_ID, ITEM_AG and VAR_UNIT 
-pdf(file = file.path("c:/globiom", paste0("globiom_trend_plots_", Sys.Date(), ".pdf")))
+pdf(file = file.path("c:/globiom", paste0("globiom_trend_plots_loop_", Sys.Date(), ".pdf")))
     purrr::walk(1:nrow(sel_output_comb), function(i){
       trend_plot(var = sel_output_comb$VAR_ID[i], item = sel_output_comb$ITEM_AG[i], 
                  unit = sel_output_comb$VAR_UNIT[i], reg = reg_sel, df_gl = globiom_sel, df_hs = hist)
