@@ -1,0 +1,10 @@
+---
+title: "rglobiom"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rglobiom}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+TEST

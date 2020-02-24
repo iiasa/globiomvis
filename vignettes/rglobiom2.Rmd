@@ -32,9 +32,9 @@ library(ggplot2)
 library(rglobiom)
 ```
 
-Next, we need to link R and GAMS so that R is able to load GDX files using the command `igdx()`. Use the folder where gams.exe is stored on your machine. If the link is created you should get the message `The GDX library has been loaded`.
+It is essential that R and GAMS are linked to be able to read gdx files. See the vignette [1. Install R, packages and other relevant software](https://iiasa.github.io/rglobiom/articles/rglobiom1.html) for more information on how to do this. Here we do it manually, using the command `igdx()`.
 
-```{r}
+```{r eval=FALSE}
 gams_path <- "c:/GAMS/win64/25.0"
 igdx(gams_path)
 ```
