@@ -117,7 +117,7 @@
 <a class="sourceLine" id="cb1-5" title="5"></a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="co"># Load the EU NUTS polygons</span></a>
 <a class="sourceLine" id="cb1-7" title="7">eu_nuts_poly &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"shp"</span>, <span class="st">"NUTS2_revised.shp"</span>, <span class="dt">package =</span> <span class="st">"rglobiom"</span>))</a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `C:\R-3.5.1\library\rglobiom\shp\NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `c:\Temp\RtmpWUwxwz\temp_libpath2c3477a16172\rglobiom\shp\NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
 <a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt; Simple feature collection with 260 features and 8 fields</span></a>
 <a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt; geometry type:  MULTIPOLYGON</span></a>
 <a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt; dimension:      XY</span></a>
@@ -156,7 +156,7 @@
 <a class="sourceLine" id="cb3-2" title="2">interval &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="fl">1.5</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">110</span>)</a>
 <a class="sourceLine" id="cb3-3" title="3"></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co"># Create legend labels</span></a>
-<a class="sourceLine" id="cb3-5" title="5">lab &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(interval, interval[<span class="op">-</span><span class="dv">1</span>], <span class="dt">sep =</span> <span class="st">" - "</span>)[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)]</a>
+<a class="sourceLine" id="cb3-5" title="5">lab &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(interval, interval[<span class="op">-</span><span class="dv">1</span>], <span class="dt">sep =</span> <span class="st">"-"</span>)[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)]</a>
 <a class="sourceLine" id="cb3-6" title="6"></a>
 <a class="sourceLine" id="cb3-7" title="7"><span class="co"># As the palette has only 9 colors and we need 12, we need to interpolate additional colors.</span></a>
 <a class="sourceLine" id="cb3-8" title="8"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(RColorBrewer)</a>
@@ -178,8 +178,9 @@
 <a class="sourceLine" id="cb3-24" title="24">        <span class="dt">panel.background =</span> <span class="kw">element_blank</span>(),</a>
 <a class="sourceLine" id="cb3-25" title="25">        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">"black"</span>, <span class="dt">fill =</span> <span class="st">"transparent"</span>), </a>
 <a class="sourceLine" id="cb3-26" title="26">        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>),</a>
-<a class="sourceLine" id="cb3-27" title="27">        <span class="dt">legend.position =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.9</span>, <span class="fl">0.65</span>),</a>
-<a class="sourceLine" id="cb3-28" title="28">        <span class="dt">legend.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">"transparent"</span>)) </a></code></pre></div>
+<a class="sourceLine" id="cb3-27" title="27">        <span class="dt">legend.position =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.9</span>, <span class="fl">0.6</span>),</a>
+<a class="sourceLine" id="cb3-28" title="28">        <span class="dt">legend.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">"transparent"</span>),</a>
+<a class="sourceLine" id="cb3-29" title="29">        <span class="dt">legend.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">6</span>)) </a></code></pre></div>
 <p><img src="rglobiom3_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 </div>
 <div id="create-a-set-of-maps-for-multiple-periods-and-one-scenario" class="section level2">
