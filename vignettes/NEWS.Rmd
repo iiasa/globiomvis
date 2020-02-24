@@ -1,5 +1,0 @@
-# rglobiom 0.0.1
-
-## rglobiom 0.0.1
-
-- This is the work in progress release of rglobiom.
