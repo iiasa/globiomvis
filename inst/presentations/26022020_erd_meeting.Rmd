@@ -176,12 +176,13 @@ ggplot() +
 [Link](https://iiasa.github.io/rglobiom/index.html)
 
 
-## We need to decide on:
+## Need to decide on:
 
->- Standard location of base maps
->- Standard location of OUTPUT_FAO.gdx
->- Standard GLOBIOM nomenclature 
->- Standard scenario columns
+>- Fixed location of base maps
+>- Fixed location of OUTPUT_FAO.gdx
+>- Standard GLOBIOM nomenclature
+>- Location of R support scripts
+>- Limited number of scenario columns
 
 
 ## Maintenance, updates and extensions
