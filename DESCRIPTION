@@ -14,7 +14,11 @@ Authors@R: c(
     person(given = "Fulvio",
            family = "Di Fulvio",
            role = c("ctb"),
-           email = "difulvio@iiasa.ac.at"))
+           email = "difulvio@iiasa.ac.at"),
+    person(given = "Brouwer",
+           family = "Albert",
+           role = c("ctb"),
+           email = "brouwer@iiasa.ac.at"))
 Description: Facilitates the use of R to analyse GLOBIOM output.
 License: MIT + file LICENSE
 Encoding: UTF-8

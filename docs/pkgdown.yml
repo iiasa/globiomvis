@@ -2,7 +2,6 @@ pandoc: 2.7.2
 pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
-  NEWS: NEWS.html
   rglobiom: rglobiom.html
   rglobiom1: rglobiom1.html
   rglobiom2: rglobiom2.html

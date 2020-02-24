@@ -34,3 +34,4 @@ Searches for the path where gams.exe is stored
 This is additional  information
 
 }
+\keyword{internal}

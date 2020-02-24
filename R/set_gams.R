@@ -10,7 +10,9 @@
 #' @param verbose	Logical. Enable verbose execution? Default is FALSE.
 #'
 #' @return Location of folder where most recent version of gams.exe is stored.
-
+#'
+#' @keywords internal
+#'
 #' @examples
 #' search_gams()
 
