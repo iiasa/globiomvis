@@ -2,7 +2,7 @@
 title: "rglobiom"
 subtitle: "An R package to support GLOBIOM analysis"
 author: "Michiel van Dijk and colleagues"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "26-02-2020"
 output:
     revealjs::revealjs_presentation:
       center: true
@@ -47,18 +47,18 @@ output:
 >- Keen to learn how to build an R package
 
 
-## Purpose of rglobiom (to be discussed)
+## Purpose of rglobiom (for discussion)
 
 >- Provide functions to facilitate GLOBIOM pre/post processing tasks
 >- Provide documentation and examples on how to do this
->- Offer a central location for GLOBIOM related info that is nowhere to be found (e.g. list of simus, fm/dm conversion factors, standard crop names, etc)
+>- Offer a central location for GLOBIOM related info that is nowhere to be found (e.g. list of SIMUs, fm/dm conversion factors, standard crop names, etc)
 >- ...?
 
 
 ## Package contents
 
 
-## Historical trends & projections
+## Comparing historical trends and projections
 
 <img src="images/trend_plot_example.png"  height="500" width="800">
 
@@ -181,14 +181,13 @@ ggplot() +
 >- Fixed location of base maps
 >- Fixed location of OUTPUT_FAO.gdx
 >- Standard GLOBIOM nomenclature
->- Location of R support scripts
 >- Limited number of scenario columns
 
 
-## Maintenance, updates and extensions
+## Maintenance and updates
 
 >- Project in the IIASA Github repository
->- Easy to extent and generate documentation
+>- Relatively easy to add functionalities and generate documentation
 
 
 ## Next steps?
