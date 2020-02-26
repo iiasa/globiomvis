@@ -26,17 +26,18 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    ggplot2,
     dplyr,
+    ggplot2,
     magrittr,
-    tidyr,
     purrr,
+    RColorBrewer,
     scales,
     sf,
-    RColorBrewer
+    tidyr
 Suggests: 
-    testthat (>= 2.1.0),
     knitr,
-    rmarkdown
+    pkgdown,
+    rmarkdown,
+    testthat (>= 2.1.0)
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
