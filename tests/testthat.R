@@ -1,4 +1,4 @@
 library(testthat)
-library(GLOBIOMtools)
+library(rglobiom)
 
-test_check("GLOBIOMtools")
+test_check("rglobiom")
