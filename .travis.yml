@@ -1,6 +1,11 @@
 language: r
 cache: packages
 
+addons:
+  apt:
+    packages:
+      - libudunits2-dev
+
 after_success:
   - Rscript -e 'pkgdown::build_site()'
 
