@@ -1,5 +1,5 @@
 Package: rglobiom
-Title: Interface between r and GLOBIOM
+Title: Interface between R and GLOBIOM
 Version: 0.0.1
 Authors@R: c(
     person(given = "Michiel",
@@ -20,6 +20,8 @@ Authors@R: c(
            role = c("ctb"),
            email = "brouwer@iiasa.ac.at"))
 Description: Facilitates the use of R to analyse GLOBIOM output.
+URL: https://iiasa.github.io/rglobiom, https://github.com/iiasa/rglobiom
+BugReports: https://github.com/iiasa/rglobiom/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -33,7 +35,7 @@ Imports:
     sf,
     RColorBrewer
 Suggests: 
-    testthat,
+    testthat (>= 2.1.0),
     knitr,
     rmarkdown
 VignetteBuilder: knitr
