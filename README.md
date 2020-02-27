@@ -1,23 +1,23 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rglobiom
+# globiomvis
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of rglobiom is facilitate the use of R to analyse GLOBIOM
+The goal of globiomvis is facilitate the use of R to analyse GLOBIOM
 output and prepare GLOBIOM input.
 
 ## Installation
 
-You can install the development version of rglobiom from
+You can install the development version of globiomvis from
 [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("iiasa/rglobiom")
+devtools::install_github("iiasa/globiomvis")
 ```
 
 The package depends on several other packages that need to be installed
@@ -31,7 +31,7 @@ articles provide a number of examples on how to use the package.
 
 <!-- ```{r example} -->
 
-<!-- library(rglobiom) -->
+<!-- library(globiomvis) -->
 
 <!-- ## basic example code -->
 

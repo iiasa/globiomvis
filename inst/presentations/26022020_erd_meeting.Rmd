@@ -1,5 +1,5 @@
 ---
-title: "rglobiom"
+title: "globiomvis"
 subtitle: "An R package to support GLOBIOM analysis"
 author: "Michiel van Dijk and colleagues"
 date: "26-02-2020"
@@ -47,7 +47,7 @@ output:
 >- Keen to learn how to build an R package
 
 
-## Purpose of rglobiom (for discussion)
+## Purpose of globiomvis (for discussion)
 
 >- Provide functions to facilitate GLOBIOM pre/post processing tasks
 >- Provide documentation and examples on how to do this
@@ -66,16 +66,16 @@ output:
 ## EU NUTS map
 
 ```{r echo=FALSE, warning=FALSE, include = FALSE}
-library(rglobiom)
+library(globiomvis)
 library(ggplot2)
 library(sf)
 library(dplyr)
 
 # Load the EU NUTS polygons
-eu_nuts_poly <- st_read(system.file("shp", "NUTS2_revised.shp", package = "rglobiom"))
+eu_nuts_poly <- st_read(system.file("shp", "NUTS2_revised.shp", package = "globiomvis"))
 
 # Load the test data from the into the global R environment (i.e. it will display in RStudio so you can see it)
-data("eu_nuts_pdf", package="rglobiom")
+data("eu_nuts_pdf", package="globiomvis")
 
 # Join the data. The variable names in the polygon file and the data file are the same (NUTS2) so they are automatically linked. Note that the order is important because otherwise the polygon format will be lost.
 eu_nuts <- left_join(eu_nuts_poly, eu_nuts_pdf)
@@ -135,13 +135,13 @@ ggplot() +
 ## GLOBIOM 30 region map
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-library(rglobiom)
+library(globiomvis)
 library(ggplot2)
 library(sf)
 library(dplyr)
 
 # Load the world map
-world_poly <- st_read(system.file("shp", "region30.shp", package = "rglobiom"))
+world_poly <- st_read(system.file("shp", "region30.shp", package = "globiomvis"))
 
 # We remove antartica
 world_poly <- world_poly %>%
@@ -173,7 +173,7 @@ ggplot() +
 
 ## How does it work?
 
-[Link](https://iiasa.github.io/rglobiom/index.html)
+[Link](https://iiasa.github.io/globiomvis/index.html)
 
 
 ## Need to decide on:

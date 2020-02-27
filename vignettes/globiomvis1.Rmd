@@ -1,0 +1,73 @@
+---
+title: "1. Install R, packages and other relevant software"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{1. Install R, packages and other relevant software}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Installing R and RStudio
+
+To use the package one needs to install R and RStudio. R can be downloaded [here](https://cran.r-project.org/bin/windows/base/) and is available for various operating systems. I recommend not to use the latest release as it takes some time before all packages are updated and therefore might results in errors. I normally use the second to last release.
+
+Rstudio is most used open source software to code in R (but it can do a lot more). It can be downloaded [here](https://rstudio.com/products/rstudio/download/). The free version is sufficient. 
+
+
+## Installing packages
+
+Packages are pieces of bundled R code, frequently including scripts from other languages (e.g. C or C++) to speed up calculations or interface with other software (e.g. GAMS). Package can be easily installed by typing `install.packages("PACKAGE_NAME") or by clicking on the 'package' tab in RStudio. Nearly all packages are directly downloaded from CRAN, the R package repository, on your system.
+
+Most of the examples explained in the vignettes require the use of a small number of packages, which are jointly referred to as the [tidyverse](https://www.tidyverse.org/), most importantly dplyr, purrr, tidyr and ggplot2. Some of them are also used by globiomvis internally and will be installed automatically when globiomvis is installed if they have not been installed before. 
+
+
+## Installing and using GDXRRW
+
+To interface between R and GAMS the GDXRRW package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
+
+To install GDXRRW:
+
+1. Copy the GDXRRW.zip to a temporary folder on your machine. Note that the version of GDXRRW has to match your R version, otherwise there might be an error! Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.
+2. Click 'Packages' > 'install' in RStudio
+3. Select 'Install from: Package Archive File (.zip; .tar; .gz)
+4. Select GDXRRW.zip to install the package in your R library
+
+For GDXRRW to work and to be able to read gdx files, the package needs to link with GAMS. This can be done manually using the following code. If the link is created you should get the message `The GDX library has been loaded`.
+
+```{r eval=FALSE}
+# Where C:/GAMS/win64/25.0 is the location of the gams.exe
+gams_path <- "C:/GAMS/win64/25.0"
+library(gdxrrw)
+igdx(gams_path)
+```
+
+If the location of GAMS is added to the PATH on windows or LD_LIBRARY_PATH on Linux, this command is not necessary anymore. To add GAMS to the Windows path type "edit the system environment variables" in the Search Windows bar at the bottom of your Windows session. Click "Environment Variables", select "Path", click "Edit", click "New" and add (in this case) "C:/GAMS/win64/25.0" to the PATH list. 
+
+
+## Installing globiomvis
+
+To install globiomvis, which is also not on CRAN, one first has to install the devtools package (if not already installed):
+
+```{r, eval=FALSE}
+install.packages("devtools")
+library(devtools)
+devtools::install_github("iiasa/globiomvis")
+```
+
+
+## Additional software
+
+Although not strictly necessary to use globiomvis (for now), I recommend installing the following additional software:
+
+- osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded [here](https://trac.osgeo.org/osgeo4w). Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded [here](https://gdal.org/download.html).
+
+- miktex. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of [miktex](https://miktex.org). If you want to learn more about this look [here](https://bookdown.org/yihui/rmarkdown/)
+
+- git. This is software to version you code and can be downloaded [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). RStudio and git can be easily linked to version your code and use [github](https://github.com) to store code in the cloud and facilitate collaborative code development. More information about how to set this up can be found [here](https://www.r-bloggers.com/rstudio-and-github/) and [here](https://www.r-bloggers.com/using-rstudio-and-git-version-control/).

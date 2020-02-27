@@ -1,4 +1,4 @@
 library(testthat)
-library(rglobiom)
+library(globiomvis)
 
-test_check("rglobiom")
+test_check("globiomvis")

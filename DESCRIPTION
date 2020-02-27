@@ -1,5 +1,5 @@
-Package: rglobiom
-Title: Interface between R and GLOBIOM
+Package: globiomvis
+Title: Visualize GLOBIOM data with R
 Version: 0.0.1
 Authors@R: c(
     person(given = "Michiel",
@@ -16,9 +16,9 @@ Authors@R: c(
     person(given = "Albert",
            family = "Brouwer",
            role = c("ctb")))
-Description: Facilitates the use of R to analyse GLOBIOM output.
-URL: https://iiasa.github.io/rglobiom, https://github.com/iiasa/rglobiom
-BugReports: https://github.com/iiasa/rglobiom/issues
+Description: Functions and examples for visualizing GLOBIOM data with R
+URL: https://iiasa.github.io/globiomvis, https://github.com/iiasa/globiomvis
+BugReports: https://github.com/iiasa/globiomvis/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

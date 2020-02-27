@@ -5,6 +5,7 @@
 *.dbf binary
 *.jpg binary
 *.png binary
+*.rda binary
 *.sbn binary
 *.sbx binary
 *.shp binary

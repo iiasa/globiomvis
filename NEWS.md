@@ -1,4 +1,4 @@
-# rglobiom 0.0.1
+# globiomvis 0.0.1
 
 ## Major changes
 

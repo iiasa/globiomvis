@@ -12,25 +12,25 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# rglobiom
+# globiomvis
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of [rglobiom](https://iiasa.github.io/rglobiom) is to facilitate the use of R to analyse
+The goal of [globiomvis](https://iiasa.github.io/globiomvis) is to facilitate the use of R to analyse
 GLOBIOM output and prepare GLOBIOM input.
 
 ## Installation
 
-You can install the development version of rglobiom from [GitHub](https://github.com/) with:
+You can install the development version of globiomvis from [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("iiasa/rglobiom")
+devtools::install_github("iiasa/globiomvis")
 ```
 
 The package depends on several other packages that need to be installed first. Please read the
-[Install R, packages and other relevant software](https://iiasa.github.io/rglobiom/articles/rglobiom1.html) article for more information on how to do this. The other articles provide a number of examples
+[Install R, packages and other relevant software](https://iiasa.github.io/globiomvis/articles/globiomvis1.html) article for more information on how to do this. The other articles provide a number of examples
 on how to use the package.
 
 <!-- ## Example -->
@@ -38,6 +38,6 @@ on how to use the package.
 <!-- This is a basic example which shows you how to solve a common problem: -->
 
 <!-- ```{r example} -->
-<!-- library(rglobiom) -->
+<!-- library(globiomvis) -->
 <!-- ## basic example code -->
 <!-- ``` -->

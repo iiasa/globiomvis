@@ -4,10 +4,10 @@
 
 ############### PACKAGES ###############
 library(readr)
-library(rglobiom)
+library(globiomvis)
 
 ############### LOAD DATA ###############
-main_output_comb <- read_csv(system.file("globiom", "main_output_comb.csv", package = "rglobiom"))
+main_output_comb <- read_csv(system.file("globiom", "main_output_comb.csv", package = "globiomvis"))
 
 ############### PROCESS ###############
 # Add as data to package

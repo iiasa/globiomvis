@@ -5,4 +5,4 @@
 
 
 #' Example
-#' system.file("shp", "NUTS2_revised.shp", package = "rglobiom")
+#' system.file("shp", "NUTS2_revised.shp", package = "globiomvis")

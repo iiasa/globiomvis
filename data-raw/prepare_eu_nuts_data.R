@@ -14,11 +14,11 @@ library(readxl)
 ############### LOAD DATA ###############
 # Load data and combine scenario data
 eu_nuts_pdf_raw <- bind_rows(
-  read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
+  read_excel("E:/OneDrive - IIASA/projects/globiomvis/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
     mutate(scenario = "BASE"),
-  read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
+  read_excel("E:/OneDrive - IIASA/projects/globiomvis/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
     mutate(scenario = "CONST"),
-  read_excel("E:/OneDrive - IIASA/projects/rglobiom/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
+  read_excel("E:/OneDrive - IIASA/projects/globiomvis/data/PDF_ha_10-12.xlsx", sheet = "BASE") %>%
     mutate(scenario = "EMIRED"))
 
 

@@ -2,10 +2,10 @@ pandoc: 2.7.2
 pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
-  rglobiom: rglobiom.html
-  rglobiom1: rglobiom1.html
-  rglobiom2: rglobiom2.html
-  rglobiom3: rglobiom3.html
-  rglobiom4: rglobiom4.html
-  rglobiom5: rglobiom5.html
+  globiomvis: globiomvis.html
+  globiomvis1: globiomvis1.html
+  globiomvis2: globiomvis2.html
+  globiomvis3: globiomvis3.html
+  globiomvis4: globiomvis4.html
+  globiomvis5: globiomvis5.html
 
