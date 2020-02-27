@@ -26,6 +26,7 @@ Depends:
     R (>= 2.10)
 Imports: 
     dplyr,
+    gdxrrw,
     ggplot2,
     magrittr,
     purrr,
@@ -33,6 +34,8 @@ Imports:
     scales,
     sf,
     tidyr
+Remotes:
+    url::https://support.gams.com/_media/gdxrrw:gdxrrw_1.0.5.tar.gz
 Suggests: 
     knitr,
     pkgdown,
