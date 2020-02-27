@@ -7,8 +7,8 @@
 
 <!-- badges: end -->
 
-The goal of globiomvis is facilitate the use of R to analyse GLOBIOM
-output and prepare GLOBIOM input.
+The [globiomvis](https://iiasa.github.io/globiomvis) R package provides
+functionality for visualizing GLOBIOM data.
 
 ## Installation
 
@@ -21,9 +21,10 @@ devtools::install_github("iiasa/globiomvis")
 ```
 
 The package depends on several other packages that need to be installed
-first. Please read the ‘1. Install R, packages and other relevant
-software’ article for more information on how to do this. The other
-articles provide a number of examples on how to use the package.
+first. Please read the [Install R, packages and other relevant
+software](https://iiasa.github.io/globiomvis/articles/globiomvis1.html)
+article for more information on how to do this. The other articles
+provide a number of examples on how to use the package.
 
 <!-- ## Example -->
 

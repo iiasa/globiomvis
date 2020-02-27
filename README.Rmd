@@ -17,8 +17,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of [globiomvis](https://iiasa.github.io/globiomvis) is to facilitate the use of R to analyse
-GLOBIOM output and prepare GLOBIOM input.
+The [globiomvis](https://iiasa.github.io/globiomvis) R package provides functionality for
+visualizing GLOBIOM data.
 
 ## Installation
 
