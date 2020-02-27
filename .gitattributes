@@ -1,0 +1,11 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Denote all files that are truly binary and should not be modified.
+*.dbf binary
+*.jpg binary
+*.png binary
+*.sbn binary
+*.sbx binary
+*.shp binary
+*.shx binary
