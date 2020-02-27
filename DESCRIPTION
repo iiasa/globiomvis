@@ -9,16 +9,13 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-5207-7304")),
     person(given = "Stefan",
            family = "Frank",
-           role = c("ctb"),
-           email = "frank@iiasa.ac.at"),
+           role = c("ctb")),
     person(given = "Fulvio",
            family = "Di Fulvio",
-           role = c("ctb"),
-           email = "difulvio@iiasa.ac.at"),
-    person(given = "Brouwer",
-           family = "Albert",
-           role = c("ctb"),
-           email = "brouwer@iiasa.ac.at"))
+           role = c("ctb")),
+    person(given = "Albert",
+           family = "Brouwer",
+           role = c("ctb")))
 Description: Facilitates the use of R to analyse GLOBIOM output.
 URL: https://iiasa.github.io/rglobiom, https://github.com/iiasa/rglobiom
 BugReports: https://github.com/iiasa/rglobiom/issues
