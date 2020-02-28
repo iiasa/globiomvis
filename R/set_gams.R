@@ -29,7 +29,9 @@
 #' @param root=["C:/"|"/usr/local/Cellar"|"/usr"] root path relative to which to search
 #'
 #' @examples
+#' \donttest{
 #' search_gams()
+#' }
 #'
 #' @export
 search_gams <- function (path = NULL,
