@@ -5,6 +5,8 @@ vignette: >
   %\VignetteIndexEntry{Generating GLOBIOM scenario plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+resource_files:
+  - globiomvis2_files/trend_plot_example.png
 ---
 
 ```{r, include = FALSE}

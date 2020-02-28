@@ -5,6 +5,8 @@ vignette: >
   %\VignetteIndexEntry{Generating LUID and SIMU maps}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+resource_files:
+  - globiomvis5_files/luid.png
 ---
 
 ```{r, include = FALSE}
