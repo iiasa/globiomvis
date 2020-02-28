@@ -16,7 +16,7 @@ Authors@R: c(
     person(given = "Albert",
            family = "Brouwer",
            role = c("ctb")))
-Description: Functions and examples for visualizing GLOBIOM data with R
+Description: Functions and examples for visualizing GLOBIOM data with R.
 URL: https://iiasa.github.io/globiomvis, https://github.com/iiasa/globiomvis
 BugReports: https://github.com/iiasa/globiomvis/issues
 License: MIT + file LICENSE

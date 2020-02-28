@@ -1,21 +1,14 @@
-#' GLOBIOMtools_env specific environmental variables and paths
-#'
-#' Creates scenario plots by region for selected items
-#'
-#' Sets the environmental, package specific parameters and settings.
-#'
-#' @param search_path Character. Force a search in a specified directory. This directory should contain the gdalinfo(.exe) executable. If a valid GDAL install is found in this path, this will force gdalUtils to use this installation. Remember to set rescan=TRUE if you have already set an install.
-#' @param rescan Logical. Force a rescan if neccessary (e.g. if you updated your GDAL install).
-#' @param ignore.full_scan	Logical. If FALSE, perform a brute-force scan if other installs are not found. Default is TRUE.
-#' @param verbose	Logical. Enable verbose execution? Default is FALSE.
-#'
-#' @return Location of folder where most recent version of gams.exe is stored.
-#'
-#' @keywords internal
-#'
-#' @examples
-#' search_gams()
+#' Package-specific parameters and settings.
 
+# #' @param search_path Character. Force a search in a specified directory. This directory should contain the gdalinfo(.exe) executable. If a valid GDAL install is found in this path, this will force gdalUtils to use this installation. Remember to set rescan=TRUE if you have already set an install.
+# #' @param rescan Logical. Force a rescan if neccessary (e.g. if you updated your GDAL install).
+# #' @param ignore.full_scan	Logical. If FALSE, perform a brute-force scan if other installs are not found. Default is TRUE.
+# #' @param verbose	Logical. Enable verbose execution? Default is FALSE.
+# #'
+# #' @return Location of folder where most recent version of gams.exe is stored.
+# #'
+# #' @keywords internal
+# #'
 # GLOBIOMtools_env <- function (search_path = NULL, rescan = FALSE, ignore.full_scan = TRUE,
 #           verbose = FALSE){}
 #
@@ -27,23 +20,26 @@
 # return(env)
 # }
 
-
 #' Search GAMS path
 #'
 #' Searches for the path where gams.exe is stored
 #'
-#' This is additional  information
+#' @param path  path=NULL path to GAMS directory holding cmd exe/binary to use instead of searching
+#' @param cmd  filename of binary/exe located at path
+#' @param root=["C:/"|"/usr/local/Cellar"|"/usr"] root path relative to which to search
 #'
-
-# Check: rsaga.env and plotKML.env
-# Need to add function that reads version number from main gams folder and not from subfolder
-# is it might happen it is not present
-# Need to check unix part with Albert
-
+#' @examples
+#' search_gams()
+#'
+#' @export
 search_gams <- function (path = NULL,
             cmd = ifelse(Sys.info()["sysname"] == "Windows", "gams.exe", "gams_cmd"),
             root = NULL)
   {
+    # Check: rsaga.env and plotKML.env
+    # Need to add function that reads version number from main gams folder and not from subfolder
+    # is it might happen it is not present
+    # Need to check unix part with Albert
     if (is.null(root)) {
       if (Sys.info()["sysname"] == "Windows") {
         root = "C:/"
