@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+Status](https://travis-ci.org/iiasa/globiomvis.svg?branch=master)](https://travis-ci.org/iiasa/globiomvis)
 <!-- badges: end -->
 
 The [globiomvis](https://iiasa.github.io/globiomvis) R package provides
