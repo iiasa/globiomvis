@@ -29,7 +29,7 @@
 #' @param root=["C:/"|"/usr/local/Cellar"|"/usr"] root path relative to which to search
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' search_gams()
 #' }
 #'
@@ -106,9 +106,8 @@ search_gams <- function (path = NULL,
         }
       }
       else {
-        unix.defaults.paths = c("/usr/bin", "/usr/local/bin",
-                                "/usr/local/Cellar/saga-gis-lts/2.3.2/bin", sub(paste0("/",
-                                                                                       cmd), "", system2("which", args = cmd, stdout = TRUE)))
+        # Not Windows
+        unix.defaults.paths = c("/usr/bin", "/usr/local/bin", "/opt/gams/gams", "")
         for (pa in unix.defaults.paths) {
           if (file.exists(file.path(pa, cmd))) {
             path = pa
@@ -120,7 +119,7 @@ search_gams <- function (path = NULL,
           path = gsub(paste0(".{", nchar(cmd), "}$"), "",
                       path)
           if (is.na(path)) {
-            stop("SAGA command line program not found on ",
+            stop("GAMS command line program not found on ",
                  root, "\n")
           }
         }
