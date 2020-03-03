@@ -19,8 +19,6 @@ knitr::opts_chunk$set(
 To use the package one needs to install R and RStudio. R can be downloaded [here](https://cran.r-project.org/bin/windows/base/) and is available for various operating systems. I recommend not to use the latest release as it takes some time before all packages are updated and therefore might results in errors. I normally use the second to last release.
 
 Rstudio is most used open source software to code in R (but it can do a lot more). It can be downloaded [here](https://rstudio.com/products/rstudio/download/). The free version is sufficient. 
-
-
 ## Installing packages
 
 Packages are pieces of bundled R code, frequently including scripts from other languages (e.g. C or C++) to speed up calculations or interface with other software (e.g. GAMS). Package can be easily installed by typing `install.packages("PACKAGE_NAME") or by clicking on the 'package' tab in RStudio. Nearly all packages are directly downloaded from CRAN, the R package repository, on your system.
@@ -39,17 +37,21 @@ To install GDXRRW:
 3. Select 'Install from: Package Archive File (.zip; .tar; .gz)
 4. Select GDXRRW.zip to install the package in your R library
 
-For GDXRRW to work and to be able to read gdx files, the package needs to link with GAMS. This can be done manually using the following code. If the link is created you should get the message `The GDX library has been loaded`.
+For GDXRRW to work, the package needs to load GDX libraries from the GAMS system directory. Use the `igdx()` function to tell GDXRRW where it can find GAMS. There are multiple ways to do so as explained in the `igdx` help page:
 
 ```{r eval=FALSE}
-# Where C:/GAMS/win64/25.0 is the location of the gams.exe
-gams_path <- "C:/GAMS/win64/25.0"
 library(gdxrrw)
-igdx(gams_path)
+help(igdx)
 ```
 
-If the location of GAMS is added to the PATH on windows or LD_LIBRARY_PATH on Linux, this command is not necessary anymore. To add GAMS to the Windows path type "edit the system environment variables" in the Search Windows bar at the bottom of your Windows session. Click "Environment Variables", select "Path", click "Edit", click "New" and add (in this case) "C:/GAMS/win64/25.0" to the PATH list. 
+The recommended method is to set the `R_GAMS_SYSDIR` environment variable. For details see [here](https://iiasa.github.io/GLOBIOM_FABLE/R.html). After setting `R_GAMS_SYSDIR`, you should be able to load the GDX libraries by passing an empty string as first argument to `igdx`:
 
+```{r eval=FALSE}
+library(gdxrrw)
+igdx("")
+```
+
+In the examples that follow, it is assumed that you have set `R_GAMS_SYSDIR`.
 
 ## Installing globiomvis
 
@@ -60,7 +62,6 @@ install.packages("devtools")
 library(devtools)
 devtools::install_github("iiasa/globiomvis")
 ```
-
 
 ## Additional software
 
