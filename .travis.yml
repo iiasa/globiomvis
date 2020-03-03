@@ -1,14 +1,16 @@
 language: r
 cache: packages
 
+warnings_are_errors: false
+
 env:
   - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
 
 addons:
   apt:
     packages:
-      - libudunits2-dev
       - libgdal-dev
+      - libudunits2-dev
 
 after_success:
   - Rscript -e 'pkgdown::build_site()'
