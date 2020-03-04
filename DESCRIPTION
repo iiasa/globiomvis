@@ -15,7 +15,7 @@ Authors@R: c(
            role = c("ctb")),
     person(given = "Albert",
            family = "Brouwer",
-           role = c("ctb")))
+           role = c("aut")))
 Description: Functions and examples for visualizing GLOBIOM data with R.
 URL: https://iiasa.github.io/globiomvis, https://github.com/iiasa/globiomvis
 BugReports: https://github.com/iiasa/globiomvis/issues

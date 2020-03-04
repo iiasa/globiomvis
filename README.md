@@ -25,7 +25,8 @@ devtools::install_github("iiasa/globiomvis")
 The package depends on several other packages that need to be installed
 first. Please read the [Install R, packages and other relevant
 software](https://iiasa.github.io/globiomvis/articles/globiomvis1.html)
-article for more information on how to do this. The other articles
+article for more information on how to do this and how to solve
+potential problems when installing globiomvis. The other articles
 provide a number of examples on how to use the package.
 
 <!-- ## Example -->
