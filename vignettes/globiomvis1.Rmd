@@ -25,7 +25,7 @@ Rstudio is most used open source software to code in R (but it can do a lot more
 
 Packages are pieces of bundled R code, frequently including scripts from other languages (e.g. C or C++) to speed up calculations or interface with other software (e.g. GAMS). Package can be easily installed by typing `install.packages("PACKAGE_NAME") or by clicking on the 'package' tab in RStudio. Nearly all packages are directly downloaded from CRAN, the R package repository, on your system.
 
-Most of the examples explained in the vignettes require the use of a small number of packages, which are jointly referred to as the [tidyverse](https://www.tidyverse.org/), most importantly dplyr, purrr, tidyr and ggplot2. Some of them are also used by globiomvis internally and will be installed automatically when globiomvis is installed if they have not been installed before. 
+Most of the examples explained in the vignettes require the use of a small number of packages, which are jointly referred to as the [tidyverse](https://www.tidyverse.org/), most importantly dplyr, purrr, tidyr and ggplot2.  
 
 
 ## Installing and using GDXRRW
@@ -60,6 +60,8 @@ install.packages("devtools")
 library(devtools)
 devtools::install_github("iiasa/globiomvis")
 ```
+
+Note that globiomvis requires several other packages to be installed as they are used internally. They will be installed automatically when globiomvis is installed. This sometimes results into conflicts when an older version of these packages is already installed on your system and have been loaded into memory. To prevent this, I recommend installing globiomvis before you run any other code after startup. If you get the message that `These package have more recent versions available. It is recommended to update all of them. Which would you like to update?`, select `3: None`. 
 
 
 ## Additional software
