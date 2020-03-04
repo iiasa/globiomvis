@@ -30,7 +30,7 @@ Most of the examples explained in the vignettes require the use of a small numbe
 
 To interface between R and GAMS the GDXRRW package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
 
-To install GDXRRW:
+To install GDXRRW on Windows:
 
 1. Copy the GDXRRW.zip to a temporary folder on your machine. Note that the version of GDXRRW has to match your R version, otherwise there might be an error! Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.
 2. Click 'Packages' > 'install' in RStudio
@@ -39,15 +39,20 @@ To install GDXRRW:
 
 For GDXRRW to work, the package needs to load GDX libraries from the GAMS system directory. Use the `igdx()` function to tell GDXRRW where it can find GAMS. There are multiple ways to do so as explained in the `igdx` help page:
 
-```{r eval=FALSE}
+```{r, eval=FALSE}
 library(gdxrrw)
 help(igdx)
 ```
 
-The recommended method is to set the `R_GAMS_SYSDIR` environment variable. For details see [here](https://iiasa.github.io/GLOBIOM_FABLE/R.html). After setting `R_GAMS_SYSDIR`, you should be able to load the GDX libraries by passing an empty string as first argument to `igdx`:
+You can specify the GAMS system directory explicitely. For example:
 
-```{r eval=FALSE}
-library(gdxrrw)
+```{r, eval=FALSE}
+igdx("C:/GAMS/win64/29.1")
+```
+
+However, the recommended method is to set the `R_GAMS_SYSDIR` environment variable. For details see [here](https://iiasa.github.io/GLOBIOM_FABLE/R.html). After setting `R_GAMS_SYSDIR`, you should be able to load the GDX libraries by passing an empty string as first argument to `igdx`:
+
+```{r, eval=FALSE}
 igdx("")
 ```
 
