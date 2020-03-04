@@ -34,14 +34,13 @@ library(ggplot2)
 library(globiomvis)
 ```
 
-It is essential that R and GAMS are linked to be able to read gdx files. See the vignette [1. Install R, packages and other relevant software](https://iiasa.github.io/globiomvis/articles/globiomvis1.html) for more information on how to do this. Here we do it manually, using the command `igdx()`.
+As explained in the article [Install R, packages and other relevant software](https://iiasa.github.io/globiomvis/articles/globiomvis1.html), GDXRRW will load the GAMS GDX libraries via the `R_GAMS_SYSDIR` environment variable when issuing
 
 ```{r eval=FALSE}
-gams_path <- "c:/GAMS/win64/25.0"
-igdx(gams_path)
+igdx("")
 ```
 
-We load a GLOBIOM output file. We use `setNames` to add column names. The will be missing if the gams data table (i.e. the Symbol) has '*' instead of variables. We also ensure that `YEAR` is an integer (and not a character) and `ITEM_AG, VAR_ID and VAR_UNIT` are in capitals, and add a 'source' column.
+We load a GLOBIOM output file. We use `setNames` to add column names. These will be missing if the gams data table (i.e. the Symbol) has '*' instead of set names. We also ensure that `YEAR` is an integer (and not a character) and `ITEM_AG, VAR_ID and VAR_UNIT` are in capitals, and add a 'source' column.
 
 ```{r eval=FALSE}
 globiom_path <- "P:/globiom"
@@ -132,5 +131,3 @@ pdf(file = file.path("c:/globiom", paste0("globiom_trend_plots_loop_", Sys.Date(
     dev.off()
     
 ```
-
-

@@ -40,9 +40,8 @@ world_poly <- getMap(resolution="low")
 world_poly <- st_as_sf(world_poly) %>%
   filter(ISO_A3 != "ATA")
 
-# Link gams
-gams_path <- "c:/GAMS/win64/25.0"
-igdx(gams_path)
+# Load GDX libraries via R_GAMS_SYSDIR environment variable
+igdx("")
 
 # Load LUID level data, in this case climate shocks produced by LPJmL for ISIMIP
 globiom_path <- "P:/globiom"
@@ -85,4 +84,3 @@ ggplot() +
 ```{r echo=FALSE}
 knitr::include_graphics("globiomvis5_files/luid.png")
 ```
-
