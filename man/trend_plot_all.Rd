@@ -4,8 +4,13 @@
 \alias{trend_plot_all}
 \title{Creates pdf with plots for selected GLOBIOM output dimensions}
 \usage{
-trend_plot_all(df_gl = NULL, df_hs = NULL, path = NULL,
-  file_name = NULL, comb = NULL)
+trend_plot_all(
+  df_gl = NULL,
+  df_hs = NULL,
+  path = NULL,
+  file_name = NULL,
+  comb = NULL
+)
 }
 \arguments{
 \item{df_gl}{dataframe with globiom output}

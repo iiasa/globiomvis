@@ -3,7 +3,6 @@
 \docType{package}
 \name{globiomvis}
 \alias{globiomvis}
-\alias{globiomvis-package}
 \title{globiomvis: A package to facilitate GLOBIOM analysis.}
 \description{
 The globiomvis package provides a number of functions and examples to support the analysis with GLOBIOM,
