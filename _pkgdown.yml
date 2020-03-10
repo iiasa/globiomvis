@@ -8,7 +8,7 @@ navbar:
     - installation
     - reference
     - articles
-    - changelog
+    - news
     right: github
   components:
     home:
@@ -34,7 +34,7 @@ navbar:
         href: articles/example3.html
       - text: 4. Generating LUID maps
         href: articles/example4.html
-    changelog:
+    news:
       text: Changelog
       href: news/index.html
     github:
