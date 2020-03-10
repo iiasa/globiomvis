@@ -113,48 +113,59 @@
 <div id="installing-r-and-rstudio" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-r-and-rstudio" class="anchor"></a>Installing R and RStudio</h2>
-<p>To use the package one needs to install R and RStudio. R can be downloaded <a href="https://cran.r-project.org/bin/windows/base/">here</a> and is available for various operating systems. I recommend not to use the latest release as it takes some time before all packages are updated and therefore might results in errors. I normally use the second to last release.</p>
-<p>Rstudio is most used open source software to code in R (but it can do a lot more). It can be downloaded <a href="https://rstudio.com/products/rstudio/download/">here</a>. The free version is sufficient.</p>
+<p>Since <code>globiomvis</code> is an R package, R is required. R can be downloaded <a href="https://cran.r-project.org">here</a>. On Linux, you can instead install R with the package manager of your distribution.</p>
+<p>We highly recommend to also install the RStudio integrated development environment. It can be downloaded <a href="https://rstudio.com/products/rstudio/download/">here</a>. It will allow you to easily try the examples and debug your code. Some of the discussion that follows assumes that you have RStudio installed.</p>
 </div>
-<div id="installing-packages" class="section level2">
+<div id="a-note-on-r-packages" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installing-packages" class="anchor"></a>Installing packages</h2>
-<p>Packages are pieces of bundled R code, frequently including scripts from other languages (e.g. C or C++) to speed up calculations or interface with other software (e.g. GAMS). Package can be easily installed by typing `install.packages(“PACKAGE_NAME”) or by clicking on the ‘package’ tab in RStudio. Nearly all packages are directly downloaded from CRAN, the R package repository, on your system.</p>
-<p>Most of the examples explained in the vignettes require the use of a small number of packages, which are jointly referred to as the <a href="https://www.tidyverse.org/">tidyverse</a>, most importantly dplyr, purrr, tidyr and ggplot2.</p>
-</div>
-<div id="installing-and-using-gdxrrw" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installing-and-using-gdxrrw" class="anchor"></a>Installing and using GDXRRW</h2>
-<p>To interface between R and GAMS the GDXRRW package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). Hence, one has to install it manually. The package can be found <a href="https://support.gams.com/gdxrrw:interfacing_gams_and_r">here</a></p>
-<p>To install GDXRRW on Windows:</p>
-<ol style="list-style-type: decimal">
-<li>Copy the GDXRRW.zip to a temporary folder on your machine. Note that the version of GDXRRW has to match your R version, otherwise there might be an error! Thus, if you have R version 3.5.X install the GDXRRW version that is built with R 3.5.x.</li>
-<li>Click ‘Packages’ &gt; ‘install’ in RStudio</li>
-<li>Select ’Install from: Package Archive File (.zip; .tar; .gz)</li>
-<li>Select GDXRRW.zip to install the package in your R library</li>
-</ol>
-<p>For GDXRRW to work, the package needs to load GDX libraries from the GAMS system directory. Use the <code><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx()</a></code> function to tell GDXRRW where it can find GAMS. There are multiple ways to do so as explained in the <code>igdx</code> help page:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gdxrrw)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/help.html">help</a></span>(igdx)</a></code></pre></div>
-<p>You can specify the GAMS system directory explicitely. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx</a></span>(<span class="st">"C:/GAMS/win64/29.1"</span>)</a></code></pre></div>
-<p>However, the recommended method is to set the <code>R_GAMS_SYSDIR</code> environment variable. For details see <a href="https://iiasa.github.io/GLOBIOM_FABLE/R.html">here</a>. After setting <code>R_GAMS_SYSDIR</code>, you should be able to load the GDX libraries by passing an empty string as first argument to <code>igdx</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx</a></span>(<span class="st">""</span>)</a></code></pre></div>
-<p>In the examples that follow, it is assumed that you have set <code>R_GAMS_SYSDIR</code>.</p>
+<a href="#a-note-on-r-packages" class="anchor"></a>A note on R packages</h2>
+<p>Packages are bundles containing R scripts, and frequently also includes code written in other languages (e.g. C or C++) that speeds up calculations or interfaces with other software (e.g. GAMS). Packages can easily be installed by typing <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("PACKAGE_NAME")</a></code> or by clicking on the ‘package’ tab in RStudio. Most packages can be downloaded from CRAN, the official R package repository.</p>
+<p>The <code>globiomvis</code> package depends on other R packages. A large subset of these are jointly referred to as the <a href="https://www.tidyverse.org/">tidyverse</a>, a curated package collection that includes <code>dplyr</code>, <code>purrr</code>, <code>tidyr</code> and <code>ggplot2</code>.</p>
+<p>Installing packages sometimes results in conflicts when an older version of these packages is already installed on your system and has been loaded into memory. To prevent this, install packages immediately after (re)starting R. If you get the message <code>These package have more recent versions available. It is recommended to update all of them. Which would you like to update?</code>, the conservative choice is to select <code>3: None</code>: you can always update later after further deliberation.</p>
 </div>
 <div id="installing-globiomvis" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-globiomvis" class="anchor"></a>Installing globiomvis</h2>
-<p>To install globiomvis, which is also not on CRAN, one first has to install the devtools package (if not already installed):</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"iiasa/globiomvis"</span>)</a></code></pre></div>
-<p>Note that globiomvis requires several other packages to be installed as they are used internally. They will be installed automatically when globiomvis is installed. This sometimes results into conflicts when an older version of these packages is already installed on your system and have been loaded into memory. To prevent this, I recommend installing globiomvis before you run any other code after startup. If you get the message that <code>These package have more recent versions available. It is recommended to update all of them. Which would you like to update?</code>, select <code>3: None</code>.</p>
+<p>From an R or RStudio console, installing the <code>globiomvis</code> package can be as simple as:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install the devtools package, if you have not done si already</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># Install globiomvis development version from GitHub, it is not available on CRAN</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"iiasa/globiomvis"</span>)</a></code></pre></div>
+<p>This should also install all further required packages, but the <code>gdxrrw</code> package will fail to install if your system lacks a compiler. You can either install the required compiler tools, which will add a lot of stuff to your system, or you can install a binary version of the <code>gdxrrw</code> package as documented in the next section.</p>
+</div>
+<div id="installing-a-gdxrrw-binary-package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installing-a-gdxrrw-binary-package" class="anchor"></a>Installing a gdxrrw binary package</h2>
+<p>To read/write GDX files from R, the <code>gdxrrw</code> package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). The package can be found <a href="https://support.gams.com/gdxrrw:interfacing_gams_and_r">here</a></p>
+<p>To install <code>gdxrrw</code> without compiling, download the latest binary package built for your operating system and R version (if you have R version 3.5.X install the <code>gdxrrw</code> version that is built with R 3.5.x) and save the package archive file to a tempory directory. Then:</p>
+<ol style="list-style-type: decimal">
+<li>Click ‘Packages’ &gt; ‘install’ in RStudio</li>
+<li>Select ’Install from: Package Archive File (.zip; .tar; .gz)</li>
+<li>Select the package archive file in the temporary directory to install the package in your R library</li>
+</ol>
+</div>
+<div id="installing-compiler-tools" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installing-compiler-tools" class="anchor"></a>Installing compiler tools</h2>
+<p>Linux should already have a compiler installed. On Windows, compiling code in R source-only packages requires an <a href="https://cran.r-project.org/bin/windows/Rtools">Rtools</a> installation. On MacOS, the <a href="https://cran.r-project.org/bin/macosx/tools">development tools and libraries</a> are required for compilaton.</p>
+<p>After having installed these tools, performing the <code>globiomvis</code> installation as explained above should succeed in installing <code>gdxrrw</code>.</p>
+</div>
+<div id="using-gdxrrw" class="section level2">
+<h2 class="hasAnchor">
+<a href="#using-gdxrrw" class="anchor"></a>Using gdxrrw</h2>
+<p>For <code>gdxrrw</code> to work, the package needs to load GDX libraries from the GAMS system directory. Use the <code><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx()</a></code> function to tell <code>gdxrrw</code> where it can find GAMS. There are multiple ways to do so as explained in the <code>igdx</code> help page:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gdxrrw)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/help.html">help</a></span>(igdx)</a></code></pre></div>
+<p>You can specify the GAMS system directory explicitely. For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx</a></span>(<span class="st">"C:/GAMS/win64/29.1"</span>)</a></code></pre></div>
+<p>However, we recommended to set the <code>R_GAMS_SYSDIR</code> environment variable. For details see <a href="https://iiasa.github.io/GLOBIOM/R.html">here</a>. After setting <code>R_GAMS_SYSDIR</code>, you should be able to load the GDX libraries by passing an empty string as first argument to <code>igdx</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx</a></span>(<span class="st">""</span>)</a></code></pre></div>
+<p>In the examples that follow, it is assumed that you have set <code>R_GAMS_SYSDIR</code>.</p>
 </div>
 <div id="additional-software" class="section level2">
 <h2 class="hasAnchor">
 <a href="#additional-software" class="anchor"></a>Additional software</h2>
-<p>Although not strictly necessary to use globiomvis (for now), I recommend installing the following additional software:</p>
+<p>Although not strictly necessary to use globiomvis (for now), we recommend installing the following additional software:</p>
 <ul>
 <li><p>osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded <a href="https://trac.osgeo.org/osgeo4w">here</a>. Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded <a href="https://gdal.org/download.html">here</a>.</p></li>
 <li><p>miktex. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of <a href="https://miktex.org">miktex</a>. If you want to learn more about this look <a href="https://bookdown.org/yihui/rmarkdown/">here</a></p></li>
@@ -170,9 +181,11 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#installing-r-and-rstudio">Installing R and RStudio</a></li>
-      <li><a href="#installing-packages">Installing packages</a></li>
-      <li><a href="#installing-and-using-gdxrrw">Installing and using GDXRRW</a></li>
+      <li><a href="#a-note-on-r-packages">A note on R packages</a></li>
       <li><a href="#installing-globiomvis">Installing globiomvis</a></li>
+      <li><a href="#installing-a-gdxrrw-binary-package">Installing a gdxrrw binary package</a></li>
+      <li><a href="#installing-compiler-tools">Installing compiler tools</a></li>
+      <li><a href="#using-gdxrrw">Using gdxrrw</a></li>
       <li><a href="#additional-software">Additional software</a></li>
       </ul>
 </div>
