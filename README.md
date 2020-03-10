@@ -12,5 +12,5 @@ Status](https://travis-ci.org/iiasa/globiomvis.svg?branch=master)](https://travi
 The `globiomvis]`R package assists with visualizing GLOBIOM data. The
 package provides utility functions and includes examples with sample
 data. To learn more, see the [getting
-started](https://github.com/iiasa/globiomvis/articles/getting_started.html)
+started](https://iiasa.github.io/globiomvis/articles/getting_started.html)
 documentation.
