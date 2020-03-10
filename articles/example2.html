@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3. Generating EU NUTS maps • globiomvis</title>
+<title>2. Generating EU NUTS maps • globiomvis</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="3. Generating EU NUTS maps">
+<script src="../pkgdown.js"></script><meta property="og:title" content="2. Generating EU NUTS maps">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -44,34 +44,37 @@
   </a>
 </li>
 <li>
-  <a href="../articles/globiomvis.html">Get started</a>
+  <a href="../articles/getting_started.html">Getting started</a>
+</li>
+<li>
+  <a href="../articles/installation.html">Installation</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Examples
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/globiomvis1.html">1. Install R, packages and other relevant software</a>
+      <a href="../articles/example1.html">1. Generating GLOBIOM scenario plots</a>
     </li>
     <li>
-      <a href="../articles/globiomvis2.html">2. Generating GLOBIOM scenario plots</a>
+      <a href="../articles/example2.html">2. Generating EU NUTS maps</a>
     </li>
     <li>
-      <a href="../articles/globiomvis3.html">3. Generating EU NUTS maps</a>
+      <a href="../articles/example3.html">3. Generating GLOBIOM 30 region maps</a>
     </li>
     <li>
-      <a href="../articles/globiomvis4.html">4. Generating GLOBIOM 30 region maps</a>
-    </li>
-    <li>
-      <a href="../articles/globiomvis5.html">5. Generating LUID maps</a>
+      <a href="../articles/example4.html">4. Generating LUID maps</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -97,11 +100,11 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>3. Generating EU NUTS maps</h1>
+      <h1>2. Generating EU NUTS maps</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/iiasa/globiomvis/blob/master/vignettes/globiomvis3.Rmd"><code>vignettes/globiomvis3.Rmd</code></a></small>
-      <div class="hidden name"><code>globiomvis3.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/iiasa/globiomvis/blob/master/vignettes/example2.Rmd"><code>vignettes/example2.Rmd</code></a></small>
+      <div class="hidden name"><code>example2.Rmd</code></div>
 
     </div>
 
@@ -124,7 +127,7 @@
 <a class="sourceLine" id="cb1-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co"># Load the EU NUTS polygons</span></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">eu_nuts_poly &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/sf/man/st_read.html">st_read</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"shp"</span>, <span class="st">"NUTS2_revised.shp"</span>, <span class="dt">package =</span> <span class="st">"globiomvis"</span>))</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `/tmp/Rtmpw65uuK/temp_libpath3fb2663cd993/globiomvis/shp/NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt; Reading layer `NUTS2_revised' from data source `/tmp/RtmpJ9jHIH/temp_libpath527c5f214f1/globiomvis/shp/NUTS2_revised.shp' using driver `ESRI Shapefile'</span></a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt; Simple feature collection with 260 features and 8 fields</span></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt; geometry type:  MULTIPOLYGON</span></a>
 <a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt; dimension:      XY</span></a>
@@ -157,7 +160,7 @@
 <a class="sourceLine" id="cb2-14" data-line-number="14">        <span class="dt">panel.background =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),</a>
 <a class="sourceLine" id="cb2-15" data-line-number="15">        <span class="dt">panel.border =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="dt">colour =</span> <span class="st">"black"</span>, <span class="dt">fill =</span> <span class="st">"transparent"</span>), </a>
 <a class="sourceLine" id="cb2-16" data-line-number="16">       <span class="dt">plot.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</a></code></pre></div>
-<p><img src="globiomvis3_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p><img src="example2_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 <p>Like in the original figure 2, we add bin the data to better reveal the spatial pattern. I also use a similar color palette as in the original figure.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Create bins</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">interval &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="fl">1.5</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">110</span>)</a>
@@ -188,7 +191,7 @@
 <a class="sourceLine" id="cb3-27" data-line-number="27">        <span class="dt">legend.position =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.9</span>, <span class="fl">0.6</span>),</a>
 <a class="sourceLine" id="cb3-28" data-line-number="28">        <span class="dt">legend.background =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="dt">fill =</span> <span class="st">"transparent"</span>),</a>
 <a class="sourceLine" id="cb3-29" data-line-number="29">        <span class="dt">legend.text=</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">size=</span><span class="dv">6</span>)) </a></code></pre></div>
-<p><img src="globiomvis3_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<p><img src="example2_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 </div>
 <div id="create-a-set-of-maps-for-multiple-periods-and-one-scenario" class="section level2">
 <h2 class="hasAnchor">
@@ -216,7 +219,7 @@
 <a class="sourceLine" id="cb4-20" data-line-number="20">        <span class="dt">plot.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>),</a>
 <a class="sourceLine" id="cb4-21" data-line-number="21">        <span class="dt">strip.background =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="dt">fill =</span> <span class="st">"transparent"</span>),</a>
 <a class="sourceLine" id="cb4-22" data-line-number="22">        <span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</a></code></pre></div>
-<p><img src="globiomvis3_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="example2_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
 <div id="create-a-map-for-multiple-periods-and-multiple-scenarios" class="section level2">
 <h2 class="hasAnchor">
@@ -241,7 +244,7 @@
 <a class="sourceLine" id="cb5-17" data-line-number="17">        <span class="dt">plot.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>),</a>
 <a class="sourceLine" id="cb5-18" data-line-number="18">        <span class="dt">strip.background =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="dt">fill =</span> <span class="st">"transparent"</span>),</a>
 <a class="sourceLine" id="cb5-19" data-line-number="19">        <span class="dt">legend.position =</span> <span class="st">"bottom"</span>)</a></code></pre></div>
-<p><img src="globiomvis3_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><img src="example2_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 </div>
   </div>
 

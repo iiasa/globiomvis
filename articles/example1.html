@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2. Generating GLOBIOM scenario plots • globiomvis</title>
+<title>1. Generating GLOBIOM scenario plots • globiomvis</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="2. Generating GLOBIOM scenario plots">
+<script src="../pkgdown.js"></script><meta property="og:title" content="1. Generating GLOBIOM scenario plots">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -44,34 +44,37 @@
   </a>
 </li>
 <li>
-  <a href="../articles/globiomvis.html">Get started</a>
+  <a href="../articles/getting_started.html">Getting started</a>
+</li>
+<li>
+  <a href="../articles/installation.html">Installation</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Examples
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/globiomvis1.html">1. Install R, packages and other relevant software</a>
+      <a href="../articles/example1.html">1. Generating GLOBIOM scenario plots</a>
     </li>
     <li>
-      <a href="../articles/globiomvis2.html">2. Generating GLOBIOM scenario plots</a>
+      <a href="../articles/example2.html">2. Generating EU NUTS maps</a>
     </li>
     <li>
-      <a href="../articles/globiomvis3.html">3. Generating EU NUTS maps</a>
+      <a href="../articles/example3.html">3. Generating GLOBIOM 30 region maps</a>
     </li>
     <li>
-      <a href="../articles/globiomvis4.html">4. Generating GLOBIOM 30 region maps</a>
-    </li>
-    <li>
-      <a href="../articles/globiomvis5.html">5. Generating LUID maps</a>
+      <a href="../articles/example4.html">4. Generating LUID maps</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -97,11 +100,11 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>2. Generating GLOBIOM scenario plots</h1>
+      <h1>1. Generating GLOBIOM scenario plots</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/iiasa/globiomvis/blob/master/vignettes/globiomvis2.Rmd"><code>vignettes/globiomvis2.Rmd</code></a></small>
-      <div class="hidden name"><code>globiomvis2.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/iiasa/globiomvis/blob/master/vignettes/example1.Rmd"><code>vignettes/example1.Rmd</code></a></small>
+      <div class="hidden name"><code>example1.Rmd</code></div>
 
     </div>
 
@@ -122,7 +125,7 @@
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(purrr)</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(globiomvis)</a></code></pre></div>
-<p>As explained in the article <a href="https://iiasa.github.io/globiomvis/articles/globiomvis1.html">Install R, packages and other relevant software</a>, GDXRRW will load the GAMS GDX libraries via the <code>R_GAMS_SYSDIR</code> environment variable when issuing</p>
+<p>As explained in the <a href="installation.html">installation article</a>, GDXRRW will load the GAMS GDX libraries via the <code>R_GAMS_SYSDIR</code> environment variable when issuing</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx</a></span>(<span class="st">""</span>)</a></code></pre></div>
 <p>We load a GLOBIOM output file. We use <code>setNames</code> to add column names. These will be missing if the gams data table (i.e. the Symbol) has ’*‘instead of set names. We also ensure that <code>YEAR</code> is an integer (and not a character) and <code>ITEM_AG, VAR_ID and VAR_UNIT</code> are in capitals, and add a ’source’ column.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">globiom_path &lt;-<span class="st"> "P:/globiom"</span></a>
@@ -167,7 +170,7 @@
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/pkg/globiomvis/man/trend_plot_all.html">trend_plot_all</a></span>(<span class="dt">df_gl =</span> globiom, <span class="dt">df_hs =</span> hist, <span class="dt">path =</span> <span class="st">"c:/globiom"</span>, <span class="dt">comb =</span> comb_sel, <span class="dt">file_name =</span> <span class="st">"globiom_selected"</span>)</a></code></pre></div>
 <p>If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function <code>trend_plot</code>. The following example uses <code>trend_plot</code> to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA, regions: World and EUR and two scenarios: GHG000_BIO00 and GHG000_BIO06. Note that the function gives an error if the combination of variables is not present in the data.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/globiomvis/man/trend_plot.html">trend_plot</a></span>(<span class="dt">var =</span> <span class="st">"AREA"</span>, <span class="dt">item =</span> <span class="st">"CORN"</span>, <span class="dt">unit =</span> <span class="st">"1000 HA"</span>, <span class="dt">reg =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"World"</span>, <span class="st">"EUR"</span>), <span class="dt">df_gl =</span> globiom, <span class="dt">df_hs =</span> hist)</a></code></pre></div>
-<p><img src="globiomvis2_files/trend_plot_example.png"><!-- --></p>
+<p><img src="example1_files/trend_plot_example.png"><!-- --></p>
 <p>If you want multiple figures, one has to loop this function over a selection of the data. This requires some additional code and is illustrated below.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Select scenarios, variables, items and units</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">var_sel &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AREA"</span>, <span class="st">"PROD"</span>)</a>
