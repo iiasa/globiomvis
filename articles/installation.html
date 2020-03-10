@@ -127,7 +127,7 @@
 <h2 class="hasAnchor">
 <a href="#installing-globiomvis" class="anchor"></a>Installing globiomvis</h2>
 <p>From an R or RStudio console, installing the <code>globiomvis</code> package can be as simple as:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install the devtools package, if you have not done si already</span></a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install the devtools package, if you have not done so already</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># Install globiomvis development version from GitHub, it is not available on CRAN</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"iiasa/globiomvis"</span>)</a></code></pre></div>
@@ -140,14 +140,14 @@
 <p>To install <code>gdxrrw</code> without compiling, download the latest binary package built for your operating system and R version (if you have R version 3.5.X install the <code>gdxrrw</code> version that is built with R 3.5.x) and save the package archive file to a tempory directory. Then:</p>
 <ol style="list-style-type: decimal">
 <li>Click ‘Packages’ &gt; ‘install’ in RStudio</li>
-<li>Select ’Install from: Package Archive File (.zip; .tar; .gz)</li>
+<li>Select ‘Install from: Package Archive File (.zip; .tar; .gz)’</li>
 <li>Select the package archive file in the temporary directory to install the package in your R library</li>
 </ol>
 </div>
 <div id="installing-compiler-tools" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-compiler-tools" class="anchor"></a>Installing compiler tools</h2>
-<p>Linux should already have a compiler installed. On Windows, compiling code in R source-only packages requires an <a href="https://cran.r-project.org/bin/windows/Rtools">Rtools</a> installation. On MacOS, the <a href="https://cran.r-project.org/bin/macosx/tools">development tools and libraries</a> are required for compilaton.</p>
+<p>Linux should already have a compiler installed. On Windows, compiling code in source-only packages requires an <a href="https://cran.r-project.org/bin/windows/Rtools">Rtools</a> installation. On MacOS, the <a href="https://cran.r-project.org/bin/macosx/tools">development tools and libraries</a> are required for compilaton.</p>
 <p>After having installed these tools, performing the <code>globiomvis</code> installation as explained above should succeed in installing <code>gdxrrw</code>.</p>
 </div>
 <div id="using-gdxrrw" class="section level2">
@@ -167,9 +167,9 @@
 <a href="#additional-software" class="anchor"></a>Additional software</h2>
 <p>Although not strictly necessary to use globiomvis (for now), we recommend installing the following additional software:</p>
 <ul>
-<li><p>osgeo4w. This is a collection of open source geospatial software for windows and can be downloaded <a href="https://trac.osgeo.org/osgeo4w">here</a>. Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded <a href="https://gdal.org/download.html">here</a>.</p></li>
-<li><p>miktex. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of <a href="https://miktex.org">miktex</a>. If you want to learn more about this look <a href="https://bookdown.org/yihui/rmarkdown/">here</a></p></li>
-<li><p>git. This is software to version you code and can be downloaded <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>. RStudio and git can be easily linked to version your code and use <a href="https://github.com">github</a> to store code in the cloud and facilitate collaborative code development. More information about how to set this up can be found <a href="https://www.r-bloggers.com/rstudio-and-github/">here</a> and <a href="https://www.r-bloggers.com/using-rstudio-and-git-version-control/">here</a>.</p></li>
+<li><p><strong>osgeo4w</strong>. This is a collection of open source geospatial software for windows and can be downloaded <a href="https://trac.osgeo.org/osgeo4w">here</a>. Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded <a href="https://gdal.org/download.html">here</a>.</p></li>
+<li><p><strong>miktex</strong>. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of <a href="https://miktex.org">miktex</a>. If you want to learn more about this look <a href="https://bookdown.org/yihui/rmarkdown/">here</a></p></li>
+<li><p><strong>git</strong>. This is software to version you code and can be downloaded <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>. RStudio and git can be easily linked to version your code and use <a href="https://github.com">github</a> to store code in the cloud and facilitate collaborative code development. More information about how to set this up can be found <a href="https://www.r-bloggers.com/rstudio-and-github/">here</a> and <a href="https://www.r-bloggers.com/using-rstudio-and-git-version-control/">here</a>.</p></li>
 </ul>
 </div>
   </div>
