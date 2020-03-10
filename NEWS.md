@@ -1,6 +1,10 @@
-# globiomvis 0.0.1
+# globiomvis v0.0.2
 
-## Major changes
+* Improved and restructured vignettes and web site.
+* Use Travis CI for automated testing and site building.
+* The `R_GAMS_SYSDIR` environment variable is now the preferred method of [linking gdxrrw to GAMS](https://iiasa.github.io/globiomvis/articles/installation.html#using-gdxrrw).
 
-- First work in progress release
+# globiomvis v0.0.1
+
+* First work in progress release
 
