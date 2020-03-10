@@ -1,1 +1,42 @@
 destination: docs
+url: https://iiasa.github.io/globiomvis
+navbar:
+  structure:
+    left:
+    - home
+    - getting_started
+    - installation
+    - reference
+    - articles
+    - changelog
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    getting_started:
+      text: Getting started
+      href: articles/getting_started.html
+    installation:
+      text: Installation
+      href: articles/installation.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Examples
+      menu:
+      - text: 1. Generating GLOBIOM scenario plots
+        href: articles/example1.html
+      - text: 2. Generating EU NUTS maps
+        href: articles/example2.html
+      - text: 3. Generating GLOBIOM 30 region maps
+        href: articles/example3.html
+      - text: 4. Generating LUID maps
+        href: articles/example4.html
+    changelog:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/iiasa/globiomvis
