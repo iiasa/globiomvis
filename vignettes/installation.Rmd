@@ -22,7 +22,7 @@ We highly recommend to also install the RStudio integrated development environme
 
 ## A note on R packages
 
-Packages are bundles containing R scripts, and frequently also includes code written in other languages (e.g. C or C++) that speeds up calculations or interfaces with other software (e.g. GAMS). Packages can easily be installed by typing `install.packages("PACKAGE_NAME")` or by clicking on the 'package' tab in RStudio. Most packages can be downloaded from CRAN, the official R package repository.
+Packages are bundles that contain R scripts and sometimes code written in other languages (e.g. C or C++) for speedings up calculations or interfacing with other software (e.g. GAMS). Packages can easily be installed by typing `install.packages("<package name>")` or by clicking on the 'package' tab in RStudio. Most packages can be downloaded from CRAN, the official R package repository.
 
 The `globiomvis` package depends on other R packages. A large subset of these are jointly referred to as the [tidyverse](https://www.tidyverse.org/), a curated package collection that includes `dplyr`, `purrr`, `tidyr` and `ggplot2`.
 
