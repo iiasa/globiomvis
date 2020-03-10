@@ -1,21 +1,20 @@
 ---
-title: "globiomvis"
+title: "Getting started"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{globiomvis}
+  %\VignetteIndexEntry{Getting started}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-# Introduction to globiomvis
+The globiomvis package provides functions and examples to support GLOBIOM data visualization,
+including the making of maps and creation of plots to compare historical trends with GLOBIOM projections.
 
-The globiomvis package provides a number of functions and examples to support the analysis with GLOBIOM, including creating plots that compare historical trends with GLOBIOM projections and making maps.
+To install `globiomvis`, please follow the [installation instructions](installation.html).
 
-At the moment the package describes the following tasks:
+The package provides examples for the following tasks:
 
-- Generating GLOBIOM scenario plots that compare historical trends with GLOBIOM projections.
-- Generating EU NUTS maps.
-- Generating a global map with the 30 GLOBIOM regions.
-- Generating a global map using LUIDs as the unit of observation.
-
-Have a look at the Articles to for more information and examples.
+1. [Generating GLOBIOM scenario plots that compare historical trends with GLOBIOM projections](example1.html).
+2. [Generating EU NUTS maps](example2.html).
+3. [Generating a global map with the 30 GLOBIOM regions](example3.html).
+4. [Generating a global map using LUIDs as the unit of observation](example4.html).
