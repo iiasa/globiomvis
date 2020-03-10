@@ -1,8 +1,8 @@
 ---
-title: "1. Install R, packages and other relevant software"
+title: "Install R, packages and other relevant software"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{1. Install R, packages and other relevant software}
+  %\VignetteIndexEntry{Install R, packages and other relevant software}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

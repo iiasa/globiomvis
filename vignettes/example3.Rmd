@@ -1,5 +1,5 @@
 ---
-title: "4. Generating GLOBIOM 30 region maps"
+title: "3. Generating GLOBIOM 30 region maps"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Generating GLOBIOM 30 region maps}
@@ -20,7 +20,7 @@ For global analyses, GLOBIOM results are often presented for 30 major regions (A
 
 ## Creating the map
 
-Plotting the world map with GLOBIOM regions is very similar to the procedure described to create the the [EU NUTS map](https://iiasa.github.io/globiomvis/articles/globiomvis3.html) so we will only provide a brief illustration here.
+Plotting the world map with GLOBIOM regions is very similar to the procedure described to create the the [EU NUTS map](example2.html) so we will only provide a brief illustration here.
 
 ```{r message=FALSE, warning=FALSE, include=TRUE}
 library(globiomvis)

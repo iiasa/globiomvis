@@ -1,5 +1,5 @@
 ---
-title: "3. Generating EU NUTS maps"
+title: "2. Generating EU NUTS maps"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Generating EU NUTS maps}

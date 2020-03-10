@@ -1,12 +1,12 @@
 ---
-title: "5. Generating LUID maps"
+title: "4. Generating LUID maps"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Generating LUID and SIMU maps}
+  %\VignetteIndexEntry{Generating LUID maps}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 resource_files:
-  - globiomvis5_files/luid.png
+  - example4_files/luid.png
 ---
 
 ```{r, include = FALSE}
@@ -18,12 +18,12 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-GLOBIOM input and output is often available at LUID or SIMU level in raster format. This vignette shows how to produce a map using this type of data. 
+GLOBIOM input and output is often available at LUID or SIMU level in raster format. This vignette shows how to produce a map using this type of data.
 
 
 ## Creating the map
 
-The approach is very similar to producing the [30 region map](https://iiasa.github.io/globiomvis/articles/globiomvis4.html) so we will only provide a brief example here using LUID level data. 
+The approach is very similar to producing the [30 region map](example3.html) so we will only provide a brief example here using LUID level data.
 
 ```{r eval=FALSE}
 library(gdxrrw)
@@ -77,10 +77,9 @@ ggplot() +
     guide = guide_colourbar(nbin=100, draw.ulim = FALSE, draw.llim = FALSE, 
                             title.position = "top", barwidth = 20, barheight = 1))
 
-
 ```
 
 
 ```{r echo=FALSE}
-knitr::include_graphics("globiomvis5_files/luid.png")
+knitr::include_graphics("example4_files/luid.png")
 ```

@@ -1,12 +1,12 @@
 ---
-title: "2. Generating GLOBIOM scenario plots"
+title: "1. Generating GLOBIOM scenario plots"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Generating GLOBIOM scenario plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 resource_files:
-  - globiomvis2_files/trend_plot_example.png
+  - example1_files/trend_plot_example.png
 ---
 
 ```{r, include = FALSE}
@@ -34,7 +34,7 @@ library(ggplot2)
 library(globiomvis)
 ```
 
-As explained in the article [Install R, packages and other relevant software](https://iiasa.github.io/globiomvis/articles/globiomvis1.html), GDXRRW will load the GAMS GDX libraries via the `R_GAMS_SYSDIR` environment variable when issuing
+As explained in the [installation article](installation.html), GDXRRW will load the GAMS GDX libraries via the `R_GAMS_SYSDIR` environment variable when issuing
 
 ```{r eval=FALSE}
 igdx("")
@@ -102,7 +102,7 @@ trend_plot(var = "AREA", item = "CORN", unit = "1000 HA", reg = c("World", "EUR"
 ```
 
 ```{r echo=FALSE}
-knitr::include_graphics("globiomvis2_files/trend_plot_example.png")
+knitr::include_graphics("example1_files/trend_plot_example.png")
 ```
 
 If you want multiple figures, one has to loop this function over a selection of the data. This requires some additional code and is illustrated below. 
