@@ -23,7 +23,7 @@ To quickly inspect GLOBIOM runs it is often useful to compare historical trends 
 
 ## Loading and preparing data
 
-Start by loading the required packages. Apart from the gdxrwww package, all packages can be installed from CRAN, the R package repository. See the Vignette '1. Install R and other software' for instructions if you do not know how to do this.
+Start by loading the required packages. 
 
 ```{r message=FALSE, warning=FALSE, include=TRUE}
 library(gdxrrw)
@@ -34,7 +34,7 @@ library(ggplot2)
 library(globiomvis)
 ```
 
-As explained in the [installation article](installation.html), GDXRRW will load the GAMS GDX libraries via the `R_GAMS_SYSDIR` environment variable when issuing
+This will work if you have followed the [installation instructions](installation.html). Provided that you [have set](installation.html#using-gdxrrw) the `R_GAMS_SYSDIR` environment variable, `gdxrrw` will load the GAMS GDX libraries when subsequently issuing:
 
 ```{r eval=FALSE}
 igdx("")
