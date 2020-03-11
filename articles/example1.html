@@ -115,14 +115,14 @@
 <div id="loading-and-preparing-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-and-preparing-data" class="anchor"></a>Loading and preparing data</h2>
-<p>Start by loading the required packages. Apart from the gdxrwww package, all packages can be installed from CRAN, the R package repository. See the Vignette ‘1. Install R and other software’ for instructions if you do not know how to do this.</p>
+<p>Start by loading the required packages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gdxrrw)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyr)</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(purrr)</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(globiomvis)</a></code></pre></div>
-<p>As explained in the <a href="installation.html">installation article</a>, GDXRRW will load the GAMS GDX libraries via the <code>R_GAMS_SYSDIR</code> environment variable when issuing</p>
+<p>This will work if you have followed the <a href="installation.html">installation instructions</a>. Provided that you <a href="installation.html#using-gdxrrw">have set</a> the <code>R_GAMS_SYSDIR</code> environment variable, <code>gdxrrw</code> will load the GAMS GDX libraries when subsequently issuing:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/gdxrrw/man/igdx.html">igdx</a></span>(<span class="st">""</span>)</a></code></pre></div>
 <p>We load a GLOBIOM output file. We use <code>setNames</code> to add column names. These will be missing if the gams data table (i.e. the Symbol) has ’*‘instead of set names. We also ensure that <code>YEAR</code> is an integer (and not a character) and <code>ITEM_AG, VAR_ID and VAR_UNIT</code> are in capitals, and add a ’source’ column.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">globiom_path &lt;-<span class="st"> "P:/globiom"</span></a>
