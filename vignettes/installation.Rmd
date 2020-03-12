@@ -84,10 +84,12 @@ In the examples that follow, it is assumed that you have set `R_GAMS_SYSDIR`.
 
 ## Additional software
 
-Although not strictly necessary to use globiomvis (for now), we recommend installing the following additional software:
+Although not strictly necessary to use `globiomvis` (for now), we recommend installing the following additional software:
 
-* **osgeo4w**. This is a collection of open source geospatial software for windows and can be downloaded [here](https://trac.osgeo.org/osgeo4w). Most important part is gdal, which is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. osgeo4w is only available for windows. gdal for other systems can be downloaded [here](https://gdal.org/download.html).
+* **GDAL**. (When not on Windows). [GDAL](https://en.wikipedia.org/wiki/GDAL) is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. GDAL can be downloaded [here](https://gdal.org/download.html). Alternatively, on Linux, the packages `libgdal-dev` and `libudunits2-dev` can be installed.
 
-* **miktex**. This is (one of) implementations of TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of [miktex](https://miktex.org). If you want to learn more about this look [here](https://bookdown.org/yihui/rmarkdown/)
+* **OSGeo4W **. (Windows) This is a collection of open source geospatial software for Windows that provides GDAL and much more. It can be downloaded [here](https://trac.osgeo.org/osgeo4w).
 
-* **git**. This is software to version you code and can be downloaded [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). RStudio and git can be easily linked to version your code and use [github](https://github.com) to store code in the cloud and facilitate collaborative code development. More information about how to set this up can be found [here](https://www.r-bloggers.com/rstudio-and-github/) and [here](https://www.r-bloggers.com/using-rstudio-and-git-version-control/).
+* **MiKTeX** is one of the distributions TeX/LaTeX and related programs. RStudio facilitates the use of LaTex through Rmarkdown but this requires the installation of [MiKTeX](https://miktex.org). If you want to learn more about this see [here](https://bookdown.org/yihui/rmarkdown/).
+
+* **Git** version control software. It can be downloaded [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). RStudio and Git can be easily linked to version your code. Git repositories can be hosted on [GitHub](https://github.com/about), a cloud platform that facilitates collaborative code development. More information about how to set this up can be found [here](https://www.r-bloggers.com/rstudio-and-github/) and [here](https://www.r-bloggers.com/using-rstudio-and-git-version-control/).
