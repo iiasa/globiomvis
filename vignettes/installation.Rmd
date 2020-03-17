@@ -40,12 +40,11 @@ install.packages("devtools")
 devtools::install_github("iiasa/globiomvis")
 ```
 
+This should also install all further required packages. **Beware**, on Windows, during the installation, you might be shown a dialog asking you to install RTools. Close that dialog for now, you can decide on that later as explained below. 
 
-This should also install all further required packages, but the `gdxrrw` source-only package listed in the `globiomvis` dependencies will fail to install if your system lacks a compiler.
+On Windows, the `gdxrrw` source-only package listed in the `globiomvis` dependencies **will fail to install** if your system lacks a compiler. If you already have `gdxxrw` installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
 
-If you already have `gdxxrw` installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
-
-If you do not have `gdxxrw` installed yet, you can either install the required compiler tools for building the source package, which will add a lot of stuff to your system, or you can install a binary version of the `gdxrrw` package as documented in the next section.
+If you do not have `gdxxrw` installed yet and the source-only `gdxrrw` failed to install, you can either [install the compiler tools](#installing-compiler-tools) required for building the source files, which will add a lot of stuff to your system, or you can install a binary version of the `gdxrrw` package as documented in the next section.
 
 ## Installing a gdxrrw binary package
 
@@ -61,7 +60,7 @@ To install `gdxrrw` without compiling, download the latest binary package built 
 
 Linux should already have a compiler installed. On Windows, compiling code in source-only packages requires an [Rtools](https://cran.r-project.org/bin/windows/Rtools) installation. On MacOS, the [development tools and libraries](https://cran.r-project.org/bin/macosx/tools) are required for compilaton.
 
-After having installed these tools, performing the `globiomvis` installation as explained above should succeed in installing `gdxrrw`.
+After having installed these tools, performing the `globiomvis` installation as explained above should succeed in installing `gdxrrw` as well.
 
 ## Using gdxrrw
 
