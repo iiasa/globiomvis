@@ -41,7 +41,11 @@ devtools::install_github("iiasa/globiomvis")
 ```
 
 
-This should also install all further required packages, but the `gdxrrw` package will fail to install if your system lacks a compiler. You can either install the required compiler tools, which will add a lot of stuff to your system, or you can install a binary version of the `gdxrrw` package as documented in the next section.
+This should also install all further required packages, but the `gdxrrw` source-only package listed in the `globiomvis` dependencies will fail to install if your system lacks a compiler.
+
+If you already have `gdxxrw` installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
+
+If you do not have `gdxxrw` installed yet, you can either install the required compiler tools for building the source package, which will add a lot of stuff to your system, or you can install a binary version of the `gdxrrw` package as documented in the next section.
 
 ## Installing a gdxrrw binary package
 

@@ -26,14 +26,14 @@ Depends:
     R (>= 2.10)
 Imports:
     dplyr,
-    gdxrrw,
     ggplot2,
     magrittr,
     purrr,
     RColorBrewer,
     scales,
     sf,
-    tidyr
+    tidyr,
+    gdxrrw
 Remotes:
     url::https://support.gams.com/_media/gdxrrw:gdxrrw_1.0.5.tar.gz
 Suggests:
