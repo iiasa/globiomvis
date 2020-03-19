@@ -22,14 +22,11 @@
 #'}
 #'
 #'@export
-
-
 trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
                        display = T, output = T,...) {
   df_gl_sel <- filter(df_gl, ITEM_AG %in% item, VAR_ID %in% var, VAR_UNIT %in% unit, REGION_AG %in% reg)
   df_hs_sel <- filter(df_hs, ITEM_AG %in% item, VAR_ID %in% var, VAR_UNIT %in% unit, REGION_AG %in% reg)
   if(dim(df_gl_sel)[1]==0) {stop("None of the provided output combinations are in the globiom output file")}
-  y_unit <- paste(unique(df_gl$VAR_UNIT))
   tit <- paste(var, item, unit, sep = "_")
   message(tit)
   p = ggplot2::ggplot(data = df_gl_sel, aes(x = YEAR, y = OUTPUT_AG, colour = BioenScen,
@@ -37,7 +34,7 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
     ggplot2::geom_line() +
     ggplot2::geom_line(data = df_hs_sel, aes(x = YEAR, y = OUTPUT_AG), colour = "black", size = 1) +
     ggplot2::geom_vline(aes(xintercept = 2000), linetype = "dashed") +
-    ggplot2::labs(title = tit, x = "", y = y_unit) +
+    ggplot2::labs(title = tit, x = "", y = unit) +
     ggplot2::theme_bw(base_size = 10) +
     ggplot2::scale_y_continuous(labels = scales::comma) +
     ggplot2::theme(legend.position = "bottom") +
@@ -46,7 +43,6 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
   if(display) {print(p)}
   if(output) {return(p)}
 }
-
 
 #' Creates pdf with plots for selected GLOBIOM output dimensions
 #'
@@ -77,7 +73,6 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
 #' }
 #'
 #' @export
-
 trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = NULL, comb = NULL) {
   df_gl_comb <- all_output_comb(df_gl)
   if(is.null(comb)){
@@ -108,6 +103,3 @@ trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = 
   })
   dev.off()
 }
-
-
-
