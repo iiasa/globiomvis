@@ -68,7 +68,6 @@ hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT
   droplevels
 ```
 
-
 ## Create a PDF with plots for key variable, item and unit combinations
 
 Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a PDF file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the PDF file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to a temporary directory. You may want to change the `path` parameter to a more permanent location. Note that it might take a bit of time as more than 200 plots are generated. 
@@ -78,10 +77,8 @@ Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_
 data("main_output_comb", package="globiomvis")
 print(main_output_comb)
 
-
 trend_plot_all(df_gl = globiom, df_hs = hist, path = tempdir())
 ```
-
 
 ## Create plots for your own selection of GLOBIOM output
 
@@ -122,11 +119,10 @@ globiom_sel <- globiom %>%
 sel_output_comb <- all_output_comb(globiom_sel)
 
 # Loop over VAR_ID, ITEM_AG and VAR_UNIT 
-pdf(file = file.path("c:/globiom", paste0("globiom_trend_plots_loop_", Sys.Date(), ".pdf")))
+pdf(file = file.path(tempdir(), paste0("globiom_trend_plots_loop_", Sys.Date(), ".pdf")))
     purrr::walk(1:nrow(sel_output_comb), function(i){
       trend_plot(var = sel_output_comb$VAR_ID[i], item = sel_output_comb$ITEM_AG[i], 
                  unit = sel_output_comb$VAR_UNIT[i], reg = reg_sel, df_gl = globiom_sel, df_hs = hist)
     })
     dev.off()
-    
 ```
