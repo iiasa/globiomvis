@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' trend_plot(var = "LAND", item = "1000 HA", reg = "World", df_gl = globiom, df_hs = hist)
+#' trend_plot(var = "AREA", item = "CORN", unit = 1000 HA", reg = "World", df_gl = globiom, df_hs = hist)
 #'}
 #'
 #'@export
