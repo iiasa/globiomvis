@@ -31,9 +31,3 @@ Note that the function uses standard GLOBIOM variable (VAR_ID), item
 (ITEM_AG), unit (VAR_UNIT) and region (REGION_AG) nomenclature as input.
 VAR_ID, ITEM_AG and VAR_UNIT have to be in upper case!
 }
-\examples{
-\dontrun{
-trend_plot(var = "LAND", item = "1000 HA", reg = "World", df_gl = globiom, df_hs = hist)
-}
-
-}
