@@ -1,3 +1,9 @@
+# globiomvis v0.0.3
+
+* Reworked installation vignette.
+* Fix unit display in `trend_plot()`.
+* Minor fixes to examples.
+
 # globiomvis v0.0.2
 
 * Improved and restructured vignettes and web site.
@@ -7,4 +13,3 @@
 # globiomvis v0.0.1
 
 * First work in progress release
-
