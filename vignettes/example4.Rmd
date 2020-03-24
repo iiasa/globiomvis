@@ -47,7 +47,7 @@ igdx("")
 globiom_path <- "P:/globiom"
 file <- file.path(globiom_path, "Data/ClimateChangeShocks/cc_LPJmL.gdx")
 symbol <- "ISIMIP_CC_Impact_Data"
-yld_shocks <- rgdx.param(file, symbol) %>% 
+yld_shocks <- rgdx.param(file, symbol) %>%
   setNames(c("country", "luid", "item", "ALLTECH", "variable", "rcp", "gcm", "crop_model", "resolution", "year", "value"))
 
 # Load the LUID map
@@ -67,14 +67,14 @@ df <- left_join(luid_map, df)
 # To make sure that the boundaries of the countries are on top of the LUID information,
 # We added a second world_poly layer
 ggplot() +
-    geom_sf(data = world_poly, fill = "grey10", colour = "black") + 
+    geom_sf(data = world_poly, fill = "grey10", colour = "black") +
     geom_sf(data = df, aes(fill = value), colour = "transparent") +
     geom_sf(data = world_poly, fill = "transparent", colour = "black") +
     theme_void() +
     labs(fill = "RCP8.5 Yield growth (2000 = 1) for maize, 2100") +
     theme(legend.position = "bottom") +
     scale_fill_continuous(limits = c(0,10), breaks = c(0, 2.5, 5, 7.5, 10),
-    guide = guide_colourbar(nbin=100, draw.ulim = FALSE, draw.llim = FALSE, 
+    guide = guide_colourbar(nbin=100, draw.ulim = FALSE, draw.llim = FALSE,
                             title.position = "top", barwidth = 20, barheight = 1))
 
 ```

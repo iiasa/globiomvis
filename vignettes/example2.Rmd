@@ -58,10 +58,10 @@ ggplot() +
   geom_sf(data = df, colour = "grey30", aes(fill = value)) +
   scale_fill_gradientn(colours = terrain.colors(10)) +
   labs(fill = "", x = "", y = "", title = "PDF of global species for BASE scenario, 2050") +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
+        panel.border = element_rect(colour = "black", fill = "transparent"),
        plot.title = element_text(hjust = 0.5))
 ```
 
@@ -90,20 +90,20 @@ ggplot() +
   geom_sf(data = df, colour = "grey30", aes(fill = value2)) +
   scale_fill_manual(values = getPalette(n_col), labels = lab) +
   labs(x = "", y = "", fill = "PDF/ha" , title = "EU nuts abandoned land for 2050") +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
+        panel.border = element_rect(colour = "black", fill = "transparent"),
         plot.title = element_text(hjust = 0.5),
         legend.position = c(0.9, 0.6),
         legend.background = element_rect(fill = "transparent"),
-        legend.text=element_text(size=6)) 
+        legend.text=element_text(size=6))
 ```
 
 
 ## Create a set of maps for multiple periods and one scenario
 
-In this example we create multiple maps that show the change in PDF/ha over time and in space. As we are increasing the number of maps, we first 'simplify' the polygons to speed up the processing time. To simplify further (and speed up), increase the `dTolerance` parameter. The EU NUTS polygon is quite detailed (i.e. capturing complex border patterns), which consume a lot of memory when plotting. This information is not needed for exploratory mapping. 
+In this example we create multiple maps that show the change in PDF/ha over time and in space. As we are increasing the number of maps, we first 'simplify' the polygons to speed up the processing time. To simplify further (and speed up), increase the `dTolerance` parameter. The EU NUTS polygon is quite detailed (i.e. capturing complex border patterns), which consume a lot of memory when plotting. This information is not needed for exploratory mapping.
 
 
 ```{r,  message=FALSE, warning=FALSE, include=TRUE}
@@ -122,10 +122,10 @@ ggplot() +
   scale_fill_gradientn(colours = terrain.colors(10)) +
   labs(fill = "", x = "", y = "", title = "PDF/ha of global species for 2010-2050") +
   facet_wrap(~year) +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
+        panel.border = element_rect(colour = "black", fill = "transparent"),
         plot.title = element_text(hjust = 0.5),
         strip.background = element_rect(fill = "transparent"),
         legend.position = "bottom")
@@ -151,10 +151,10 @@ ggplot() +
   scale_fill_gradientn(colours = terrain.colors(10)) +
   labs(fill = "", x = "", y = "", title = "PDF/ha of global species for 2010-2050") +
   facet_grid(scenario~ year) +
-  theme(panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(), 
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        panel.border = element_rect(colour = "black", fill = "transparent"), 
+        panel.border = element_rect(colour = "black", fill = "transparent"),
         plot.title = element_text(hjust = 0.5),
         strip.background = element_rect(fill = "transparent"),
         legend.position = "bottom")

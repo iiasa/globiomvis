@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-For global analyses, GLOBIOM results are often presented for 30 major regions (ANYREGION). This vignette provides an example on how to put the results on a map. A world map that includes a mapping to the 30 GLOBIOM regions is included in the package and can be easily loaded (see below). 
+For global analyses, GLOBIOM results are often presented for 30 major regions (ANYREGION). This vignette provides an example on how to put the results on a map. A world map that includes a mapping to the 30 GLOBIOM regions is included in the package and can be easily loaded (see below).
 
 ## Creating the map
 

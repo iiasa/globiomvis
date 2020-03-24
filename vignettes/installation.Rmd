@@ -40,7 +40,7 @@ install.packages("devtools")
 devtools::install_github("iiasa/globiomvis")
 ```
 
-This should also install all further required packages. **Beware**, on Windows, during the installation, you might be shown a dialog asking you to install RTools. Close that dialog for now, you can decide on that later as explained below. 
+This should also install all further required packages. **Beware**, on Windows, during the installation, you might be shown a dialog asking you to install RTools. Close that dialog for now, you can decide on that later as explained below.
 
 On Windows, the `gdxrrw` source-only package listed in the `globiomvis` dependencies **will fail to install** if your system lacks a compiler. If you already have `gdxxrw` installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
 
@@ -97,6 +97,6 @@ Although not strictly necessary to use `globiomvis` (for now), we recommend inst
 
   Unfortunately, the basic MikTeX installer does not install everything that is required. Instead, from the 'All downloads' tab on the [MiKTeX download page](https://miktex.org/download#all), download the Net Installer and use it to perform a complete installation. This will require roughly 7GB of disk space.
 
-* **TinyTeX**. If you [prefer a smaller](https://github.com/yihui/tinytex/issues/7) TeX/LaTeX installation, you can try [TinyTeX](https://yihui.org/tinytex/) instead. It has been designed to work well with R. Beware though that TinyTeX is still maturing. 
+* **TinyTeX**. If you [prefer a smaller](https://github.com/yihui/tinytex/issues/7) TeX/LaTeX installation, you can try [TinyTeX](https://yihui.org/tinytex/) instead. It has been designed to work well with R. Beware though that TinyTeX is still maturing.
 
 * **Git** version control software. It can be downloaded [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). RStudio and Git can be easily linked to version your code. Git repositories can be hosted on [GitHub](https://github.com/about), a cloud platform that facilitates collaborative code development. More information about how to set this up can be found [here](https://www.r-bloggers.com/rstudio-and-github/) and [here](https://www.r-bloggers.com/using-rstudio-and-git-version-control/).
