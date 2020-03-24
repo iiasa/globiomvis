@@ -11,7 +11,7 @@
 #'@param unit VAR_UNIT
 #'@param reg REGION_AG
 #'@param df_gl Data frame with globiom output.
-#'@param df_hs Data frame with historical data aggregated to GLOBIOM nomenclature
+#'@param df_hs Data frame with historical data aggregated to GLOBIOM nomenclature.
 #'@param display If TRUE display the plot.
 #'@param result If TRUE return plot object result.
 #'
@@ -58,27 +58,27 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs, display = TRUE, resul
 #' combinations stored in \code{output_comb_base} unless specified otherwise.
 #' Plots are only produced for output combinations that exist in the data.
 #'
-#' @param df_gl Dataframe with globiom output.
-#' @param df_hs Data frame with historical data aggregated to GLOBIOM
-#'   nomenclature.
+#' @inheritParams trend_plot
 #' @param path Path where the PDF file will be saved. Default is the working
-#'   directory..
+#'   directory.
 #' @param file_name Name of the PDF file that is generated. Default is
 #'   \code{globiom_trend_plots_YYYY-MM-DD.pdf}.
 #' @param comb Output combinations used for plotting. Default is
-#'   main_output_comb,
+#'   \code{all_output_comb(df_gl)} as present in main_output_comb.
 #'
 #' @return None but a pdf file is saved in the working directory or a specified
 #'   location.
 #'
 #' @examples
 #' \dontrun{
-#' trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/temp", file_name = "globiom_output",
-#' output_se = df)
+#' trend_plot_all(df_gl = globiom,
+#'                df_hs = hist,
+#'                path = "c:/temp",
+#'                file_name = "globiom_output")
 #' }
 #'
 #' @export
-trend_plot_all <- function(df_gl = NULL, df_hs = NULL, path = NULL, file_name = NULL, comb = NULL) {
+trend_plot_all <- function(df_gl, df_hs, path = NULL, file_name = NULL, comb = NULL) {
   df_gl_comb <- all_output_comb(df_gl)
   if(is.null(comb)){
     output_comb <- dplyr::inner_join(df_gl_comb, main_output_comb)

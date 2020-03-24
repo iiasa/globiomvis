@@ -4,7 +4,7 @@
 \alias{trend_plot}
 \title{Create plots for GLOBIOM scenarios}
 \usage{
-trend_plot(var, item, unit, reg, df_gl, df_hs, display = T, output = T, ...)
+trend_plot(var, item, unit, reg, df_gl, df_hs, display = TRUE, result = TRUE)
 }
 \arguments{
 \item{var}{VAR_ID}
@@ -15,10 +15,13 @@ trend_plot(var, item, unit, reg, df_gl, df_hs, display = T, output = T, ...)
 
 \item{reg}{REGION_AG}
 
-\item{df_gl}{data frame with globiom output}
+\item{df_gl}{Data frame with globiom output.}
 
-\item{df_hs}{data frame with historical data aggregated to GLOBIOM
-nomenclature}
+\item{df_hs}{Data frame with historical data aggregated to GLOBIOM nomenclature.}
+
+\item{display}{If TRUE display the plot.}
+
+\item{result}{If TRUE return plot object result.}
 }
 \value{
 A ggplot object
@@ -30,4 +33,15 @@ Creates scenario plots by region for selected items.
 Note that the function uses standard GLOBIOM variable (VAR_ID), item
 (ITEM_AG), unit (VAR_UNIT) and region (REGION_AG) nomenclature as input.
 VAR_ID, ITEM_AG and VAR_UNIT have to be in upper case!
+}
+\examples{
+\dontrun{
+trend_plot(var   = "AREA",
+           item  = "CORN",
+           unit  = "1000 HA",
+           reg   = "World",
+           df_gl = globiom,
+           df_hs = hist)
+}
+
 }

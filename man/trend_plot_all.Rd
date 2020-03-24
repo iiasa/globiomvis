@@ -4,28 +4,21 @@
 \alias{trend_plot_all}
 \title{Creates pdf with plots for selected GLOBIOM output dimensions}
 \usage{
-trend_plot_all(
-  df_gl = NULL,
-  df_hs = NULL,
-  path = NULL,
-  file_name = NULL,
-  comb = NULL
-)
+trend_plot_all(df_gl, df_hs, path = NULL, file_name = NULL, comb = NULL)
 }
 \arguments{
-\item{df_gl}{dataframe with globiom output}
+\item{df_gl}{Data frame with globiom output.}
 
-\item{df_hs}{data frame with historical data aggregated to GLOBIOM
-nomenclature}
+\item{df_hs}{Data frame with historical data aggregated to GLOBIOM nomenclature.}
 
-\item{path}{path where the pdf file will be saved. Default is the working
+\item{path}{Path where the PDF file will be saved. Default is the working
 directory.}
 
-\item{file_name}{name of the pdf file that is generated. Default is
+\item{file_name}{Name of the PDF file that is generated. Default is
 \code{globiom_trend_plots_YYYY-MM-DD.pdf}.}
 
-\item{comb}{output combinations used for plotting. Default is
-main_output_comb}
+\item{comb}{Output combinations used for plotting. Default is
+\code{all_output_comb(df_gl)} as present in main_output_comb.}
 }
 \value{
 None but a pdf file is saved in the working directory or a specified
@@ -42,8 +35,10 @@ Plots are only produced for output combinations that exist in the data.
 }
 \examples{
 \dontrun{
-trend_plot_all(df_gl = globiom, df_hs = hist, path = "c:/temp", file_name = "globiom_output",
-output_se = df)
+trend_plot_all(df_gl = globiom,
+               df_hs = hist,
+               path = "c:/temp",
+               file_name = "globiom_output")
 }
 
 }
