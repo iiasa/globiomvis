@@ -10,20 +10,25 @@
 #'@param item ITEM_AG
 #'@param unit VAR_UNIT
 #'@param reg REGION_AG
-#'@param df_gl data frame with globiom output
-#'@param df_hs data frame with historical data aggregated to GLOBIOM
-#'  nomenclature
+#'@param df_gl Data frame with globiom output.
+#'@param df_hs Data frame with historical data aggregated to GLOBIOM nomenclature
+#'@param display If TRUE display the plot.
+#'@param result If TRUE return plot object result.
 #'
 #'@return A ggplot object
 #'
 #' @examples
 #' \dontrun{
-#' trend_plot(var = "AREA", item = "CORN", unit = 1000 HA", reg = "World", df_gl = globiom, df_hs = hist)
+#' trend_plot(var   = "AREA",
+#'            item  = "CORN",
+#'            unit  = "1000 HA",
+#'            reg   = "World",
+#'            df_gl = globiom,
+#'            df_hs = hist)
 #'}
 #'
 #'@export
-trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
-                       display = T, output = T,...) {
+trend_plot <- function(var, item, unit, reg, df_gl, df_hs, display = TRUE, result = TRUE) {
   df_gl_sel <- filter(df_gl, ITEM_AG %in% item, VAR_ID %in% var, VAR_UNIT %in% unit, REGION_AG %in% reg)
   df_hs_sel <- filter(df_hs, ITEM_AG %in% item, VAR_ID %in% var, VAR_UNIT %in% unit, REGION_AG %in% reg)
   if(dim(df_gl_sel)[1]==0) {stop("None of the provided output combinations are in the globiom output file")}
@@ -41,7 +46,7 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
     ggplot2::facet_wrap(~REGION_AG, scales = "free", ncol = 3)
 
   if(display) {print(p)}
-  if(output) {return(p)}
+  if(result) {return(p)}
 }
 
 #' Creates pdf with plots for selected GLOBIOM output dimensions
@@ -53,15 +58,15 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs,
 #' combinations stored in \code{output_comb_base} unless specified otherwise.
 #' Plots are only produced for output combinations that exist in the data.
 #'
-#' @param df_gl dataframe with globiom output
-#' @param df_hs data frame with historical data aggregated to GLOBIOM
-#'   nomenclature
-#' @param path path where the pdf file will be saved. Default is the working
-#'   directory.
-#' @param file_name name of the pdf file that is generated. Default is
+#' @param df_gl Dataframe with globiom output.
+#' @param df_hs Data frame with historical data aggregated to GLOBIOM
+#'   nomenclature.
+#' @param path Path where the PDF file will be saved. Default is the working
+#'   directory..
+#' @param file_name Name of the PDF file that is generated. Default is
 #'   \code{globiom_trend_plots_YYYY-MM-DD.pdf}.
-#' @param comb output combinations used for plotting. Default is
-#'   main_output_comb
+#' @param comb Output combinations used for plotting. Default is
+#'   main_output_comb,
 #'
 #' @return None but a pdf file is saved in the working directory or a specified
 #'   location.
