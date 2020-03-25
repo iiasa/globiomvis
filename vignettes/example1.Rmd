@@ -120,9 +120,13 @@ sel_output_comb <- all_output_comb(globiom_sel)
 
 # Loop over VAR_ID, ITEM_AG and VAR_UNIT
 pdf(file = file.path(tempdir(), paste0("globiom_trend_plots_loop_", Sys.Date(), ".pdf")))
-    purrr::walk(1:nrow(sel_output_comb), function(i){
-      trend_plot(var = sel_output_comb$VAR_ID[i], item = sel_output_comb$ITEM_AG[i],
-                 unit = sel_output_comb$VAR_UNIT[i], reg = reg_sel, df_gl = globiom_sel, df_hs = hist)
-    })
-    dev.off()
+purrr::walk(1:nrow(sel_output_comb), function(i){
+  trend_plot(var   = sel_output_comb$VAR_ID[i],
+             item  = sel_output_comb$ITEM_AG[i],
+             unit  = sel_output_comb$VAR_UNIT[i],
+             reg   = reg_sel,
+             df_gl = globiom_sel,
+             df_hs = hist)
+})
+dev.off()
 ```
