@@ -16,22 +16,22 @@ knitr::opts_chunk$set(
 
 ## Installing R and RStudio
 
-Since `globiomvis` is an R package, R is required. R can be downloaded [here](https://cran.r-project.org). On Linux, you can instead install R with the package manager of your distribution.
+Since **globiomvis** is an R package, R is required. R can be downloaded [here](https://cran.r-project.org). On Linux, you can instead install R with the package manager of your distribution.
 
 We highly recommend to also install the RStudio integrated development environment. It can be downloaded [here](https://rstudio.com/products/rstudio/download/). It will allow you to easily try the examples and debug your code. Some of the discussion that follows assumes that you have RStudio installed.
 
 ## A note on R packages
 
-Packages are bundles that contain R scripts and sometimes code written in other languages (e.g. C or C++) for speedings up calculations or interfacing with other software (e.g. GAMS). Packages can easily be installed by typing `install.packages("<package name>")` or by clicking on the 'package' tab in RStudio. Most packages can be downloaded from CRAN, the official R package repository.
+Packages are bundles that contain R scripts and sometimes code written in other languages (e.g. C or C++) for speedings up calculations or interfacing with other software (e.g. GAMS). Packages can easily be installed by typing `install.packages("_<package name>_")` or by clicking on the 'package' tab in RStudio. Most packages can be downloaded from CRAN, the official R package repository.
 
-The `globiomvis` package depends on other R packages. A large subset of these are jointly referred to as the [tidyverse](https://www.tidyverse.org/), a curated package collection that includes `dplyr`, `purrr`, `tidyr` and `ggplot2`.
+The **globiomvis** package depends on other R packages. A large subset of these are jointly referred to as the [tidyverse](https://www.tidyverse.org/), a curated package collection that includes **dplyr**, **purrr**, **tidyr** and **ggplot2**.
 
 Installing packages sometimes results in conflicts when an older version of these packages is already installed on your system and has been loaded into memory. To prevent this, install packages immediately after (re)starting R. If you get the message `These package have more recent versions available. It is recommended to update all of them. Which would you like to update?`, the conservative choice is  to select `3: None`: you can always update later after further deliberation.
 
 ## Installing globiomvis
 
 
-From an R or RStudio console, installing the `globiomvis` package can be as simple as:
+From an R or RStudio console, installing the **globiomvis** package can be as simple as:
 
 ```{r, eval=FALSE}
 # Install the devtools package, if you have not done so already
@@ -42,15 +42,15 @@ devtools::install_github("iiasa/globiomvis")
 
 This should also install all further required packages. **Beware**, on Windows, during the installation, you might be shown a dialog asking you to install RTools. Close that dialog for now, you can decide on that later as explained below.
 
-On Windows, the `gdxrrw` source-only package listed in the `globiomvis` dependencies **will fail to install** if your system lacks a compiler. If you already have `gdxxrw` installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
+On Windows, the **gdxrrw** source-only package listed in the **globiomvis** dependencies **will fail to install** if your system lacks a compiler. If you already have `gdxxrw` installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
 
-If you do not have `gdxxrw` installed yet and the source-only `gdxrrw` failed to install, you can either [install the compiler tools](#installing-compiler-tools) required for building the source files, which will add a lot of stuff to your system, or you can install a binary version of the `gdxrrw` package as documented in the next section.
+If you do not have `gdxxrw` installed yet and the source-only **gdxrrw** failed to install, you can either [install the compiler tools](#installing-compiler-tools) required for building the source files, which will add a lot of stuff to your system, or you can install a binary version of the **gdxrrw** package as documented in the next section.
 
 ## Installing a gdxrrw binary package
 
-To read/write GDX files from R, the `gdxrrw` package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
+To read/write GDX files from R, the **gdxrrw** package is required. This package is not available on CRAN and therefore cannot be installed using the standard approach (see next section). The package can be found [here](https://support.gams.com/gdxrrw:interfacing_gams_and_r)
 
-To install `gdxrrw` without compiling, download the latest binary package built for your operating system and R version (if you have R version 3.5.X install the `gdxrrw` version that is built with R 3.5.x) and save the package archive file to a tempory directory. Then:
+To install **gdxrrw** without compiling, download the latest binary package built for your operating system and R version (if you have R version 3.5.X install the **gdxrrw** version that is built with R 3.5.x) and save the package archive file to a tempory directory. Then:
 
 1. Click 'Packages' > 'install' in RStudio
 2. Select 'Install from: Package Archive File (.zip; .tar; .gz)'
@@ -60,11 +60,11 @@ To install `gdxrrw` without compiling, download the latest binary package built 
 
 Linux should already have a compiler installed. On Windows, compiling code in source-only packages requires an [Rtools](https://cran.r-project.org/bin/windows/Rtools) installation. On MacOS, the [development tools and libraries](https://cran.r-project.org/bin/macosx/tools) are required for compilaton.
 
-After having installed these tools, performing the `globiomvis` installation as explained above should succeed in installing `gdxrrw` as well.
+After having installed these tools, performing the **globiomvis** installation as explained above should succeed in installing **gdxrrw** as well.
 
 ## Using gdxrrw
 
-For `gdxrrw` to work, the package needs to load GDX libraries from the GAMS system directory. Use the `igdx()` function to tell `gdxrrw` where it can find GAMS. There are multiple ways to do so as explained in the `igdx` help page:
+For **gdxrrw** to work, the package needs to load GDX libraries from the GAMS system directory. Use the `igdx()` function to tell **gdxrrw** where it can find GAMS. There are multiple ways to do so as explained in the `igdx` help page:
 
 ```{r, eval=FALSE}
 library(gdxrrw)
@@ -87,9 +87,9 @@ In the examples that follow, it is assumed that you have set `R_GAMS_SYSDIR`.
 
 ## Additional software
 
-Although not strictly necessary to use `globiomvis` (for now), we recommend installing the following additional software:
+Although not strictly necessary to use **globiomvis** (for now), we recommend installing the following additional software:
 
-* **GDAL**. (When not on Windows). [GDAL](https://en.wikipedia.org/wiki/GDAL) is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. GDAL can be downloaded [here](https://gdal.org/download.html). Alternatively, on Linux, the packages `libgdal-dev` and `libudunits2-dev` can be installed.
+* **GDAL**. (When not on Windows). [GDAL](https://en.wikipedia.org/wiki/GDAL) is a very powerful translator library for raster and vector geospatial data formats. It is used by several R packages that process raster and vector data and is normally much faster than processing this data within R. GDAL can be downloaded [here](https://gdal.org/download.html). Alternatively, on Linux, the packages **libgdal-dev** and **libudunits2-dev** can be installed.
 
 * **OSGeo4W**. (Windows) This is a collection of open source geospatial software for Windows that provides GDAL and much more. It can be downloaded [here](https://trac.osgeo.org/osgeo4w).
 

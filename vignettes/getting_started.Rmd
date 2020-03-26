@@ -7,10 +7,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-The globiomvis package provides functions and examples to support GLOBIOM data visualization,
+The **globiomvis** package provides functions and examples to support GLOBIOM data visualization,
 including the making of maps and creation of plots to compare historical trends with GLOBIOM projections.
 
-To install `globiomvis`, please follow the [installation instructions](installation.html).
+To install **globiomvis**, please follow the [installation instructions](installation.html).
 
 The package provides examples for the following tasks:
 
