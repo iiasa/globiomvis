@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-To quickly inspect GLOBIOM runs it is often useful to compare historical trends of key variables with model projections. The package includes several functions to support this task. `trend_plot_all` produces a PDF file with plots for key combinations of variables, items and units across all GLOBIOM regions for which data is created. `trend_plot` is basic function that allows the user to make individual plots for selected variables, items, units and regions. Before the functions can be used historical data and globiom output needs to be loaded first.
+To quickly inspect GLOBIOM runs it is often useful to compare historical trends of key variables with model projections. The package includes several functions to support this task. `trend_plot_all()` produces a PDF file with plots for key combinations of variables, items and units across all GLOBIOM regions for which data is created.`trend_plot()` generates individual plots for selected variables, items, units and regions. Before these functions can be used historical data and globiom output needs to be loaded first.
 
 
 ## Loading and preparing data
@@ -34,13 +34,13 @@ library(ggplot2)
 library(globiomvis)
 ```
 
-This will work if you have followed the [installation instructions](installation.html). Provided that you [have set](installation.html#using-gdxrrw) the `R_GAMS_SYSDIR` environment variable, `gdxrrw` will load the GAMS GDX libraries when subsequently issuing:
+This will work if you have followed the [installation instructions](installation.html). Provided that you [have set](installation.html#using-gdxrrw) the `R_GAMS_SYSDIR` environment variable, *`**gdxrrw** will load the GAMS GDX libraries when subsequently issuing:
 
 ```{r eval=FALSE}
 igdx("")
 ```
 
-We load a GLOBIOM output file. We use `setNames` to add column names. These will be missing if the gams data table (i.e. the Symbol) has '*' instead of set names. We also ensure that `YEAR` is an integer (and not a character) and `ITEM_AG, VAR_ID and VAR_UNIT` are in capitals, and add a 'source' column.
+We load a GLOBIOM output file. We use `setNames()` to add column names. These will be missing if the gams data table (i.e. the Symbol) has '*' instead of set names. We also ensure that `YEAR` is an integer (and not a character) and `ITEM_AG, VAR_ID and VAR_UNIT` are in capitals, and add a 'source' column.
 
 ```{r eval=FALSE}
 globiom_path <- "P:/globiom"
@@ -70,7 +70,7 @@ hist <- rgdx.param(file.path(globiom_path, "projects/TEMP/globiom_results/OUTPUT
 
 ## Create a PDF with plots for key variable, item and unit combinations
 
-Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all` creates a PDF file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the PDF file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to a temporary directory. You may want to change the `path` parameter to a more permanent location. Note that it might take a bit of time as more than 200 plots are generated.
+Main combinations of globiom variables (VAR_ID), items (ITEM_AG) and units (VAR_UNIT) are stored in `main_output_comb`. The function `trend_plot_all()` creates a PDF file with plots for all of these output combinations (and are present in the GLOBIOM output file). In the example below the PDF file with the name `globiom_trend_plots_YYYY-MM_DD.pdf` is saved to a temporary directory. You may want to change the `path` parameter to a more permanent location. Note that it might take a bit of time as more than 200 plots are generated.
 
 ```{r eval=FALSE}
 # Show main combinations of globiom variables
@@ -91,7 +91,7 @@ comb_sel <- all_output_comb(globiom) %>%
 trend_plot_all(df_gl = globiom, df_hs = hist, path = tempdir(), comb = comb_sel, file_name = "globiom_selected")
 ```
 
-If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function `trend_plot`. The following example uses `trend_plot` to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA, regions: World and EUR and two scenarios: GHG000_BIO00 and GHG000_BIO06. Note that the function gives an error if the combination of variables is not present in the data.
+If you want full flexibility to plot the GLOBIOM results, for instance by zooming on a subset of scenarios for a selected number of variables, items and units, it is easier to use the basic function `trend_plot()`. The following example uses `trend_plot()` to create a plot for VAR_ID = AREA, ITEM_AG = 1000 HA, VAR_UNIT = 1000 HA, regions: World and EUR and two scenarios: GHG000_BIO00 and GHG000_BIO06. Note that the function gives an error if the combination of variables is not present in the data.
 
 ```{r eval=FALSE}
 trend_plot(var = "AREA", item = "CORN", unit = "1000 HA", reg = c("World", "EUR"), df_gl = globiom, df_hs = hist)

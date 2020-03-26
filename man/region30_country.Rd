@@ -4,7 +4,7 @@
 \name{region30_country}
 \alias{region30_country}
 \title{GLOBIOM 30-region to country mapping.}
-\format{A data frame with 182 rows and 5 variables:
+\format{Data frame with 182 rows and 5 variables:
 \describe{
   \item{ANYREGION}{GLOBIOM region label}
   \item{ALLCOUNTRY}{GLOBIOM country label}

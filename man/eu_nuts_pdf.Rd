@@ -21,7 +21,7 @@ Total Environment, 651, 1505-1516
 eu_nuts_pdf
 }
 \description{
-A dataset containing a measure of Potentially Disappeared Fraction of
+A data frame containing a measure of Potentially Disappeared Fraction of
 global species per ha at EU NUTS level from Di Fulvio (2019).
 }
 \keyword{datasets}

@@ -7,10 +7,10 @@
 all_output_comb(df_gl)
 }
 \arguments{
-\item{df_gl}{dataframe with globiom output.}
+\item{df_gl}{data frame with globiom output.}
 }
 \value{
-A data.frame with existing VAR_ID, VAR_UNIT, ITEM_AG combinations in df_gl
+Data frame with existing VAR_ID, VAR_UNIT, ITEM_AG combinations in df_gl
 }
 \description{
 Creates data frame with all existing combinations of VAR_ID, VAR_UNIT and ITEM_AG in GLOBIOM output file.

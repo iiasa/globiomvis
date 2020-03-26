@@ -2,8 +2,8 @@
 #'
 #' Creates data frame with all existing combinations of VAR_ID, VAR_UNIT and ITEM_AG in GLOBIOM output file.
 #'
-#' @param df_gl dataframe with globiom output.
-#' @return A data.frame with existing VAR_ID, VAR_UNIT, ITEM_AG combinations in df_gl
+#' @param df_gl data frame with globiom output.
+#' @return Data frame with existing VAR_ID, VAR_UNIT, ITEM_AG combinations in df_gl
 #'
 #' @examples
 #' \dontrun{

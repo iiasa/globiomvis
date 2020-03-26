@@ -49,9 +49,9 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs, display = TRUE, resul
   if(result) {return(p)}
 }
 
-#' Creates pdf with plots for selected GLOBIOM output dimensions
+#' Creates a PDF with plots for selected GLOBIOM output dimensions
 #'
-#' Creates a pdf file with plots for selected GLOBIOM VAR_ID, ITEM_AG and
+#' Creates a PDF file with plots for selected GLOBIOM VAR_ID, ITEM_AG and
 #' VAR_UNIT combinations.
 #'
 #' Plots are produced for a standard set of key VAR_ID, ITEM_AG and VAR_UNIT
@@ -66,7 +66,7 @@ trend_plot <- function(var, item, unit, reg, df_gl, df_hs, display = TRUE, resul
 #' @param comb Output combinations used for plotting. Default is
 #'   \code{all_output_comb(df_gl)} as present in main_output_comb.
 #'
-#' @return None but a pdf file is saved in the working directory or a specified
+#' @return None but a PDF file is saved in the working directory or a specified
 #'   location.
 #'
 #' @examples

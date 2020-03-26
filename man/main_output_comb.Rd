@@ -4,7 +4,7 @@
 \name{main_output_comb}
 \alias{main_output_comb}
 \title{Main VAR_ID, VAR_UNIT and ITEM_AG combinations.}
-\format{A data frame with 272 rows and 3 variables:
+\format{Data frame with 272 rows and 3 variables:
 \describe{
   \item{VAR_ID}{GLOBIOM variable code}
   \item{VAR_UNIT}{GLOBIOM variable unit}

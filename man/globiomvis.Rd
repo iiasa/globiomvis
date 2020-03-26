@@ -5,7 +5,7 @@
 \alias{globiomvis}
 \title{globiomvis: A package to facilitate GLOBIOM analysis.}
 \description{
-The globiomvis package provides a number of functions and examples to support the analysis with GLOBIOM,
+The **globiomvis** package provides a number of functions and examples to support the analysis with GLOBIOM,
 including creating plots that compare historical trends with GLOBIOM projections and making maps.
 }
 \details{

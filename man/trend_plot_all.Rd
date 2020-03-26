@@ -2,7 +2,7 @@
 % Please edit documentation in R/trend_plot.R
 \name{trend_plot_all}
 \alias{trend_plot_all}
-\title{Creates pdf with plots for selected GLOBIOM output dimensions}
+\title{Creates a PDF with plots for selected GLOBIOM output dimensions}
 \usage{
 trend_plot_all(df_gl, df_hs, path = NULL, file_name = NULL, comb = NULL)
 }
@@ -21,11 +21,11 @@ directory.}
 \code{all_output_comb(df_gl)} as present in main_output_comb.}
 }
 \value{
-None but a pdf file is saved in the working directory or a specified
+None but a PDF file is saved in the working directory or a specified
   location.
 }
 \description{
-Creates a pdf file with plots for selected GLOBIOM VAR_ID, ITEM_AG and
+Creates a PDF file with plots for selected GLOBIOM VAR_ID, ITEM_AG and
 VAR_UNIT combinations.
 }
 \details{

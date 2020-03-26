@@ -42,9 +42,9 @@ devtools::install_github("iiasa/globiomvis")
 
 This should also install all further required packages. **Beware**, on Windows, during the installation, you might be shown a dialog asking you to install RTools. Close that dialog for now, you can decide on that later as explained below.
 
-On Windows, the **gdxrrw** source-only package listed in the **globiomvis** dependencies **will fail to install** if your system lacks a compiler. If you already have `gdxxrw` installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
+On Windows, the **gdxrrw** source-only package listed in the **globiomvis** dependencies **will fail to install** if your system lacks a compiler. If you already have **gdxxrw** installed, you're fine. Just ignore the error and use your installed version if it is reasonably recent.
 
-If you do not have `gdxxrw` installed yet and the source-only **gdxrrw** failed to install, you can either [install the compiler tools](#installing-compiler-tools) required for building the source files, which will add a lot of stuff to your system, or you can install a binary version of the **gdxrrw** package as documented in the next section.
+If you do not have **gdxxrw** installed yet and the source-only **gdxrrw** failed to install, you can either [install the compiler tools](#installing-compiler-tools) required for building the source files, which will add a lot of stuff to your system, or you can install a binary version of the **gdxrrw** package as documented in the next section.
 
 ## Installing a gdxrrw binary package
 
@@ -77,7 +77,7 @@ You can specify the GAMS system directory explicitely. For example:
 igdx("C:/GAMS/win64/29.1")
 ```
 
-However, we recommended to set the `R_GAMS_SYSDIR` environment variable. For details see [here](https://iiasa.github.io/GLOBIOM/R.html). After setting `R_GAMS_SYSDIR`, you should be able to load the GDX libraries by passing an empty string as first argument to `igdx`:
+However, we recommended to set the `R_GAMS_SYSDIR` environment variable. For details see [here](https://iiasa.github.io/GLOBIOM/R.html). After setting `R_GAMS_SYSDIR`, you should be able to load the GDX libraries by passing an empty string as first argument to `igdx()`:
 
 ```{r, eval=FALSE}
 igdx("")

@@ -2,7 +2,7 @@
 #'
 #' Main combinations of VAR_ID, VAR_UNIT and ITEM_AG to inspect GLOBIOM output.
 #'
-#' @format A data frame with 272 rows and 3 variables:
+#' @format Data frame with 272 rows and 3 variables:
 #' \describe{
 #'   \item{VAR_ID}{GLOBIOM variable code}
 #'   \item{VAR_UNIT}{GLOBIOM variable unit}
