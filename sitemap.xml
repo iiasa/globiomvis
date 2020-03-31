@@ -10,10 +10,13 @@
     <loc>https://iiasa.github.io/globiomvis/reference/eu_nuts_pdf.html</loc>
   </url>
   <url>
-    <loc>https://iiasa.github.io/globiomvis/reference/globiomvis.html</loc>
+    <loc>https://iiasa.github.io/globiomvis/reference/globiomvis-package.html</loc>
   </url>
   <url>
     <loc>https://iiasa.github.io/globiomvis/reference/main_output_comb.html</loc>
+  </url>
+  <url>
+    <loc>https://iiasa.github.io/globiomvis/reference/region30_country.html</loc>
   </url>
   <url>
     <loc>https://iiasa.github.io/globiomvis/reference/trend_plot.html</loc>

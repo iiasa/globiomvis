@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • globiomvis</title>
+<title>GLOBIOM 30-region to country mapping. — region30_country • globiomvis</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="GLOBIOM 30-region to country mapping. — region30_country" />
+<meta property="og:description" content="GLOBIOM 30-region to country mapping." />
 
 
 
@@ -64,7 +65,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -149,52 +150,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/iiasa/globiomvis/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>GLOBIOM 30-region to country mapping.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/iiasa/globiomvis/blob/master/R/region30_country.R'><code>R/region30_country.R</code></a></small>
+    <div class="hidden name"><code>region30_country.Rd</code></div>
     </div>
 
-    <div id="globiomvis-v0-0-4" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.4">
-<a href="#globiomvis-v0-0-4" class="anchor"></a>globiomvis v0.0.4</h1>
-<ul>
-<li>Make website searchable with <a href="https://docsearch.algolia.com/">DocSearch</a>.</li>
-<li>Rename data frame <code>ANYREGION2iso3c</code> to <code>region30_country</code>.</li>
-<li>Miscellaneous documentation updates.</li>
-</ul>
-</div>
-    <div id="globiomvis-v0-0-3" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.3">
-<a href="#globiomvis-v0-0-3" class="anchor"></a>globiomvis v0.0.3</h1>
-<ul>
-<li>Reworked installation vignette.</li>
-<li>Fix unit display in <code>trend_plot()</code>.</li>
-<li>Minor fixes to examples.</li>
-</ul>
-</div>
-    <div id="globiomvis-v0-0-2" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.2">
-<a href="#globiomvis-v0-0-2" class="anchor"></a>globiomvis v0.0.2</h1>
-<ul>
-<li>Improved and restructured vignettes and web site.</li>
-<li>Use Travis CI for automated testing and site building.</li>
-<li>The <code>R_GAMS_SYSDIR</code> environment variable is now the preferred method of <a href="https://iiasa.github.io/globiomvis/articles/installation.html#using-gdxrrw">linking gdxrrw to GAMS</a>.</li>
-</ul>
-</div>
-    <div id="globiomvis-v0-0-1" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.1">
-<a href="#globiomvis-v0-0-1" class="anchor"></a>globiomvis v0.0.1</h1>
-<ul>
-<li>First work in progress release</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>GLOBIOM 30-region to country mapping.</p>
+    </div>
 
+    <pre class="usage"><span class='no'>region30_country</span></pre>
+
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>Data frame with 182 rows and 5 variables:</p><dl'>
+  <dt>ANYREGION</dt><dd><p>GLOBIOM region label</p></dd>
+  <dt>ALLCOUNTRY</dt><dd><p>GLOBIOM country label</p></dd>
+  <dt>iso3c</dt><dd><p>ISO 3-letter country code</p></dd>
+  <dt>country.name</dt><dd><p>Country name</p></dd>
+  <dt>GLOBIOM</dt><dd><p>'y' for GLOBIOM-originated</p></dd>
+
+</dl>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>GLOBIOM</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 
