@@ -1,5 +1,10 @@
 destination: docs
 url: https://iiasa.github.io/globiomvis
+template:
+  params:
+    docsearch:
+      api_key: a05e78845ed8b9c9e590c8d7ae98c890
+      index_name: globiomvis
 navbar:
   structure:
     left:
