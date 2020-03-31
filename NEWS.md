@@ -1,3 +1,9 @@
+# globiomvis v0.0.4
+
+* Make website searchable with [DocSearch](https://docsearch.algolia.com/).
+* Rename data frame `ANYREGION2iso3c` to `region30_country`.
+* Miscellaneous documentation updates.
+
 # globiomvis v0.0.3
 
 * Reworked installation vignette.

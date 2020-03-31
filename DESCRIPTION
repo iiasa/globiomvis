@@ -1,6 +1,6 @@
 Package: globiomvis
 Title: Visualize GLOBIOM data with R
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: c(
     person(given = "Michiel",
            family = "van Dijk",
